@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Java API是java提供给我们的程序，其构成也是多个类组成的包 包|Package包用来管理不同的程序   那么一类如何调用包中的另一个类呢？  调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。 调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。 调用java提供的类（API）：需要写入import 包名.类名，再创建另一个类的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java API——String与ArrayList">
+<meta property="og:url" content="https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/01/java01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java API是java提供给我们的程序，其构成也是多个类组成的包 包|Package包用来管理不同的程序   那么一类如何调用包中的另一个类呢？  调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。 调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。 调用java提供的类（API）：需要写入import 包名.类名，再创建另一个类的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-02T11:48:25.176Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Java API——String与ArrayList - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"alder-dir.gitee.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>My Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java API——String与ArrayList"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-01 00:00" pubdate>
+          April 1, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java API——String与ArrayList</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Java API是java提供给我们的程序，其构成也是多个类组成的包</p>
+<h1 id="包-Package"><a href="#包-Package" class="headerlink" title="包|Package"></a>包|Package</h1><p>包用来管理不同的程序  </p>
+<p><font size='3'>那么一类如何调用包中的另一个类呢？</font></p>
+<ul>
+<li>调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。</li>
+<li>调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。</li>
+<li>调用java提供的类（API）：需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用；但java.lang包下的类不需要import。</li>
+<li>调用相同名称却在不同包中的类：只能import其中一个类，当需要调用另一个类时，则需要写全——包名.类名才可调用。</li>
+</ul>
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="String概述"><a href="#String概述" class="headerlink" title="String概述"></a>String概述</h2><p>String类在java.lang包中<br>它代表字符串，可以创建字符串并且对其进行封装，对其进行处理。String封装数据的方式有两种：①直接利用””；②利用new String()封装器</p>
+<ul>
+<li>直接给变量赋值字符串，封装字符串:<code>String str=&quot;abc&quot;;</code></li>
+<li>利用构造器创建字符串对象并初始化：<code>String str=new String();</code></li>
+<li>利用构造器从字符数组中获取字符串：<code>char[] chars=&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;;  String str=new String(chars);</code></li>
+<li>利用构造器从字节数组中获得字符串：<code>byte[] bytes=&#123;97,98,99&#125;;  String str=new String(bytes);//最后输出为abc</code></li>
+</ul>
+<h2 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h2><p><code>String str=&quot;Java是世界上最好的编程语言之一&quot;</code></p>
+<ul>
+<li><p><strong>charAt(int i)</strong>：获取索引i位置的字符。<code>char c=str.charAt(1);//结果为a</code><br>   可用于字符的遍历：快捷用法：<code>str.length().fori</code>回车补全for循环——&gt;</p>
+   <figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">str</span>.length();i++)&#123;<span class="hljs-comment">//注意：字符串获取长度有()</span><br>   <span class="hljs-built_in">char</span> c=<span class="hljs-built_in">str</span>.charAt(i);<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p><strong>length()</strong>:获取字符串的长度。<code>int n=str.length();//结果为17</code> </p>
+</li>
+<li><p><strong>toCharArray()</strong>:将字符串转变为字符数组。<code>char[] chars=str.toCharArray; int n=chars.length;//注意：数组获取长度无()</code>  </p>
+</li>
+<li><p><strong>equals()</strong>:比较两个字符串内容是否相同。<code>String str1=&quot;abc&quot;; boolean b=str.equals(str1);//结果为false</code><br>注意：&#x3D;&#x3D;符号比较的是两个字符串引用的实例是否相同  </p>
+</li>
+<li><p><strong>equalsIgnoreCase()</strong>:忽略字母大小写比较两个字符串内容是否相同（一般用于验证码）。<code>String str1=&quot;abc&quot;; String str2=&quot;ABc&quot;; boolean b=str1.equalsIgnoreCase(str2);//结果为true</code>  </p>
+</li>
+<li><p><strong>subString(int i,int j)</strong>:截取索引i到j的字符串（包括i不包括j）。<code>String s=str.subString(0,4);//结果为java</code><br>这里有个小技巧，不需要自己去数末尾字符的索引，选中要截取的字符串，IDEA右下角就会出现选中字符串的长度</p>
+</li>
+<li><p><strong>subString(int i)</strong>:截取索引i后面所有的字符串</p>
+</li>
+<li><p><strong>replace(“A”,”B”)</strong>:用B代替A，返回字符串。<code>String str3=str.replace(&quot;Java&quot;,&quot;C&quot;);//结果为&quot;C是世界上最好的编程语言之一&quot;</code></p>
+</li>
+<li><p><strong>contains(“A”)</strong>:判断字符串中是否包含A。<code>boolean d=str.contains(&quot;Java&quot;);//结果为true</code></p>
+</li>
+<li><p><strong>startswith(“A”)</strong>:判断字符串是否由A开头。<code>boolean c=str.startswith(&quot;Java1&quot;);//结果为false</code></p>
+</li>
+<li><p><strong>split(“A”)</strong>:根据A进行分割字符串，获得一个字符串数组。<code>String str4=&quot;Java,C,C++,Go&quot;; String[] str5=str4.split(&quot;,&quot;);</code></p>
+</li>
+</ul>
+<h2 id="String使用时的注意事项"><a href="#String使用时的注意事项" class="headerlink" title="String使用时的注意事项"></a>String使用时的注意事项</h2><ul>
+<li><p><strong>String对象是不可变的字符串对象，一旦被创建它的内容就是无法被修改的，通常只是又创建了一个新的字符串对象（新地址），由另外一个字符串对象去引用它</strong></p>
+</li>
+<li><p><strong>利用””创建的两个字符串对象，若它们内容相同，那么两个字符串对象便相等</strong>：这是因为””创建的内容相同的字符串常量被放到了堆内存的字符串常量池中，栈内存内的字符串对象只需引用那一个即可（也就是字符串对象引用的实例（的地址）相同）。<code>String str1=&quot;abc&quot;; String str2=&quot;abc&quot;; System.out.print(str1==str2);//结果为true</code></p>
+</li>
+<li><p><strong>利用new创建的两个字符串对象，即使内容相同，它们也不相等</strong> ：使用new每创建一个字符串对象，堆内存便会创建一个新的地址来存放该对象，栈内存内的两个字符串对象需要分别引用它们,（也就是字符串对象引用的实例（的地址）不同了）。<code>String str1=new String(&quot;abc&quot;); String str2=new String(&quot;abc&quot;);; System.out.print(str1==str2);//结果为flase</code></p>
+</li>
+</ul>
+<p><font size="4"><strong>练习题</strong>：这段代码<code>String str=new String(&quot;abc&quot;)</code>创建了几个字符串对象</font></p>
+<p>答案是：两个，程序先在堆内存的字符串常量池中创建了”abc”对象，又利用new在堆内存创建了新的字符串对象。</p>
+<h2 id="开发案例"><a href="#开发案例" class="headerlink" title="开发案例"></a>开发案例</h2><h3 id="登录页面"><a href="#登录页面" class="headerlink" title="登录页面"></a>登录页面</h3><p>开发一个登录页面，要求如下：</p>
+<ul>
+<li>允许用户登录三次，三次不成功退出系统</li>
+<li>登录成功显示”欢迎进入系统”</li>
+<li>登录不成功前两次要求用户重新输入账号密码</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs typescript">package com.<span class="hljs-property">itheima</span>.<span class="hljs-property">pkg</span>;<br><br><span class="hljs-keyword">import</span> java.<span class="hljs-property">util</span>.<span class="hljs-property">Scanner</span>;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StringTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">main</span>(<span class="hljs-params"><span class="hljs-title class_">String</span>[] args</span>) &#123;<br>        <span class="hljs-comment">//开发登录界面</span><br>        <span class="hljs-title class_">Scanner</span> sc = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(<span class="hljs-title class_">System</span>.<span class="hljs-property">in</span>);<br><br>        <span class="hljs-keyword">for</span> (int i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">3</span>; i++) &#123;<br>            <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;请输入账号：&quot;</span>);<br>            <span class="hljs-title class_">String</span> account=sc.<span class="hljs-title function_">nextLine</span>();<br><br>            <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;请输入密码：&quot;</span>);<br>            <span class="hljs-title class_">String</span> password=sc.<span class="hljs-title function_">nextLine</span>();<br><br>            <span class="hljs-keyword">if</span>(<span class="hljs-title function_">equals</span>(account,password))&#123;<br>                <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;欢迎登录系统！&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-title function_">print</span>(<span class="hljs-string">&quot;请重新输入&quot;</span>);<br>            &#125;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">boolean</span> <span class="hljs-title function_">equals</span>(<span class="hljs-params"><span class="hljs-title class_">String</span> account, <span class="hljs-title class_">String</span> password</span>) &#123;<br>        <span class="hljs-title class_">String</span> account1=<span class="hljs-string">&quot;javazhifu&quot;</span>;<br>        <span class="hljs-title class_">String</span> password1=<span class="hljs-string">&quot;123456&quot;</span>;<br><br>        <span class="hljs-keyword">return</span> account1.<span class="hljs-title function_">equals</span>(account) &amp;&amp; password.<span class="hljs-title function_">equals</span>(password1);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>*快捷键使用：1.要想加入for循环，可以选中循环区域按<code>ctrl+alt+T</code>键便可。<br>2.输出语句快捷键：<code>要输入的内容.sout</code>按回车键</p>
+<p style="color:red">*以下代码才是一个成熟的程序员写的，我们最初写的都是if条件语句</p>
+
+<p><code>return account1.equals(account) &amp;&amp; password.equals(password1);</code></p>
+<h3 id="验证码随机生成"><a href="#验证码随机生成" class="headerlink" title="验证码随机生成"></a>验证码随机生成</h3><p>随机生成n位验证码</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package com.itheima.pkg;<br><br><span class="hljs-keyword">import</span> java.util.Random;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StringTest</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">String</span>[] args)</span> </span>&#123;<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">codes</span>(<span class="hljs-number">5</span>));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">String</span> <span class="hljs-title">codes</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-type">String</span> code = <span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-type">String</span> codeString = <span class="hljs-string">&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            Random random = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Random</span>();<br><br>            <span class="hljs-type">int</span> r=random.<span class="hljs-built_in">nextInt</span>(codeString.<span class="hljs-built_in">length</span>());<br>            code += codeString.<span class="hljs-built_in">charAt</span>(r);<br>        &#125;<br>        <span class="hljs-keyword">return</span> code;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h1 id="ArrayList集合"><a href="#ArrayList集合" class="headerlink" title="ArrayList集合"></a>ArrayList集合</h1><p>ArrayList是一种容器，用于存储数据，它与数组的区别是集合不限制长度，而数组的长度是固定的；例如购物车内商品的数量一般是能够随时增删的，这里用到的就是ArrayList。</p>
+<h2 id="创建ArrayList对象"><a href="#创建ArrayList对象" class="headerlink" title="创建ArrayList对象"></a>创建ArrayList对象</h2><ul>
+<li>不限制元素类型：<code>ArrayList list = new ArrayList();</code></li>
+<li>限制元素类型：<code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</code></li>
+</ul>
+<h2 id="ArrayList常用方法"><a href="#ArrayList常用方法" class="headerlink" title="ArrayList常用方法"></a>ArrayList常用方法</h2><p><code>ArrayList&lt;String&gt; list=new ArrayList&lt;&gt;();</code></p>
+<ul>
+<li><strong>boolean add(E e)</strong>:在集合末尾添加元素。<code>list.add(&quot;java&quot;)；list.add(&quot;C&quot;);//结果为true，[&quot;java&quot;,&quot;C&quot;]</code></li>
+<li><strong>void add(int index,E e)</strong>:在索引index处添加元素e。<code>list.add(0,&quot;C&quot;);//[&quot;C&quot;,&quot;java&quot;,&quot;C&quot;]</code></li>
+<li><strong>E remove(int index)</strong>:删除index索引处的元素，并返回该元素。<code>list.remove(0);//结果为true，[&quot;java&quot;,&quot;C&quot;]</code></li>
+<li><strong>boolean remove(E e)</strong>:删除元素e，若有多个e，则删除最前面的e。<code>list.remove(&quot;java&quot;);//结果为true，[&quot;C&quot;]</code> </li>
+<li><strong>E get(int index)</strong>:获取索引index处的元素，并返回该元素。<code>list.get(0);//结果为C,[]</code></li>
+<li><strong>int size()</strong>:返回集合的个数。<code>list.size();//结果为0</code></li>
+<li><strong>E set(int index,E e)</strong>:修改索引index处的元素为e，并返回e。</li>
+</ul>
+<h2 id="开发案例-1"><a href="#开发案例-1" class="headerlink" title="开发案例"></a>开发案例</h2><p>删除购物车中所有的枸杞</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package com.itheima.pkg;<br><br>import java.util.ArrayList;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">StringTest</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br>       ArrayList&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>       list.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;java入门&quot;</span>);<br>       list.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;宁夏枸杞&quot;</span>);<br>       list.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;黑枸杞&quot;</span>);<br>       list.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;人字拖&quot;</span>);<br>       list.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;特级枸杞&quot;</span>);<br>       list.<span class="hljs-keyword">add</span>(<span class="hljs-string">&quot;枸杞子&quot;</span>);<br><br>        System.<span class="hljs-keyword">out</span>.println(removeE(list));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ArrayList&lt;String&gt; <span class="hljs-title">removeE</span>(<span class="hljs-params">ArrayList&lt;String&gt; list</span>)</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; list.size(); i++) &#123;<br>            <span class="hljs-keyword">if</span>(list.<span class="hljs-keyword">get</span>(i).contains(<span class="hljs-string">&quot;枸杞&quot;</span>))&#123;<br>                list.<span class="hljs-keyword">remove</span>(list.<span class="hljs-keyword">get</span>(i));<br>                i--;<span class="hljs-comment">//注意：这里要使i向前移一位，因为删掉一个元素之后后面的元素会自动向前移一位，如果i还向后移的话，就会忽略部分元素</span><br>            &#125;<br>        &#125;<span class="hljs-keyword">return</span> list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>如上述代码需要注意的是for循环中的i- -，这里也可以将for循环进行修改，倒序进行判断，就不用再考虑i- -的问题了，如下所示</strong>：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lisp">for (<span class="hljs-name">int</span> i = list.size()<span class="hljs-number">-1</span><span class="hljs-comment">; i &gt; 0; i--) &#123;</span><br>            if(<span class="hljs-name">list</span>.get(<span class="hljs-name">i</span>).contains(<span class="hljs-string">&quot;枸杞&quot;</span>))&#123;<br>                list.remove(<span class="hljs-name">list</span>.get(<span class="hljs-name">i</span>))<span class="hljs-comment">;</span><br>            &#125;<br>        &#125;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java API——String与ArrayList</div>
+      <div>https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/01/java01/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 1, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/31/Spring03/" title="Spring Boot基础">
+                        <span class="hidden-mobile">Spring Boot基础</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
