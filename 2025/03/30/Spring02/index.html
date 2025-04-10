@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://alder-dir.gitee.io/image/s15.png">
 <meta property="og:image" content="https://alder-dir.gitee.io/image/s16.png">
 <meta property="article:published_time" content="2025-03-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-31T07:09:32.584Z">
+<meta property="article:modified_time" content="2025-04-08T02:18:40.409Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary_large_image">
@@ -105,7 +105,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>My Blog</strong>
+      <strong>Alder-dir</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -289,7 +289,7 @@
 <li>IDEA旗舰版</li>
 <li>Maven3</li>
 </ul>
-<h2 id="创建一个新项目spring01"><a href="#创建一个新项目spring01" class="headerlink" title="创建一个新项目spring01"></a>创建一个新项目spring01</h2><p><img src="/image/s1.png" srcset="/img/loading.gif" lazyload alt="alt">  </p>
+<h2 id="创建一个新项目spring01"><a href="#创建一个新项目spring01" class="headerlink" title="创建一个新项目spring01"></a>创建一个新项目spring01</h2><p><img src="/image/s1.png" srcset="/img/loading.gif" lazyload>  </p>
 <p>向pom.xml文件添加以下部分：</p>
 <pre><code class="hljs">    &lt;parent&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -303,23 +303,23 @@
 </code></pre>
 <p>  <strong>注意：parent内的version要与下方properties内的spring-boot.version相同，否则就会发生冲突</strong></p>
 <h2 id="Hello-Spring-Boot示例"><a href="#Hello-Spring-Boot示例" class="headerlink" title="Hello Spring Boot示例"></a>Hello Spring Boot示例</h2><p>  项目已为我们提供了一个有main方法的类Spring01Application </p>
-<p>  <img src="/image/s2.png" srcset="/img/loading.gif" lazyload alt="alt">  </p>
+<p>  <img src="/image/s2.png" srcset="/img/loading.gif" lazyload>  </p>
 <p>  <strong>其中的<code>@SpringBootApplication</code>以及<code>SpringApplication.run(Spring01Application.class, args);</code>让其不再是个普通的Java类，而是使其成为一个Spring Boot应用</strong>   </p>
 <p>  再创建一个名为HelloworldController的类，包名为com.example.spring01.controller,代码如下：<br>  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">  <span class="hljs-keyword">package</span> com.example.spring01.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.*;<br><br><span class="hljs-meta">@Controller</span><span class="hljs-comment">//@Controller是Spring MVC注解，表示此类用于负责处理Web请求</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloworldController</span> &#123;<br>    <span class="hljs-meta">@RequestMapping(<span class="hljs-string">&quot;/say.html&quot;</span>)</span><span class="hljs-comment">//@RequestMapping是Spring MVC注解，表示如果请求路径匹配，被注解的方法将被调用</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-meta">@ResponseBody</span> String say()&#123;<span class="hljs-comment">//@ResponseBody表示此方法返回的是文本，并非视图名称</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello World&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure></p>
 <p>  写了Controller,此时就可以通过浏览器访问应用<br>  <strong>注意：对于SpringBoot应用，建议启动程序Spring01Application的包名层次最高，其余类都在其下</strong>  </p>
 <p>  在浏览器网址框输入<code>http://localhost:8080/say.html</code>，运行结果如下：</p>
-<p>  <img src="/image/s13.png" srcset="/img/loading.gif" lazyload alt="alt">   </p>
+<p>  <img src="/image/s13.png" srcset="/img/loading.gif" lazyload>   </p>
 <p><font size="6"><b><i>访问成功！！！</i></b></font>  </p>
 <h2 id="使用热部署"><a href="#使用热部署" class="headerlink" title="使用热部署"></a>使用热部署</h2><p>热部署通俗来讲就是随时修改程序网页随时响应   </p>
 <p>在pom.xml文件中添加以下依赖：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-devtools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>重启项目<br>此时修改<code>@RequestMapping(&quot;/say.html&quot;)</code>为<code>@RequestMapping(&quot;/sayhello.html&quot;)</code><br>查看控制台发现并未重启，这是因为有两个按钮未开启，如下两图所示：   </p>
-<p><img src="/image/s14.png" srcset="/img/loading.gif" lazyload alt="alt"><br><img src="/image/s15.png" srcset="/img/loading.gif" lazyload alt="alt">  </p>
+<p><img src="/image/s14.png" srcset="/img/loading.gif" lazyload><br><img src="/image/s15.png" srcset="/img/loading.gif" lazyload>  </p>
 <p>开启之后热部署就可以使用了！  </p>
 <p><strong>主要多了两个变化：由于依赖spring-boot-devtools，LiveReload server用于监控Spring Boot应用文件变化，重启时间快是因为Spring Boot再次重启，避免重启Tomcat Server和已经加载的Spring相关类，只重载变化的类</strong></p>
 <h2 id="添加REST支持"><a href="#添加REST支持" class="headerlink" title="添加REST支持"></a>添加REST支持</h2><p>若你的系统不是单一的系统，而是由多个系统组成的，其中一个系统给其他系统提供数据，此时就用到调用方法，RESTFul就可以被考虑。  </p>
-<p>例如新建一个UserReditRestController，添加代码<br><img src="/image/s16.png" srcset="/img/loading.gif" lazyload alt="alt"> </p>
+<p>例如新建一个UserReditRestController，添加代码<br><img src="/image/s16.png" srcset="/img/loading.gif" lazyload> </p>
 <p>代码中没有用到@Controller和@ResposeBody，而是使用了@RestController，可以理解为@RestController相当于@Controller和@ResposeBody  </p>
 <p><strong>注：对于多个系统互相访问，最好不要直接访问对方的数据库，而是采用RESTFul架构，封装逻辑接口；这样对方的数据变更，业务逻辑变化都不会影响到其他系统。详细的RESTFul架构和REST支持将在后面学到</strong></p>
 

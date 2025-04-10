@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="do…while循环语句do语句为循环判断首（判断在后，循环在前）   判断b除以3的结果12345678910111213141516171819String str;&#x2F;&#x2F;do...while语句中循环条件在外，所以str的定义应该在外面String str2&#x3D;&quot;是&quot;;&#x2F;&#x2F;&#x2F;定义字符串时注意是双引号不是单引号，若是单引号则表示字符常量（类型为char）do&#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java程序流程之循环、printf、转义字符">
+<meta property="og:url" content="https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/02/26/java04/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="do…while循环语句do语句为循环判断首（判断在后，循环在前）   判断b除以3的结果12345678910111213141516171819String str;&#x2F;&#x2F;do...while语句中循环条件在外，所以str的定义应该在外面String str2&#x3D;&quot;是&quot;;&#x2F;&#x2F;&#x2F;定义字符串时注意是双引号不是单引号，若是单引号则表示字符常量（类型为char）do&#123;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://alder-dir.gitee.io/image/s28.png">
+<meta property="og:image" content="https://alder-dir.gitee.io/image/s28.png">
+<meta property="og:image" content="https://alder-dir.gitee.io/image/s30.png">
+<meta property="og:image" content="https://alder-dir.gitee.io/image/s31.png">
+<meta property="og:image" content="https://alder-dir.gitee.io/image/s35.png">
+<meta property="article:published_time" content="2025-02-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-08T13:35:50.317Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alder-dir.gitee.io/image/s28.png">
+  
+  
+  
+  <title>Java程序流程之循环、printf、转义字符 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"alder-dir.gitee.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Alder-dir</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java程序流程之循环、printf、转义字符"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-26 00:00" pubdate>
+          February 26, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java程序流程之循环、printf、转义字符</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="do…while循环语句"><a href="#do…while循环语句" class="headerlink" title="do…while循环语句"></a>do…while循环语句</h1><p>do语句为循环判断首（判断在后，循环在前）  </p>
+<h2 id="判断b除以3的结果"><a href="#判断b除以3的结果" class="headerlink" title="判断b除以3的结果"></a>判断b除以3的结果</h2><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sas">String str;//<span class="hljs-keyword">do</span>...<span class="hljs-keyword">while</span>语句中循环条件在外，所以str的定义应该在外面<br>String str2=<span class="hljs-string">&quot;是&quot;</span>;///定义字符串时注意是双引号不是单引号，若是单引号则表示字符常量（类型为char）<br><br><span class="hljs-keyword">do</span>&#123;<br><br>    System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;请输入整数b：&quot;</span>);<br>    int b=scanner.next<span class="hljs-meta">Int</span>();<br>    <span class="hljs-keyword">if</span>(b%3==0)  //若不加&#123;&#125;，要注意<span class="hljs-keyword">else</span>是和与它最近的<span class="hljs-keyword">if</span>相链接，且与缩进无关<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;b能够被3整除&quot;</span>);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (b%3==1)<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;b除以3余1&quot;</span>);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (b%3==2)<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;b除以3余2&quot;</span>);<br>    <span class="hljs-keyword">else</span><br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;b不为正值&quot;</span>);<br><br>    System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;请输入是否继续：（是/否）&quot;</span>);<br>    str= scanner.next();///next()读取单个单词，nextLine()读取一行<br>&#125;<span class="hljs-keyword">while</span>(str.equals(str2));///字符串中的相等运算用equals<br></code></pre></td></tr></table></figure>
+<h2 id="猜数字游戏-0-99"><a href="#猜数字游戏-0-99" class="headerlink" title="猜数字游戏(0~99)"></a>猜数字游戏(0~99)</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Random random=<span class="hljs-built_in">new</span> Random();<br><span class="hljs-type">int</span> <span class="hljs-keyword">no</span>=random.nextInt(<span class="hljs-number">100</span>);<br><br><span class="hljs-type">int</span> x;<br><br><span class="hljs-keyword">do</span>&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;请猜一下（0~99）:&quot;);<br>    x= scanner.nextInt();<br><br>    <span class="hljs-keyword">if</span>(x&gt;<span class="hljs-keyword">no</span>)&#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;猜大了！！！&quot;);<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(x&lt;<span class="hljs-keyword">no</span>)&#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;猜小了！！！&quot;);<br>    &#125;<br>&#125;<span class="hljs-keyword">while</span>(x!=<span class="hljs-keyword">no</span>);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;回答正确&quot;);<br></code></pre></td></tr></table></figure>
+<h1 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h1><h2 id="输出从a到0的所有数"><a href="#输出从a到0的所有数" class="headerlink" title="输出从a到0的所有数"></a>输出从a到0的所有数</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;请输入a的值&quot;);<br><span class="hljs-type">int</span> a= scanner.nextInt();<br><span class="hljs-keyword">while</span>(a&gt;=<span class="hljs-number">0</span>)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(a<span class="hljs-comment">--);//a--后置递减运算，先返回变量的当前值，然后再将变量的值减1；</span><br>    //<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-comment">--a);//--a前置递减运算，先将变量的值减1，然后再返回变量的新值；</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="输出1加到j的和"><a href="#输出1加到j的和" class="headerlink" title="输出1加到j的和"></a>输出1加到j的和</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs axapta">System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;请输入一个或者整数&quot;</span>);<br><span class="hljs-built_in">int</span> j= scanner.nextInt();<br><br><span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;<span class="hljs-comment">//i用来控制循环，这里不能是0，因为必须从1开始加</span><br><span class="hljs-built_in">int</span> <span class="hljs-keyword">sum</span>=<span class="hljs-number">0</span>;<span class="hljs-comment">//sum是和</span><br>    <span class="hljs-keyword">while</span> (i &lt;= j) &#123;<span class="hljs-comment">//若j=3</span><br>        <span class="hljs-keyword">sum</span>+=i;<span class="hljs-comment">//在这想要实现j--，其实i++就可以从1加到j   循环结束后sum的变化为0 1 3 6</span><br>        i++;<span class="hljs-comment">//循环结束后i的变化为1 2 3 4</span><br>    &#125;<br>System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;从1加到n的和为：&quot;</span>+<span class="hljs-keyword">sum</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="计算值的位数"><a href="#计算值的位数" class="headerlink" title="计算值的位数"></a>计算值的位数</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;输入一个正整数的值&quot;);<br><span class="hljs-type">int</span> n= scanner.nextInt();<br><br><span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span>(n&gt;<span class="hljs-number">0</span>)&#123;<br>    n/=<span class="hljs-number">10</span>;<br>    i++;//i是循环个数也是值的位数<br>&#125;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(n+&quot;的位数为&quot;+i);<br></code></pre></td></tr></table></figure>
+<p><strong>do…while语句与while语句不同：如果判断条件不成立，do语句一定会执行一次循环体；while语句一次都不会执行</strong></p>
+<h1 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h1><p>for(初始条件,控制条件,循环体){}：</p>
+<p>若初始条件不需要，可以省略；若无控制条件且无break和return，则为true，则会陷入无限循环内；若无执行内容，也可省略  </p>
+<h2 id="输出1加到j的和-1"><a href="#输出1加到j的和-1" class="headerlink" title="输出1加到j的和"></a>输出1加到j的和</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs axapta">System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;请输入一个或者整数&quot;</span>);<br><span class="hljs-built_in">int</span> j= scanner.nextInt();<br><span class="hljs-built_in">int</span> <span class="hljs-keyword">sum</span>=<span class="hljs-number">0</span>;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=j;i++)&#123;<br>    <span class="hljs-keyword">sum</span>+=i;<br>&#125;<br>System.out.println(<span class="hljs-string">&quot;和为：&quot;</span>+<span class="hljs-keyword">sum</span>);<br></code></pre></td></tr></table></figure>
+<p>将以上代码改写，使得结果为表达式如”1+2+3&#x3D;6”</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs stata">System.<span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;请输入一个正整数：&quot;</span>);<br>int j = scanner.nextInt();<br><br><span class="hljs-keyword">if</span> (j &lt;= 0) &#123;<br>    System.<span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;请输入一个正整数！&quot;</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    int <span class="hljs-keyword">sum</span> = 0; <span class="hljs-comment">// 用于存储累加和</span><br>    StringBuilder expression = new StringBuilder(); <span class="hljs-comment">// 用于构建表达式</span><br><br>    <span class="hljs-keyword">for</span> (int i = 1; i &lt;= j; i++) &#123;<br>        <span class="hljs-keyword">sum</span> += i; <span class="hljs-comment">// 累加</span><br>        <span class="hljs-keyword">if</span> (i == j) &#123;<br>            expression.<span class="hljs-keyword">append</span>(i); <span class="hljs-comment">// 如果是最后一个数字，直接添加</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            expression.<span class="hljs-keyword">append</span>(i).<span class="hljs-keyword">append</span>(<span class="hljs-string">&quot;+&quot;</span>); <span class="hljs-comment">// 不是最后一个数字，添加数字和加号</span><br>        &#125;<br>    &#125;<br><br>    expression.<span class="hljs-keyword">append</span>(<span class="hljs-string">&quot;=&quot;</span>).<span class="hljs-keyword">append</span>(<span class="hljs-keyword">sum</span>); <span class="hljs-comment">// 在表达式末尾添加等号和总和</span><br>    System.<span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;从1加到n的表达式为：&quot;</span> + expression);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：for和while语句可以互相转换，都被称为判断循环首（判断在前，循环在后）</strong></p>
+<h2 id="输出n个"><a href="#输出n个" class="headerlink" title="输出n个*"></a>输出n个*</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Scanner scanner=<span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br><br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;输入星号的个数：&quot;);<br><span class="hljs-type">int</span> n= scanner.nextInt();<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;*&quot;);<br>    //每隔<span class="hljs-number">5</span>个*换行<br>    <span class="hljs-keyword">if</span>((i+<span class="hljs-number">1</span>)%<span class="hljs-number">5</span>==<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="for循环可以有两个变量-n减去1…n的值依次是多少"><a href="#for循环可以有两个变量-n减去1…n的值依次是多少" class="headerlink" title="for循环可以有两个变量,n减去1…n的值依次是多少"></a>for循环可以有两个变量,n减去1…n的值依次是多少</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;请输入整数：&quot;);<br><span class="hljs-type">int</span> n= scanner.nextInt();<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>,j=n<span class="hljs-number">-1</span>; i&lt;=n;i++,j<span class="hljs-comment">--)&#123;</span><br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(n+&quot;-&quot;+i+&quot;=&quot;+j);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/image/s28.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="从0正数到n或从n倒数到0"><a href="#从0正数到n或从n倒数到0" class="headerlink" title="从0正数到n或从n倒数到0"></a>从0正数到n或从n倒数到0</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;n=&quot;);<br><span class="hljs-type">int</span> n= scanner.nextInt();<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>,j=n;i&lt;n+<span class="hljs-number">1</span>;i++,j<span class="hljs-comment">--)&#123;</span><br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(i);<br>    //<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(j);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h1><h2 id="金字塔"><a href="#金字塔" class="headerlink" title="金字塔"></a>金字塔</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs abnf">System.out.println(<span class="hljs-string">&quot;n=&quot;</span>)<span class="hljs-comment">;</span><br>int n<span class="hljs-operator">=</span> scanner.nextInt()<span class="hljs-comment">;</span><br><br>for(int i<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;i&lt;=n;i++)&#123;///行数</span><br>    // 打印空格，空格数量为 n - i<br>    for (int k <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-comment">; k &lt;= n - i; k++) &#123;///中间的控制条件的右操作数和循环体循环的次数有关</span><br>        System.out.print(<span class="hljs-string">&quot; &quot;</span>)<span class="hljs-comment">;</span><br>    &#125;<br>    for(int j<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;j&lt;=(i-1)*2+1;j++)&#123;//当外层循环i=1时，j循环到1；当外层循环i=2时，j循环到2...</span><br>        System.out.print(i%<span class="hljs-number">10</span>)<span class="hljs-comment">;</span><br><br>    &#125;<br><br>    System.out.println()<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s28.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="利用-画直角三角形"><a href="#利用-画直角三角形" class="headerlink" title="利用*画直角三角形"></a>利用*画直角三角形</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs abnf">System.out.println(<span class="hljs-string">&quot;n=&quot;</span>)<span class="hljs-comment">;</span><br>int n<span class="hljs-operator">=</span> scanner.nextInt()<span class="hljs-comment">;</span><br><br>for(int i<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;i&lt;=n;i++)&#123;//行数</span><br>    for(int j<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;j&lt;=i;j++)&#123;///当外层循环i=1时，j循环到1；当外层循环i=2时，j循环到2...</span><br>        System.out.print(<span class="hljs-string">&quot;*&quot;</span>)<span class="hljs-comment">;</span><br>    &#125;<br>    System.out.println()<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s30.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h1><h2 id="判断质数"><a href="#判断质数" class="headerlink" title="判断质数"></a>判断质数</h2><p>条件：不能被大于等于2且小于n中的任意一个数整除的整数一定是质数</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-comment">//已知一个确定的条件，那就只做这个条件的循环处理</span><br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;请输入正整数：&quot;</span>);<br>        <span class="hljs-keyword">int</span> n= scanner.nextInt();<br><br>        <span class="hljs-comment">// 特殊情况处理</span><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>) &#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;该数值不是质数&quot;</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 判断是否为质数</span><br>        <span class="hljs-keyword">boolean</span> isPrime = <span class="hljs-keyword">true</span>; <span class="hljs-comment">// 假设 n 是质数</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123; <span class="hljs-comment">// 也可只检查到 sqrt(n)——&gt;Math.sqrt(n)</span><br>            <span class="hljs-keyword">if</span> (n % i == <span class="hljs-number">0</span>) &#123;<br>                isPrime = <span class="hljs-keyword">false</span>; <span class="hljs-comment">// 如果找到一个因数，则 n 不是质数</span><br>                <span class="hljs-keyword">break</span>;<span class="hljs-comment">//说明它不是质数，则直接结束for循环</span><br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">// 输出结果</span><br>        <span class="hljs-keyword">if</span> (isPrime) &#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;该数值是质数&quot;</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;该数值不是质数&quot;</span>);<br>        &#125;<br></code></pre></td></tr></table></figure>
+<h1 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h1><h2 id="计算和和平均值（不将负值计入计算平均值范围内）"><a href="#计算和和平均值（不将负值计入计算平均值范围内）" class="headerlink" title="计算和和平均值（不将负值计入计算平均值范围内）"></a>计算和和平均值（不将负值计入计算平均值范围内）</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs gradle">System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;要想加几个整数呢？&quot;</span>);<br>        <span class="hljs-keyword">int</span> n= scanner.nextInt();<br>        <span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> <span class="hljs-keyword">count</span>=<span class="hljs-number">0</span>;<span class="hljs-comment">//非负值数量</span><br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;整数&quot;</span>+i+<span class="hljs-string">&quot;:&quot;</span>);<br>            <span class="hljs-keyword">int</span> j= scanner.nextInt();<br><br>                <span class="hljs-keyword">if</span> (j &lt; <span class="hljs-number">0</span>) &#123;<br>                    System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;不对负数进行运算&quot;</span>);<br>                    <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//在这里执行continue后不执行for的剩下语句，若满足控制条件进入下一次循环，但是会计入循环次数</span><br>                    <span class="hljs-comment">// 而break会终止整个循环，即使还满足for的控制条件也不再继续了</span><br>                &#125;<br>                <span class="hljs-keyword">count</span>++;<span class="hljs-comment">//记录非负值数量</span><br>            <span class="hljs-comment">//我的思考方向是计算负值数量,突破口在contiune，不执行时也就是当输入的值是正数时，一定会运行这部分，所以在这添加count++最合适</span><br>                sum+=j;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">count</span>==<span class="hljs-number">0</span>)&#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;无非负值，无法计算&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">double</span> averge=(<span class="hljs-keyword">double</span>)sum<span class="hljs-regexp">/count;/</span>/将sum的类型变为<span class="hljs-keyword">double</span><br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;和是：&quot;</span>+sum);<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;平均值是：&quot;</span>+averge);<br>        &#125;<br></code></pre></td></tr></table></figure>
+<p><strong>break和continue语句的区别：break：无论循环是否满足控制条件都不再循环；continue：不执行剩下的循环语句，若满足循环条件则继续循环。</strong></p>
+<h1 id="带标签的break语句"><a href="#带标签的break语句" class="headerlink" title="带标签的break语句"></a>带标签的break语句</h1><p><strong>带标签的break语句，无论是带标签还是不带标签，都必须在循环语句中使用</strong>  </p>
+<p>输入整数，每组五个数，共10组，求出每组合计及所有组的总计，代码如下所示：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs stata">System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;请输入整数，每组五个数，共10组：&quot;</span>);<br>int <span class="hljs-keyword">total</span>= 0;<br><br><br>Outer:<br>   <span class="hljs-keyword">for</span>(int i=1;i&lt;=10;i++)&#123;<br>    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;第&quot;</span>+i+<span class="hljs-string">&quot;组：&quot;</span>);<br>    int <span class="hljs-keyword">sum</span>=0;<br> Inner:<br>    <span class="hljs-keyword">for</span>(int j=1;j&lt;=5;j++)&#123;<br><br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;整数&quot;</span>+j+<span class="hljs-string">&quot;:&quot;</span>);<br>        int k= scanner.nextInt();<br>        <span class="hljs-keyword">if</span>(k==999)<span class="hljs-comment">//输入999，结束Outer</span><br>            <span class="hljs-keyword">break</span> Outer;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (k==666)<span class="hljs-comment">//输入666，结束Inner</span><br>            <span class="hljs-keyword">break</span> Inner;<span class="hljs-comment">//这里的Inner可以省略，原因是break语句会中断直接包含它的循环语句</span><br>        <span class="hljs-keyword">sum</span>+=k;<br><br>    &#125;<br>    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;每组的小计值为：&quot;</span>+<span class="hljs-keyword">sum</span>);<span class="hljs-comment">//如果要将这组的小计计入总数，除非5个数都输入数值，否则就要输入666来中断输入</span><br>    <span class="hljs-keyword">total</span>+=<span class="hljs-keyword">sum</span>;<br>&#125;<br>System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;所有整数的和为：&quot;</span>+<span class="hljs-keyword">total</span>);<br></code></pre></td></tr></table></figure>
+<h1 id="带标签的continue语句"><a href="#带标签的continue语句" class="headerlink" title="带标签的continue语句"></a>带标签的continue语句</h1><p><strong>带标签的contiune语句，无论是带标签还是不带标签，都必须在循环语句中使用</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp">System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;请输入整数，每组五个数，共10组：&quot;</span>);<br><span class="hljs-built_in">int</span> total= <span class="hljs-number">0</span>;<br><br>Outer:<br><span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">10</span>;i++)&#123;<br>    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;第&quot;</span>+i+<span class="hljs-string">&quot;组：&quot;</span>);<br>    Inner:<br>    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">5</span>;j++)&#123;<br><br><br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;整数&quot;</span>+j+<span class="hljs-string">&quot;:&quot;</span>);<br>        <span class="hljs-built_in">int</span> k= scanner.nextInt();<br>        <span class="hljs-keyword">if</span>(k==<span class="hljs-number">999</span>)<br>            <span class="hljs-keyword">break</span> Outer;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (k==<span class="hljs-number">666</span>)<br>            <span class="hljs-keyword">continue</span> Outer;<span class="hljs-comment">//实现不计算每组的小计值，直接进入下一个外部循环</span><br>        total+=k;<br><br>    &#125;<br>&#125;<br>System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;所有整数的和为：&quot;</span>+total);<br></code></pre></td></tr></table></figure>
+<h1 id="printf方法"><a href="#printf方法" class="headerlink" title="printf方法"></a>printf方法</h1><p>printf方法主要是为了调整格式</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">package</span> chap04;<br><br>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Expr5</span> </span>&#123;<br>    public static void main(String[] args) &#123;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">9</span>;i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">9</span>;j++)&#123;<br>                System.out.printf(<span class="hljs-string">&quot;<span class="hljs-variable">%3d</span>&quot;</span>,i*j);<span class="hljs-regexp">//</span><span class="hljs-variable">%3d</span>至少按三位宽的十进制进行显示，靠右排列<br><br>            &#125;System.out.println();<br>        &#125;<br>        System.out.printf(<span class="hljs-string">&quot;k=<span class="hljs-variable">%6</span>.2f&quot;</span>,<span class="hljs-number">6.4</span>);<span class="hljs-regexp">//</span>输出浮点数，<span class="hljs-variable">%6</span>.2f中的<span class="hljs-number">6</span>是整体按<span class="hljs-number">6</span>位显示，<span class="hljs-number">2</span>指小数部分按<span class="hljs-number">2</span>为显示<br>        System.out.printf(<span class="hljs-string">&quot;\n3<span class="hljs-variable">%%</span>2=1&quot;</span>);<span class="hljs-regexp">//</span>那么在<span class="hljs-keyword">printf</span>这种格式下，要想输出<span class="hljs-variable">%，</span>则需要<span class="hljs-variable">%%</span><br>        System.out.printf(<span class="hljs-string">&quot;\n<span class="hljs-variable">%05d</span>&quot;</span>,<span class="hljs-number">12</span>);<span class="hljs-regexp">//</span>空位用<span class="hljs-number">0</span>填充<br>        System.out.printf(<span class="hljs-string">&quot;\n<span class="hljs-variable">%7s</span>&quot;</span>,<span class="hljs-string">&quot;sssss&quot;</span>);<br>        System.out.printf(<span class="hljs-string">&quot;\n<span class="hljs-variable">%o</span>&quot;</span>,<span class="hljs-number">12345</span>);<span class="hljs-regexp">//</span>八进制<br>        System.out.printf(<span class="hljs-string">&quot;\n<span class="hljs-variable">%x</span>&quot;</span>,<span class="hljs-number">13579</span>);<span class="hljs-regexp">//</span>十六进制小写字母<br>        System.out.printf(<span class="hljs-string">&quot;\n<span class="hljs-variable">%X</span>&quot;</span>,<span class="hljs-number">13579</span>);<span class="hljs-regexp">//</span>十六进制大写字母<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s31.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><figure class="highlight wren"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs wren"><span class="hljs-variable">package</span> <span class="hljs-variable">chap05</span>;<br><br><span class="hljs-variable">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Expr3</span> &#123;<br>    <span class="hljs-variable">public</span> <span class="hljs-keyword">static</span> <span class="hljs-variable">void</span> <span class="hljs-title function_">main</span>(<span class="hljs-params">String</span>[] <span class="hljs-params">args</span>) &#123;<br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-property">print</span>(<span class="hljs-string">&quot;abcdefghajklmnopeeeeeeeeq&quot;</span>);<br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-property">println</span>(<span class="hljs-string">&quot;<span class="hljs-char escape_">\r</span>12345&quot;</span>);<span class="hljs-comment">// \r是回车符，当前显示位置会移动到当前行的行首</span><br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-property">println</span>(<span class="hljs-string">&quot;ABC<span class="hljs-char escape_">\t</span>123&quot;</span>);<span class="hljs-comment">// \t是水平制表符，ABC与123之间的空白宽度取决于运行环境</span><br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-property">println</span>(<span class="hljs-string">&quot;<span class="hljs-char escape_">\&quot;</span>和&#x27;和\&#x27;&quot;</span>);<span class="hljs-comment">//输出”和‘，‘可以用\&#x27;,也可以用’</span><br>        <span class="hljs-comment">//上方”“的都是字符串常量</span><br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-property">println</span>(&#x27;\&#x27;&#x27;);<span class="hljs-comment">//表示’的字符常量</span><br><br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-property">println</span>(<span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>和<span class="hljs-char escape_">\\</span><span class="hljs-char escape_">\\</span>&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运算结果如下：<br><img src="/image/s35.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java程序流程之循环、printf、转义字符</div>
+      <div>https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/02/26/java04/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>February 26, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/27/java05/" title="Java数组">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java数组</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/25/java03/" title="Java程序流程之分支、运算符、程序块">
+                        <span class="hidden-mobile">Java程序流程之分支、运算符、程序块</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

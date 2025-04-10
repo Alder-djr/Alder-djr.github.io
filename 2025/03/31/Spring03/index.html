@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://alder-dir.gitee.io/image/s19.png">
 <meta property="og:image" content="https://alder-dir.gitee.io/image/s20.png">
 <meta property="article:published_time" content="2025-03-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-31T12:15:55.469Z">
+<meta property="article:modified_time" content="2025-04-08T02:18:54.219Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary_large_image">
@@ -103,7 +103,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>My Blog</strong>
+      <strong>Alder-dir</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -281,7 +281,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="检查Java环境"><a href="#检查Java环境" class="headerlink" title="检查Java环境"></a>检查Java环境</h1><p><img src="/image/s17.png" srcset="/img/loading.gif" lazyload alt="alt"></p>
+                <h1 id="检查Java环境"><a href="#检查Java环境" class="headerlink" title="检查Java环境"></a>检查Java环境</h1><p><img src="/image/s17.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="安装并配置Maven"><a href="#安装并配置Maven" class="headerlink" title="安装并配置Maven"></a>安装并配置Maven</h1><p>Maven时项目构建工具，能把项目抽象成POM（project object model）,Maven使用POM对项目进行构建、打包、文档化等操作，<strong>最重要的是解决了项目所需要类库的依赖管理，</strong> 简化了项目开发环境搭建的过程，使得我们开发一个大型复杂的项目变得更容易。  </p>
 <h2 id="Maven的作用"><a href="#Maven的作用" class="headerlink" title="Maven的作用"></a>Maven的作用</h2><p>Maven最初用于替代Apache Ant.用来简化项目构建，它采用不同的方式对项目构建进行抽象，主要有以下几点：  </p>
 <ul>
@@ -315,10 +315,10 @@
 <li>build:此项在 pom 中可选，build 包含了多个插件 plugin，用来辅助项目构建。Maven与以往的 Ant 等其他构建工具不同，Maven 已经约定俗成地包含了构建方法，插件可以在构建过程中影响项目的构建。</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">encoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">encoding</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h2 id="检查Maven环境"><a href="#检查Maven环境" class="headerlink" title="检查Maven环境"></a>检查Maven环境</h2><p><img src="/image/s18.png" srcset="/img/loading.gif" lazyload alt="alt">   </p>
+<h2 id="检查Maven环境"><a href="#检查Maven环境" class="headerlink" title="检查Maven环境"></a>检查Maven环境</h2><p><img src="/image/s18.png" srcset="/img/loading.gif" lazyload>   </p>
 <p><strong>注意：Maven安装路径下的conf&#x2F;settings.xml中mirrors元素中要添加仓库镜像</strong>  </p>
-<p><img src="/image/s19.png" srcset="/img/loading.gif" lazyload alt="alt"></p>
-<h2 id="在IDEA中配置Maven"><a href="#在IDEA中配置Maven" class="headerlink" title="在IDEA中配置Maven"></a>在IDEA中配置Maven</h2><p><img src="/image/s20.png" srcset="/img/loading.gif" lazyload alt="alt"></p>
+<p><img src="/image/s19.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="在IDEA中配置Maven"><a href="#在IDEA中配置Maven" class="headerlink" title="在IDEA中配置Maven"></a>在IDEA中配置Maven</h2><p><img src="/image/s20.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Maven常见命令"><a href="#Maven常见命令" class="headerlink" title="Maven常见命令"></a>Maven常见命令</h2><ul>
 <li>mvn package:编译并打包工程，更具pom.xml中元素packaging是jar还是war进行打包，会在target目录下生成一个jar包或war包。</li>
 <li>mvn install:打包并安装到本地仓库，这样其他本地Maven项目就可以通过项目坐标引用。</li>
@@ -436,7 +436,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/01/java01/" title="Java API——String与ArrayList">
+                      <a href="/2025/04/01/java17/" title="Java API——String与ArrayList">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Java API——String与ArrayList</span>
                         <span class="visible-mobile">Previous</span>
