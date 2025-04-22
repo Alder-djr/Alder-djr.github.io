@@ -19,22 +19,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包 包|Package包用来管理不同的程序   那么一类如何调用包中的另一个类呢？  调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。 调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。 调用java提供的类（API）：需要写入import 包名.类名">
+    <meta name="description" content="Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包 包|Package包用来管理不同的程序，是类和接口的集合 包都主要作用 避免命名冲突 根据特征进行分类 封装（访问控制）  类的调用 调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。 调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。 调用java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java API——String与ArrayList">
+<meta property="og:title" content="Java API基础——String与ArrayList">
 <meta property="og:url" content="https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/01/java17/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包 包|Package包用来管理不同的程序   那么一类如何调用包中的另一个类呢？  调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。 调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。 调用java提供的类（API）：需要写入import 包名.类名">
+<meta property="og:description" content="Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包 包|Package包用来管理不同的程序，是类和接口的集合 包都主要作用 避免命名冲突 根据特征进行分类 封装（访问控制）  类的调用 调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。 调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。 调用java">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-06T08:38:06.501Z">
+<meta property="article:modified_time" content="2025-04-18T02:29:33.490Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Java API——String与ArrayList - Hexo</title>
+  <title>Java API基础——String与ArrayList - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java API——String与ArrayList"></span>
+            <span id="subtitle" data-typed-text="Java API基础——String与ArrayList"></span>
           
         </div>
 
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k words
+          3.1k words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          23 mins
+          26 mins
         
       </span>
     
@@ -271,19 +271,47 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java API——String与ArrayList</h1>
+            <h1 id="seo-header">Java API基础——String与ArrayList</h1>
             
             
               <div class="markdown-body">
                 
                 <p>Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包</p>
-<h1 id="包-Package"><a href="#包-Package" class="headerlink" title="包|Package"></a>包|Package</h1><p>包用来管理不同的程序  </p>
-<p><font size='3'>那么一类如何调用包中的另一个类呢？</font></p>
-<ul>
+<h1 id="包-Package"><a href="#包-Package" class="headerlink" title="包|Package"></a>包|Package</h1><p>包用来管理不同的程序，是类和接口的集合</p>
+<h2 id="包都主要作用"><a href="#包都主要作用" class="headerlink" title="包都主要作用"></a>包都主要作用</h2><ul>
+<li>避免命名冲突</li>
+<li>根据特征进行分类</li>
+<li>封装（访问控制）</li>
+</ul>
+<h2 id="类的调用"><a href="#类的调用" class="headerlink" title="类的调用"></a>类的调用</h2><ul>
 <li>调用相同包的类：无需import，创建另一个类的类类型实例，直接就可调用。</li>
 <li>调用不同包的类:需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用。</li>
 <li>调用java提供的类（API）：需要写入import 包名.类名，再创建另一个类的类类型实例，便可调用；但java.lang包下的类不需要import。</li>
 <li>调用相同名称却在不同包中的类：只能import其中一个类，当需要调用另一个类时，则需要写全——包名.类名才可调用。</li>
+</ul>
+<h2 id="类的导入声明"><a href="#类的导入声明" class="headerlink" title="类的导入声明"></a>类的导入声明</h2><ul>
+<li>单类型导入声明 <code>import java.util.Scanner;</code></li>
+<li>按需类型导入声明 <code>import java.util.*;</code></li>
+<li>单静态导入声明 <code>import static java.lang.Math.PI;</code></li>
+<li>按需静态导入声明，适用于需要多次使用Math类中的类变量或类方法 <code>import static java.lang.Math.*;</code></li>
+</ul>
+<p><strong>注意：java.util和java.sql中都包含Date类,所以调用那个的一定要写清楚，不能使用按需类型导入声明，否则就会出错</strong></p>
+<p><strong>注意：import static java.lang.System.out.println;：这样写不可取，前面有static，又因为println是实例方法，所以不能这样调用</strong></p>
+<h2 id="包的声明"><a href="#包的声明" class="headerlink" title="包的声明"></a>包的声明</h2><p>一个包中不可以存在同名的“包”和“类”，包的首字母是小写</p>
+<h3 id="类和成员的访问属性"><a href="#类和成员的访问属性" class="headerlink" title="类和成员的访问属性"></a>类和成员的访问属性</h3><ul>
+<li>类的访问属性:<ul>
+<li>public类：公开访问，包内外部都可以访问</li>
+<li>非public类：包访问（默认访问），只在包内部使用</li>
+<li><strong>注意：public类的名称一定要与源程序（.java文件）的文件名一致，一个源程序只能定义0个或1个public类</strong></li>
+</ul>
+</li>
+<li>成员的访问属性：（成员包括类变量、实例变量、方法）<ul>
+<li>public公开访问：public类中加上public声明的成员，可在包内外使用，在包外使用时需要导入</li>
+<li>protected限制公开访问：public类或非public类中加上protected声明的成员，只在包和该类派生的类内使用</li>
+<li>包访问（默认访问）：public类或非public类中无关键字声明的成员，只在同一个包中使用</li>
+<li>private私有访问：public类或非public类中加上private声明的成员，只可在类的内部使用，派生的类也不可以使用</li>
+</ul>
+</li>
 </ul>
 <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="String概述"><a href="#String概述" class="headerlink" title="String概述"></a>String概述</h2><p>String类在java.lang包中<br>它代表字符串，可以创建字符串并且对其进行封装，对其进行处理。String封装数据的方式有两种：①直接利用””；②利用new String()封装器</p>
 <ul>
@@ -300,7 +328,7 @@
 </li>
 <li><p><strong>toCharArray()</strong>:将字符串转变为字符数组。<code>char[] chars=str.toCharArray; int n=chars.length;//注意：数组获取长度无()</code>  </p>
 </li>
-<li><p><strong>equals()</strong>:比较两个字符串内容是否相同。<code>String str1=&quot;abc&quot;; boolean b=str.equals(str1);//结果为false</code><br>注意：&#x3D;&#x3D;符号比较的是两个字符串引用的实例是否相同  </p>
+<li><p><strong>equals()</strong>:比较两个字符串内容是否相同。<code>String str1=&quot;abc&quot;; boolean b=str.equals(str1);//结果为false</code><br><strong>注意：&#x3D;&#x3D;符号比较的是两个字符串引用的实例是否相同</strong> </p>
 </li>
 <li><p><strong>equalsIgnoreCase()</strong>:忽略字母大小写比较两个字符串内容是否相同（一般用于验证码）。<code>String str1=&quot;abc&quot;; String str2=&quot;ABc&quot;; boolean b=str1.equalsIgnoreCase(str2);//结果为true</code>  </p>
 </li>
@@ -373,7 +401,8 @@
 
 <p><strong><p style="color:red">switch循环中的return；表示直接切断整个display()方法</p></strong></p>
 <p>最后需要一个操作类来实现主界面的显示：FoodOperate.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.pkg;<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FoodOperate</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">FoodMenuFuc</span> <span class="hljs-variable">foodMenu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FoodMenuFuc</span>();<br>        foodMenu.display();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.pkg;<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FoodOperate</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">FoodMenuFuc</span> <span class="hljs-variable">foodMenu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FoodMenuFuc</span>();<br>        foodMenu.display();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -418,7 +447,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java API——String与ArrayList</div>
+      <div>Java API基础——String与ArrayList</div>
       <div>https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/01/java17/</div>
     </div>
     <div class="license-meta">
@@ -463,7 +492,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/06/java18/" title="模拟ATM机系统">
+                      <a href="/2025/04/06/java19/" title="模拟ATM机系统">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">模拟ATM机系统</span>
                         <span class="visible-mobile">Previous</span>
