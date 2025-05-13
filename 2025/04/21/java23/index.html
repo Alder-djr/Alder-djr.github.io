@@ -22,37 +22,37 @@
     <meta name="description" content="Math代表数学，是一个工具类，里面提供对数据进行操作的静态方法。  取绝对值：int&#x2F;double abs() 向上取整double ceil() 向下取整double floor() 四舍五入long round() 取较大值,最小值int max(int a,int b)，int min(int a,int b) 取次方double pow(double a,double b):a的b次方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用">
-<meta property="og:url" content="https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/21/java23/index.html">
+<meta property="og:url" content="https://gitee.com/adler_psychology/alder-dir.gitee.io.git/2025/04/21/java23/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Math代表数学，是一个工具类，里面提供对数据进行操作的静态方法。  取绝对值：int&#x2F;double abs() 向上取整double ceil() 向下取整double floor() 四舍五入long round() 取较大值,最小值int max(int a,int b)，int min(int a,int b) 取次方double pow(double a,double b):a的b次方">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s78.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s79.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s80.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s81.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s82.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s83.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s84.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s85.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s86.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s87.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s88.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s89.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s90.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s91.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s92.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s93.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s94.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s95.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s96.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s97.png">
-<meta property="og:image" content="https://alder-dir.gitee.io/image/s98.png">
+<meta property="og:image" content="https://gitee.com/image/s78.png">
+<meta property="og:image" content="https://gitee.com/image/s79.png">
+<meta property="og:image" content="https://gitee.com/image/s80.png">
+<meta property="og:image" content="https://gitee.com/image/s81.png">
+<meta property="og:image" content="https://gitee.com/image/s82.png">
+<meta property="og:image" content="https://gitee.com/image/s83.png">
+<meta property="og:image" content="https://gitee.com/image/s84.png">
+<meta property="og:image" content="https://gitee.com/image/s85.png">
+<meta property="og:image" content="https://gitee.com/image/s86.png">
+<meta property="og:image" content="https://gitee.com/image/s87.png">
+<meta property="og:image" content="https://gitee.com/image/s88.png">
+<meta property="og:image" content="https://gitee.com/image/s89.png">
+<meta property="og:image" content="https://gitee.com/image/s90.png">
+<meta property="og:image" content="https://gitee.com/image/s91.png">
+<meta property="og:image" content="https://gitee.com/image/s92.png">
+<meta property="og:image" content="https://gitee.com/image/s93.png">
+<meta property="og:image" content="https://gitee.com/image/s94.png">
+<meta property="og:image" content="https://gitee.com/image/s95.png">
+<meta property="og:image" content="https://gitee.com/image/s96.png">
+<meta property="og:image" content="https://gitee.com/image/s97.png">
+<meta property="og:image" content="https://gitee.com/image/s98.png">
 <meta property="article:published_time" content="2025-04-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-21T11:27:56.527Z">
+<meta property="article:modified_time" content="2025-04-22T06:53:27.081Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alder-dir.gitee.io/image/s78.png">
+<meta name="twitter:image" content="https://gitee.com/image/s78.png">
   
   
   
@@ -94,7 +94,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"alder-dir.gitee.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -256,7 +256,7 @@
         
         
         
-          49 mins
+          50 mins
         
       </span>
     
@@ -446,9 +446,13 @@
 <td>将LocalDate和LocalTime类型合并成LocalDateTime对象</td>
 <td>LocalDateTime.of()</td>
 </tr>
+<tr>
+<td>解析用户输入的日期</td>
+<td>LocalDate.parse()</td>
+</tr>
 </tbody></table>
 <p><font size="4"><strong>注意：这三个对象都是不可变对象，当对其某个信息进行修改时需要重新创建一个对象</strong></font></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.LocalDate;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><span class="hljs-keyword">import</span> java.time.<span class="hljs-built_in">LocalTime</span>;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test2 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        //获取日期对象<br>        LocalDateTime ld=LocalDateTime.now();//不可变对象<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld);<br><br>        //获取日期对象中的信息<br>        <span class="hljs-type">int</span> year=ld.getYear();<br>        <span class="hljs-type">int</span> month=ld.getMonthValue();<br>        <span class="hljs-type">int</span> day=ld.getDayOfMonth();<br>        <span class="hljs-type">int</span> dayOfYear=ld.getDayOfYear();<br>        <span class="hljs-type">int</span> dayOfweek=ld.getDayOfWeek().getValue();<br><br>        <span class="hljs-type">int</span> Hour=ld.getHour();<br>        <span class="hljs-type">int</span> Minute=ld.getMinute();<br>        <span class="hljs-type">int</span> Second=ld.getSecond();<br>        <span class="hljs-type">int</span> Nanosecond=ld.getNano();<br><br><br>        //修改某个信息<br>        LocalDateTime ld2=ld.withYear(<span class="hljs-number">2004</span>);<br>        LocalDateTime ld3=ld.withMonth(<span class="hljs-number">3</span>);<br><br>        LocalDateTime ld4=ld.withHour(<span class="hljs-number">4</span>);<br>        LocalDateTime ld5=ld.withMinute(<span class="hljs-number">5</span>);<br><br>        //把某个信息加多少<br>        LocalDateTime ld6=ld.plusYears(<span class="hljs-number">4</span>);<br><br>        //把某个信息减多少<br>        LocalDateTime ld7=ld.minusMinutes(<span class="hljs-number">5</span>);<br><br>        //获取指定日期的LocalDate对象<br>        LocalDateTime ld8=LocalDateTime.<span class="hljs-keyword">of</span>(<span class="hljs-number">2004</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">1111</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld8);<br><br>        //判断<span class="hljs-number">2</span>个日期对象是否相等，在前还是在后<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.equals(ld2));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.isBefore(ld3));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.isAfter(ld4));<br><br>        //将LocalDateTime转换成LocalDate和<span class="hljs-built_in">LocalTime</span>类型<br>        LocalDate ld0 = ld.toLocalDate();<br>        <span class="hljs-built_in">LocalTime</span> lt0 = ld.toLocalTime();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld0);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(lt0);<br><br>        //将LocalDate和<span class="hljs-built_in">LocalTime</span>类型合并成LocalDateTime对象<br>        LocalDateTime LDT=LocalDateTime.<span class="hljs-keyword">of</span>(ld0,lt0);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(LDT);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.LocalDate;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><span class="hljs-keyword">import</span> java.time.<span class="hljs-built_in">LocalTime</span>;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test2 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        //获取日期对象<br>        LocalDateTime ld=LocalDateTime.now();//不可变对象<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld);<br><br>        //获取日期对象中的信息<br>        <span class="hljs-type">int</span> year=ld.getYear();<br>        <span class="hljs-type">int</span> month=ld.getMonthValue();<br>        <span class="hljs-type">int</span> day=ld.getDayOfMonth();<br>        <span class="hljs-type">int</span> dayOfYear=ld.getDayOfYear();<br>        <span class="hljs-type">int</span> dayOfweek=ld.getDayOfWeek().getValue();<br><br>        <span class="hljs-type">int</span> Hour=ld.getHour();<br>        <span class="hljs-type">int</span> Minute=ld.getMinute();<br>        <span class="hljs-type">int</span> Second=ld.getSecond();<br>        <span class="hljs-type">int</span> Nanosecond=ld.getNano();<br><br><br>        //修改某个信息<br>        LocalDateTime ld2=ld.withYear(<span class="hljs-number">2004</span>);<br>        LocalDateTime ld3=ld.withMonth(<span class="hljs-number">3</span>);<br><br>        LocalDateTime ld4=ld.withHour(<span class="hljs-number">4</span>);<br>        LocalDateTime ld5=ld.withMinute(<span class="hljs-number">5</span>);<br><br>        //把某个信息加多少<br>        LocalDateTime ld6=ld.plusYears(<span class="hljs-number">4</span>);<br><br>        //把某个信息减多少<br>        LocalDateTime ld7=ld.minusMinutes(<span class="hljs-number">5</span>);<br><br>        //获取指定日期的LocalDate对象<br>        LocalDateTime ld8=LocalDateTime.<span class="hljs-keyword">of</span>(<span class="hljs-number">2004</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">1111</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld8);<br><br>        //判断<span class="hljs-number">2</span>个日期对象是否相等，在前还是在后<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.equals(ld2));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.isBefore(ld3));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.isAfter(ld4));<br><br>        //将LocalDateTime转换成LocalDate和<span class="hljs-built_in">LocalTime</span>类型<br>        LocalDate ld0 = ld.toLocalDate();<br>        <span class="hljs-built_in">LocalTime</span> lt0 = ld.toLocalTime();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld0);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(lt0);<br><br>        //将LocalDate和<span class="hljs-built_in">LocalTime</span>类型合并成LocalDateTime对象<br>        LocalDateTime LDT=LocalDateTime.<span class="hljs-keyword">of</span>(ld0,lt0);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(LDT);<br><br>        //解析日期<br>        String <span class="hljs-type">date</span> = &quot;2022-12-23&quot;;<br>        LocalDate ld1 = LocalDate.parse(<span class="hljs-type">date</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld1);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld1.getClass());<br><br>        //解析时间<br>        String <span class="hljs-type">time</span> = &quot;12:12:12&quot;;<br>        <span class="hljs-built_in">LocalTime</span> lt1 = <span class="hljs-built_in">LocalTime</span>.parse(<span class="hljs-type">time</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(lt1);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld1.getClass());<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><img src="/image/s89.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="ZoneId"><a href="#ZoneId" class="headerlink" title="ZoneId"></a>ZoneId</h4><p>ZoneId代表时区Id，由于世界各个国家与地区的经度不同，各个地区的时间也有所不同，因此会划分为不同的地区。</p>
 <ul>
@@ -644,7 +648,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用</div>
-      <div>https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/21/java23/</div>
+      <div>https://gitee.com/adler_psychology/alder-dir.gitee.io.git/2025/04/21/java23/</div>
     </div>
     <div class="license-meta">
       

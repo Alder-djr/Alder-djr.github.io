@@ -22,12 +22,12 @@
     <meta name="description" content="利用ArrayList集合认识泛型 不限制元素类型（支持泛型）：ArrayList list &#x3D; new ArrayList(); 支持一种非基本类型的类型：ArrayList&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;(); 支持一种类类型：ArrayList&lt;Student&gt; list &#x3D; new ArrayList&lt;&gt;();">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java泛型">
-<meta property="og:url" content="https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/11/java18/index.html">
+<meta property="og:url" content="https://gitee.com/adler_psychology/alder-dir.gitee.io.git/2025/04/11/java18/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="利用ArrayList集合认识泛型 不限制元素类型（支持泛型）：ArrayList list &#x3D; new ArrayList(); 支持一种非基本类型的类型：ArrayList&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;(); 支持一种类类型：ArrayList&lt;Student&gt; list &#x3D; new ArrayList&lt;&gt;();">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-17T07:13:23.837Z">
+<meta property="article:modified_time" content="2025-05-06T01:55:17.413Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"alder-dir.gitee.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -328,7 +328,7 @@
 <p>以上方法可以直接使用通配符？来定义，也可达到相同的效果，如下所示：  </p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Test</span><span class="hljs-params">(ArrayList&lt;? <span class="hljs-keyword">extends</span> Car&gt; cars)</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 
-<p><strong><code>? extends Car</code>表示上限，也就是说只能接受Car类型以及它的子类类型；与其相反的有<code>？super Car</code>表示上限，表示只能接收Car类型以及它的父类类型。</strong></p>
+<p><strong><code>? extends Car</code>表示上限，也就是说只能接受Car类型以及它的子类类型；与其相反的有<code>？super Car</code>表示下限，表示只能接收Car类型以及它的父类类型。</strong></p>
 <h1 id="泛型注意事项"><a href="#泛型注意事项" class="headerlink" title="泛型注意事项"></a>泛型注意事项</h1><ul>
 <li>泛型擦除：泛型是工作在编译阶段的，一旦程序编译成class文件，class文件中就不存在泛型了。</li>
 </ul>
@@ -391,7 +391,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Java泛型</div>
-      <div>https://alder-dir.gitee.io/Alder-dir.gitee.io/2025/04/11/java18/</div>
+      <div>https://gitee.com/adler_psychology/alder-dir.gitee.io.git/2025/04/11/java18/</div>
     </div>
     <div class="license-meta">
       
