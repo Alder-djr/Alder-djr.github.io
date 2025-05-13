@@ -22,37 +22,37 @@
     <meta name="description" content="Math代表数学，是一个工具类，里面提供对数据进行操作的静态方法。  取绝对值：int&#x2F;double abs() 向上取整double ceil() 向下取整double floor() 四舍五入long round() 取较大值,最小值int max(int a,int b)，int min(int a,int b) 取次方double pow(double a,double b):a的b次方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用">
-<meta property="og:url" content="https://gitee.com/adler_psychology/alder-dir.gitee.io.git/2025/04/21/java23/index.html">
+<meta property="og:url" content="https://github.com/Alder-djr/Alder-djr.github.io.git/2025/04/21/java23/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Math代表数学，是一个工具类，里面提供对数据进行操作的静态方法。  取绝对值：int&#x2F;double abs() 向上取整double ceil() 向下取整double floor() 四舍五入long round() 取较大值,最小值int max(int a,int b)，int min(int a,int b) 取次方double pow(double a,double b):a的b次方">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/image/s78.png">
-<meta property="og:image" content="https://gitee.com/image/s79.png">
-<meta property="og:image" content="https://gitee.com/image/s80.png">
-<meta property="og:image" content="https://gitee.com/image/s81.png">
-<meta property="og:image" content="https://gitee.com/image/s82.png">
-<meta property="og:image" content="https://gitee.com/image/s83.png">
-<meta property="og:image" content="https://gitee.com/image/s84.png">
-<meta property="og:image" content="https://gitee.com/image/s85.png">
-<meta property="og:image" content="https://gitee.com/image/s86.png">
-<meta property="og:image" content="https://gitee.com/image/s87.png">
-<meta property="og:image" content="https://gitee.com/image/s88.png">
-<meta property="og:image" content="https://gitee.com/image/s89.png">
-<meta property="og:image" content="https://gitee.com/image/s90.png">
-<meta property="og:image" content="https://gitee.com/image/s91.png">
-<meta property="og:image" content="https://gitee.com/image/s92.png">
-<meta property="og:image" content="https://gitee.com/image/s93.png">
-<meta property="og:image" content="https://gitee.com/image/s94.png">
-<meta property="og:image" content="https://gitee.com/image/s95.png">
-<meta property="og:image" content="https://gitee.com/image/s96.png">
-<meta property="og:image" content="https://gitee.com/image/s97.png">
-<meta property="og:image" content="https://gitee.com/image/s98.png">
+<meta property="og:image" content="https://github.com/image/s78.png">
+<meta property="og:image" content="https://github.com/image/s79.png">
+<meta property="og:image" content="https://github.com/image/s80.png">
+<meta property="og:image" content="https://github.com/image/s81.png">
+<meta property="og:image" content="https://github.com/image/s82.png">
+<meta property="og:image" content="https://github.com/image/s83.png">
+<meta property="og:image" content="https://github.com/image/s84.png">
+<meta property="og:image" content="https://github.com/image/s85.png">
+<meta property="og:image" content="https://github.com/image/s86.png">
+<meta property="og:image" content="https://github.com/image/s87.png">
+<meta property="og:image" content="https://github.com/image/s88.png">
+<meta property="og:image" content="https://github.com/image/s89.png">
+<meta property="og:image" content="https://github.com/image/s90.png">
+<meta property="og:image" content="https://github.com/image/s91.png">
+<meta property="og:image" content="https://github.com/image/s92.png">
+<meta property="og:image" content="https://github.com/image/s93.png">
+<meta property="og:image" content="https://github.com/image/s94.png">
+<meta property="og:image" content="https://github.com/image/s95.png">
+<meta property="og:image" content="https://github.com/image/s96.png">
+<meta property="og:image" content="https://github.com/image/s97.png">
+<meta property="og:image" content="https://github.com/image/s98.png">
 <meta property="article:published_time" content="2025-04-20T16:00:00.000Z">
 <meta property="article:modified_time" content="2025-04-22T06:53:27.081Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/image/s78.png">
+<meta name="twitter:image" content="https://github.com/image/s78.png">
   
   
   
@@ -94,7 +94,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"gitee.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -648,7 +648,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用</div>
-      <div>https://gitee.com/adler_psychology/alder-dir.gitee.io.git/2025/04/21/java23/</div>
+      <div>https://github.com/Alder-djr/Alder-djr.github.io.git/2025/04/21/java23/</div>
     </div>
     <div class="license-meta">
       
