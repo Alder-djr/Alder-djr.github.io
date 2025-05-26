@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://github.com/image/s97.png">
 <meta property="og:image" content="https://github.com/image/s98.png">
 <meta property="article:published_time" content="2025-04-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-22T06:53:27.081Z">
+<meta property="article:modified_time" content="2025-05-24T02:51:13.102Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
@@ -579,7 +579,7 @@
 <p>在Compare类中定义一个实例方法，如下所示：</p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">public int <span class="hljs-built_in">compareBySalary2</span>(Student o1, Student o2) &#123;<br>    return Double<span class="hljs-selector-class">.compare</span>(o1.getSalary(),o2<span class="hljs-selector-class">.getSalary</span>());<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>对Arrays.sort()方法进行简化,调用Compare类中的实例方法compareBySalary2：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livescript">Compare compare = <span class="hljs-keyword">new</span> Compare();<br>Arrays.sort<span class="hljs-function"><span class="hljs-params">(students,( o1,  o2) -&gt; compare.compareBySalary(o1,o2))</span>;</span><br><span class="hljs-function">                   ||最终结果&lt;连连看😂&gt;</span><br><span class="hljs-function">                   \/</span><br><span class="hljs-function"><span class="hljs-title">Arrays</span>.<span class="hljs-title">sort</span><span class="hljs-params">(students,( Compare::compareBySalary))</span>;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livescript">Compare compare = <span class="hljs-keyword">new</span> Compare();<br>Arrays.sort<span class="hljs-function"><span class="hljs-params">(students,( o1,  o2) -&gt; compare.compareBySalary2(o1,o2))</span>;</span><br><span class="hljs-function">                   ||最终结果&lt;连连看😂&gt;</span><br><span class="hljs-function">                   \/</span><br><span class="hljs-function"><span class="hljs-title">Arrays</span>.<span class="hljs-title">sort</span><span class="hljs-params">(students,compare::compareBySalary2)</span>;</span><br></code></pre></td></tr></table></figure>
 <h2 id="特定类型方法的引用"><a href="#特定类型方法的引用" class="headerlink" title="特定类型方法的引用"></a>特定类型方法的引用</h2><ul>
 <li>格式：<code>类型::方法</code></li>
 <li>使用场景：如果某个Lambda表达式里只是调用一个实例方法，并且前面参数列表中的第一个参数是作为方法的主调，后面的所有参数都是作为该实例方法的入参</li>
