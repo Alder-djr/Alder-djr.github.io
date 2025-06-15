@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="数组int[] a&#x3D;new int[5];int[5]是数组主体，a是数组变量，a引用数组主体。对构成元素的访问通过索引，从a[0]开始到a[n-1];a.length是final int型，不能后续再进行改值。 数组的创建定义12345678910111213141516171819202122232425262728int[] a&#x3D;new int[5];int[] b&#x3D;new int[5];d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数组">
+<meta property="og:url" content="https://github.com/Alder-djr/Alder-djr.github.io.git/2025/02/27/Java%20basis/java05/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数组int[] a&#x3D;new int[5];int[5]是数组主体，a是数组变量，a引用数组主体。对构成元素的访问通过索引，从a[0]开始到a[n-1];a.length是final int型，不能后续再进行改值。 数组的创建定义12345678910111213141516171819202122232425262728int[] a&#x3D;new int[5];int[] b&#x3D;new int[5];d">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/image/s36.png">
+<meta property="og:image" content="https://github.com/image/s37.png">
+<meta property="og:image" content="https://github.com/image/s38.png">
+<meta property="og:image" content="https://github.com/image/s40.png">
+<meta property="og:image" content="https://github.com/image/s39.png">
+<meta property="og:image" content="https://github.com/image/s41.png">
+<meta property="og:image" content="https://github.com/image/s42.png">
+<meta property="og:image" content="https://github.com/image/s43.png">
+<meta property="og:image" content="https://github.com/image/s44.png">
+<meta property="og:image" content="https://github.com/image/s45.png">
+<meta property="og:image" content="https://github.com/image/s47.png">
+<meta property="og:image" content="https://github.com/image/s46.png">
+<meta property="article:published_time" content="2025-02-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-09T11:46:52.829Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/image/s36.png">
+  
+  
+  
+  <title>Java数组 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Alder-dir</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java数组"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-27 00:00" pubdate>
+          February 27, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java数组</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p><code>int[] a=new int[5];</code><br>int[5]是数组主体，a是数组变量，a引用数组主体。对构成元素的访问通过索引，从a[0]开始到a[n-1];a.length是final int型，不能后续再进行改值。</p>
+<h2 id="数组的创建定义"><a href="#数组的创建定义" class="headerlink" title="数组的创建定义"></a>数组的创建定义</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">int</span>[] a=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">5</span>];<br><span class="hljs-type">int</span>[] b=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">5</span>];<br><span class="hljs-type">double</span>[] c=<span class="hljs-built_in">new</span> <span class="hljs-type">double</span>[<span class="hljs-number">5</span>];<br><br>a[<span class="hljs-number">0</span>]=<span class="hljs-number">11</span>;<br>a[<span class="hljs-number">2</span>]=<span class="hljs-number">8</span>;<br>a[<span class="hljs-number">4</span>]=<span class="hljs-number">10</span>;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;a.length;i++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;第&quot;+i+&quot;个元素的值为：&quot;+a[i]);//未被赋值的元素默认为<span class="hljs-number">0</span><br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;b.length;j++)&#123;<br>    b[j]=b.length-j;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;b.length;k++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;第&quot;+k+&quot;个元素的值为：&quot;+b[k]);<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;c.length;j++)&#123;<br>    c[j]=(j+<span class="hljs-number">1</span>)*<span class="hljs-number">1.1</span>;//加减无法满足要求，需要考虑乘除<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;c.length;k++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.printf(&quot;第&quot;+k+&quot;个元素的值为：%1.1f&quot;,c[k]);//若不进行格式化，那么结果会存在误差：第<span class="hljs-number">2</span>个元素的值为：<span class="hljs-number">3.3000000000000003</span><br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果为：<br><img src="/image/s36.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><h3 id="通过键盘输入数组长度及每个值"><a href="#通过键盘输入数组长度及每个值" class="headerlink" title="通过键盘输入数组长度及每个值"></a>通过键盘输入数组长度及每个值</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Scanner scanner=<span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;请输入数组的长度：&quot;);<br><span class="hljs-type">int</span> n= scanner.nextInt();<br><span class="hljs-type">int</span>[] d=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[n];<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;第&quot;+i+&quot;个的值为：&quot;);<br>    d[i]= scanner.nextInt();<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">0</span>;k&lt;d.length;k++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;第&quot;+k+&quot;个元素的值为：&quot;+d[k]);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s37.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="生成柱状图，高度随机"><a href="#生成柱状图，高度随机" class="headerlink" title="生成柱状图，高度随机"></a>生成柱状图，高度随机</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Scanner scanner=<span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br>Random random = <span class="hljs-built_in">new</span> Random();<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;请输入数组的长度：&quot;);<br><span class="hljs-type">int</span> m = scanner.nextInt();<br><br><span class="hljs-type">int</span>[] e = <span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[m];<br><br>// 随机生成数组元素<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>    e[i] = random.nextInt(<span class="hljs-number">10</span>); // 随机生成<span class="hljs-number">0</span>到<span class="hljs-number">9</span>之间的整数<br>&#125;<br><br>// 找到最大值，用于确定柱状图的高度<br><span class="hljs-type">int</span> maxHeight = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-keyword">value</span> : e) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">value</span> &gt; maxHeight) &#123;<br>        maxHeight = <span class="hljs-keyword">value</span>;<br>    &#125;<br>&#125;<br><br>// 打印柱状图<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-keyword">row</span> = maxHeight; <span class="hljs-keyword">row</span> &gt; <span class="hljs-number">0</span>; <span class="hljs-keyword">row</span><span class="hljs-comment">--) &#123; // 从最大高度开始向下打印，一行一行地打印</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> col = <span class="hljs-number">0</span>; col &lt; e.length; col++) &#123;<br>        <span class="hljs-keyword">if</span> (e[col] &gt;= <span class="hljs-keyword">row</span>) &#123;<br>            <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;*\t&quot;); // 如果当前列的高度(即元素的值)大于等于当前行，打印 *<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot; \t&quot;); // 否则打印空格<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>&#125;<br><br>// 打印分割虚线<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;----------------------------------------&quot;);<br><br>// 打印每个元素的值（索引值除以<span class="hljs-number">10</span>的余数）<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; e.length; i++) &#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print((i % <span class="hljs-number">10</span>) + &quot;\t&quot;);<br>&#125;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s38.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数组的查找"><a href="#数组的查找" class="headerlink" title="数组的查找"></a>数组的查找</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs go">System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;请输入数组的长度：&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-built_in">len</span>= scanner.nextInt();<br><span class="hljs-type">int</span>[] g=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[<span class="hljs-built_in">len</span>];<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">len</span>;i++)&#123;<br>    System.out.<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;g[&quot;</span>+i+<span class="hljs-string">&quot;]=&quot;</span>);<br>    g[i]= scanner.nextInt();<br>&#125;<br><br><span class="hljs-type">int</span> max=g[<span class="hljs-number">0</span>];<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">len</span>;i++)&#123;<br>    <span class="hljs-keyword">if</span>(g[i]&gt;max)&#123;<br>        max=g[i];<span class="hljs-comment">//数组遍历</span><br>    &#125;<br>&#125;<br>System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;数组中最大值为：&quot;</span>+max);<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s40.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="线性查找数值的位置"><a href="#线性查找数值的位置" class="headerlink" title="线性查找数值的位置"></a>线性查找数值的位置</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> lent=<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span>[] h=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[lent];<br><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;lent;j++)&#123;<br>    h[j]= random.nextInt(<span class="hljs-number">10</span>);<br>    System.out.<span class="hljs-keyword">print</span>(h[j]+<span class="hljs-string">&quot;\t&quot;</span>);<br>&#125;<br><br>System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;\n&quot;</span>+<span class="hljs-string">&quot;请输入要查找的值：&quot;</span>);<br><span class="hljs-keyword">int</span> <span class="hljs-keyword">find</span>= scanner.nextInt();<br><br><span class="hljs-keyword">int</span> i;<br><span class="hljs-keyword">for</span>(i=lent-<span class="hljs-number">1</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;<span class="hljs-comment">//如若查找的值有多个，倒着查找，则能查到末尾的值</span><br>    <span class="hljs-keyword">if</span>(h[i]==<span class="hljs-keyword">find</span>)&#123;<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">if</span>(i&gt;=<span class="hljs-number">0</span>)&#123;<br>    System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;查找成功，该元素是h[&quot;</span>+i+<span class="hljs-string">&quot;]&quot;</span>);<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;该值不存在&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s39.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">int</span> y= random.nextInt(<span class="hljs-number">10</span>);<br><span class="hljs-type">int</span>[] uu=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[y];<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;y;i++)&#123;<br>    uu[i]= random.nextInt(<span class="hljs-number">10</span>);<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(uu[i]+&quot; &quot;);<br>&#125;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br><br><span class="hljs-type">double</span> sum=<span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">double</span> i:uu)&#123;<br>    sum+=i;<br>&#125;<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;数组中所有的值的和为：&quot;+sum);<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s41.png" srcset="/img/loading.gif" lazyload><br><strong>for(double i:uu):利用扩展for语句来遍历数组，这时i并不是索引(注意i需要注明类型)，而是元素的值（利用在当不需要索引值的时候，比较方便）。这种写法比较简洁</strong></p>
+<h3 id="利用扩展for循环来遍历多维数组"><a href="#利用扩展for循环来遍历多维数组" class="headerlink" title="利用扩展for循环来遍历多维数组"></a>利用扩展for循环来遍历多维数组</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">double</span>[] m=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;//数组可以这样创建并初始化<br><span class="hljs-type">double</span>[][] many=&#123;m,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;&#125;;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">double</span>[] i:many)&#123;//这里遍历要用到<span class="hljs-type">double</span>[] i,因为多维数组时数组里套着多个数组<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">double</span> j:i)&#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.printf(&quot;%5.1f&quot;,j);<br>    &#125;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s42.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数组的倒序排列"><a href="#数组的倒序排列" class="headerlink" title="数组的倒序排列"></a>数组的倒序排列</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">int</span>[] <span class="hljs-keyword">qq</span>=new <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">10</span>;j++)&#123;<br>    <span class="hljs-string">qq[j]</span>= random.nextInt(<span class="hljs-number">10</span>);<br>    System.out.printf(<span class="hljs-string">&quot;<span class="hljs-variable">%3d</span>&quot;</span>,<span class="hljs-string">qq[j]</span>);<br>&#125;<br>System.out.println();<br><br><span class="hljs-keyword">int</span> i;<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10</span>/<span class="hljs-number">2</span>;i++)&#123;<span class="hljs-regexp">//</span>只需要遍历到数组长度（无论奇数还是偶数）的一半即可，否则就会变回原来的顺序<br>    <span class="hljs-keyword">int</span> t=<span class="hljs-string">qq[i]</span>;<br>    <span class="hljs-string">qq[i]</span>=<span class="hljs-string">qq[10-i-1]</span>;<br>    <span class="hljs-string">qq[10-i-1]</span>=t;<br><br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">10</span>;j++)&#123;<br>    System.out.printf(<span class="hljs-string">&quot;<span class="hljs-variable">%3d</span>&quot;</span>,<span class="hljs-string">qq[j]</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下；<br><img src="/image/s43.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数组的复制"><a href="#数组的复制" class="headerlink" title="数组的复制"></a>数组的复制</h2><p>通过遍历将数组a的所有值值依次赋给数组b<br><strong>若直接使用赋值运算符&#x3D;，比如a&#x3D;b(a、b都是数组)，这样的结果是a引用了b的数组主体，并非是复制</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Scanner scanner=<span class="hljs-built_in">new</span> Scanner(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">in</span>);<br>Random random=<span class="hljs-built_in">new</span> Random();<br><br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;请输入数组的元素个数：&quot;);<br><span class="hljs-type">int</span> n= scanner.nextInt();<br><br><span class="hljs-type">int</span>[] a=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[n];<br><span class="hljs-type">int</span>[] b=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[n];<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;a[&quot;+i+&quot;]=&quot;);<br>    a[i]=scanner.nextInt();<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    b[n-i<span class="hljs-number">-1</span>]=a[i];//<br>&#125;<br><br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;b数组的元素为：&quot;);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(b[i]+&quot; &quot;);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="字符串数组的创建"><a href="#字符串数组的创建" class="headerlink" title="字符串数组的创建"></a>字符串数组的创建</h2><p>根据1~12数字填写对应的英文缩写</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs gradle">String[] months = &#123;<span class="hljs-string">&quot;Jan&quot;</span>, <span class="hljs-string">&quot;Feb&quot;</span>, <span class="hljs-string">&quot;Mar&quot;</span>, <span class="hljs-string">&quot;Apr&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;Jun&quot;</span>, <span class="hljs-string">&quot;July&quot;</span>, <span class="hljs-string">&quot;Aug&quot;</span>, <span class="hljs-string">&quot;Sept&quot;</span>, <span class="hljs-string">&quot;Oct&quot;</span>, <span class="hljs-string">&quot;Nov&quot;</span>, <span class="hljs-string">&quot;Dec&quot;</span>&#125;;<br><br><span class="hljs-comment">// 使用布尔数组标记已使用的月份</span><br><span class="hljs-keyword">boolean</span>[] used = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[<span class="hljs-number">12</span>];<br><span class="hljs-keyword">int</span> usedCount = <span class="hljs-number">0</span>; <span class="hljs-comment">// 已正确回答的月份数量</span><br><br><span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;<br>    <span class="hljs-keyword">int</span> n;<br>    <span class="hljs-keyword">if</span> (usedCount == <span class="hljs-number">12</span>) &#123; <span class="hljs-comment">// 如果所有月份都已正确回答</span><br>        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;所有题目已完成！游戏结束。&quot;</span>);<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 随机生成一个未使用的月份索引</span><br>    <span class="hljs-keyword">do</span> &#123;<br>        n = random.nextInt(<span class="hljs-number">12</span>);<br>    &#125; <span class="hljs-keyword">while</span> (used[n]); <span class="hljs-comment">// 如果该月份已被正确回答过，则重新生成</span><br><br>    System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;请输入月份的英语表达，首字母大写，其他字母小写（缩写即可）：&quot;</span>);<br><br>    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123; <span class="hljs-comment">// 对当前月份进行循环，直到回答正确</span><br><br>        System.out.<span class="hljs-keyword">print</span>((n + <span class="hljs-number">1</span>) + <span class="hljs-string">&quot;月：&quot;</span>);<br>        String userAnswer = scanner.nextLine();<br><br>        <span class="hljs-keyword">if</span> (months[n].equals(userAnswer)) &#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;回答正确！&quot;</span>);<br>            used[n] = <span class="hljs-keyword">true</span>; <span class="hljs-comment">// 标记当前月份为已正确回答</span><br>            usedCount++; <span class="hljs-comment">// 增加已正确回答的月份数量</span><br>            <span class="hljs-keyword">break</span>; <span class="hljs-comment">// 跳出当前月份的循环</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;回答错误，请重新输入！&quot;</span> );<span class="hljs-comment">//因为while控制条件为true，除非执行break，否则会继续循环</span><br><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 询问用户是否继续游戏</span><br>    System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;再来一次？ 1...yes; 2...no&quot;</span>);<br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;<br>        <span class="hljs-keyword">if</span> (scanner.hasNextInt()) &#123;<span class="hljs-comment">//用于检查输入流中下一个可用的输入是否是一个有效的整数</span><br>            choice = scanner.nextInt();<br>            scanner.nextLine(); <span class="hljs-comment">//清理缓冲区，如果用户输入 1 并按下回车键，scanner.nextInt() 会读取 1，但换行符 \n 仍然留在缓冲区中</span><br>            <span class="hljs-comment">//如果下一次调用 scanner.nextLine()，它会直接读取缓冲区中的换行符，而不会等待用户输入新的内容，从而导致程序行为异常</span><br>            <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">1</span> || choice == <span class="hljs-number">2</span>) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;输入无效，请输入 1 或 2：&quot;</span>);<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;输入无效，请输入数字：&quot;</span>);<br>            scanner.<span class="hljs-keyword">next</span>(); <span class="hljs-comment">// 读取并丢弃无效输入</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">2</span>) &#123;<br>        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;游戏结束。&quot;</span>);<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s44.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="引用类型和对象"><a href="#引用类型和对象" class="headerlink" title="引用类型和对象"></a>引用类型和对象</h2><p>数组主体与一般变量不同，它被称为对象，引用数组主体的类型为引用类型，数组变量的类型是数组类型，</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">int</span>[] a=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">5</span>];<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;a=&quot;+a);<br>a=<span class="hljs-keyword">null</span>;//将<span class="hljs-keyword">null</span>这个空常量赋给a，a这被称为空引用，那么这时数组主体则使用垃圾回收进行回收<br>//若将数组a的类型改为final <span class="hljs-type">int</span>，那么就会避免赋给a空常量<span class="hljs-keyword">null</span><br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;a=&quot;+a);<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s45.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>每列的数值个数可以不同</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;输入该数组的行数：&quot;);<br><span class="hljs-type">int</span> h= scanner.nextInt();<br><span class="hljs-type">int</span>[][] a=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[h][];<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;依次输入该数组的列数：&quot;);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;h;i++)&#123;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;a[&quot;+i+&quot;]:&quot;);<br>    a[i]=<span class="hljs-built_in">new</span> <span class="hljs-type">int</span>[scanner.nextInt()];<br>&#125;<br><br><br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;请输入每个元素的值：\n第0行：&quot;);<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;h;i++)&#123;<br>    <span class="hljs-keyword">if</span>(i!=<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;第&quot;+i+&quot;行：&quot;);<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;a[i].length;j++)&#123;<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(&quot;a[&quot;+i+&quot;][&quot;+j+&quot;]=&quot;);<br>        a[i][j]= scanner.nextInt();<br>    &#125;<br><br><br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;h;i++) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; a[i].length; j++) &#123;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.print(a[i][j] + &quot; &quot;);<br>    &#125;<br>    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s47.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="矩阵的乘积"><a href="#矩阵的乘积" class="headerlink" title="矩阵的乘积"></a>矩阵的乘积</h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs prolog">int[][] a=new int[<span class="hljs-number">4</span>][<span class="hljs-number">3</span>];<br>int[][] b= &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>&#125;&#125;;<br><span class="hljs-symbol">System</span>.out.println(<span class="hljs-string">&quot;请输入数组a的值&quot;</span>);<br>for(int i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">4</span>;i++)&#123;<br>    for(int j=<span class="hljs-number">0</span>;j&lt;<span class="hljs-number">3</span>;j++)&#123;<br>        <span class="hljs-symbol">System</span>.out.println(<span class="hljs-string">&quot;a[&quot;</span>+i+<span class="hljs-string">&quot;][&quot;</span>+j+<span class="hljs-string">&quot;]=&quot;</span>);<br>        a[i][j]= scanner.nextInt();<br>    &#125;<br>&#125;<br><br>int[][] c=new int[<span class="hljs-number">4</span>][<span class="hljs-number">4</span>];<br>// 计算矩阵 a 和矩阵 b 的乘积<br>for (int i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123; // 遍历矩阵 a 的行<br>    for (int j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++) &#123; // 遍历矩阵 b 的列<br>        for (int k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">3</span>; k++) &#123; // 遍历矩阵 a 的列和矩阵 b 的行<br>            c[i][j] += a[i][k] * b[k][j];<br>        &#125;<br>    &#125;<br>&#125;<br><br>// 输出矩阵 c<br><span class="hljs-symbol">System</span>.out.println(<span class="hljs-string">&quot;矩阵 a 和矩阵 b 的乘积为：&quot;</span>);<br>for (int i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>    for (int j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++) &#123;<br>        <span class="hljs-symbol">System</span>.out.print(c[i][j] + <span class="hljs-string">&quot; &quot;</span>);<br>    &#125;<br>    <span class="hljs-symbol">System</span>.out.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>a矩阵内的数都为1，运行结果如下：<br><img src="/image/s46.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java数组</div>
+      <div>https://github.com/Alder-djr/Alder-djr.github.io.git/2025/02/27/Java basis/java05/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>February 27, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/28/Java%20basis/java06/" title="Java整数内部的位处理运算符">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java整数内部的位处理运算符</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/26/Java%20basis/java04/" title="Java程序流程之循环、printf、转义字符">
+                        <span class="hidden-mobile">Java程序流程之循环、printf、转义字符</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Math代表数学，是一个工具类，里面提供对数据进行操作的静态方法。  取绝对值：int&#x2F;double abs() 向上取整double ceil() 向下取整double floor() 四舍五入long round() 取较大值,最小值int max(int a,int b)，int min(int a,int b) 取次方double pow(double a,double b):a的b次方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用">
+<meta property="og:url" content="https://github.com/Alder-djr/Alder-djr.github.io.git/2025/04/21/Java%20basis/java23/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Math代表数学，是一个工具类，里面提供对数据进行操作的静态方法。  取绝对值：int&#x2F;double abs() 向上取整double ceil() 向下取整double floor() 四舍五入long round() 取较大值,最小值int max(int a,int b)，int min(int a,int b) 取次方double pow(double a,double b):a的b次方">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/image/s78.png">
+<meta property="og:image" content="https://github.com/image/s79.png">
+<meta property="og:image" content="https://github.com/image/s80.png">
+<meta property="og:image" content="https://github.com/image/s81.png">
+<meta property="og:image" content="https://github.com/image/s82.png">
+<meta property="og:image" content="https://github.com/image/s83.png">
+<meta property="og:image" content="https://github.com/image/s84.png">
+<meta property="og:image" content="https://github.com/image/s85.png">
+<meta property="og:image" content="https://github.com/image/s86.png">
+<meta property="og:image" content="https://github.com/image/s87.png">
+<meta property="og:image" content="https://github.com/image/s88.png">
+<meta property="og:image" content="https://github.com/image/s89.png">
+<meta property="og:image" content="https://github.com/image/s90.png">
+<meta property="og:image" content="https://github.com/image/s91.png">
+<meta property="og:image" content="https://github.com/image/s92.png">
+<meta property="og:image" content="https://github.com/image/s93.png">
+<meta property="og:image" content="https://github.com/image/s94.png">
+<meta property="og:image" content="https://github.com/image/s95.png">
+<meta property="og:image" content="https://github.com/image/s96.png">
+<meta property="og:image" content="https://github.com/image/s97.png">
+<meta property="og:image" content="https://github.com/image/s98.png">
+<meta property="article:published_time" content="2025-04-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-24T02:51:13.102Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/image/s78.png">
+  
+  
+  
+  <title>JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Alder-dir</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-21 00:00" pubdate>
+          April 21, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          50 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h1><p>代表数学，是一个工具类，里面提供对数据进行操作的静态方法。</p>
+<ul>
+<li>取绝对值：<code>int/double abs()</code></li>
+<li>向上取整<code>double ceil()</code></li>
+<li>向下取整<code>double floor()</code></li>
+<li>四舍五入<code>long round()</code></li>
+<li>取较大值,最小值<code>int max(int a,int b)，int min(int a,int b)</code></li>
+<li>取次方<code>double pow(double a,double b)</code>:a的b次方</li>
+<li>取0.0~1.0之间（包前不包后）的随机数<code>double random()</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs sas">package com.itheima.d1_inner_class11;<br><br>public class Test3 &#123;<br>    public static void mai<span class="hljs-meta">n</span>(String[] args) &#123;<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;-----绝对值-----&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">abs</span>(-12));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;------向上取值----&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">ceil</span>(4.001));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">ceil</span>(4.0));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;-----向下取值-----&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">floor</span>(4.999));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">floor</span>(4.0));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;-----四舍五入-----&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">round</span>(4.999));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">round</span>(4.0));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;-----取最大值、最小值-----&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">max</span>(12,13));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.<span class="hljs-meta">min</span>(12,13));<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;-----0.0~1.0随机数-----&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(Math.random());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/image/s78.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="System"><a href="#System" class="headerlink" title="System"></a>System</h1><p>System代表程序所在的系统，也是一个工具类</p>
+<ul>
+<li>终止当前运行的Java虚拟机<code>void exit(int status)</code>,源代码中使用的是Runtime的exit方法；status表示状态代码，非零状态码表示异常终止，一般不轻易使用。</li>
+<li>获取当前系统的时间<code>long currentTimeMillis()</code>，指从1970年1月1日00:00:00走到此刻的总毫秒数，可以用来判断一段程序运行的时间（性能）。</li>
+</ul>
+<p>代码如下:</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class11;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test3 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        long <span class="hljs-type">time</span> = <span class="hljs-keyword">System</span>.currentTimeMillis();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++) &#123;<br>            <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(i);<br>        &#125;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;这段程序花费了&quot;+(<span class="hljs-keyword">System</span>.currentTimeMillis() - <span class="hljs-type">time</span>)/<span class="hljs-number">1000</span>+&quot;s&quot;);<br><br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s79.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h1><p>Runtime表示程序所在的运行环境，是一个单例类(私有)，我们自己创建的对象不能直接创建Runtime，而要通过getRuntime来创建。</p>
+<ul>
+<li>返回与当前Java应用程序关联的运行时对象<code>Runtime getRuntime()</code></li>
+<li>终止当前运行的虚拟机，status表示状态代码，非零状态码表示异常终止，一般不轻易使用<code>void exit(int status)</code></li>
+<li>获取虚拟机能够使用的处理器数<code>int availableProcessors()</code></li>
+<li>返回Java虚拟机的内存总数<code>long totalMemory()</code>,1024 &#x3D; 1K,1024 * 1024 &#x3D; 1MB</li>
+<li>返回Java虚拟机中的可用内存容量<code>long freeMemory()</code></li>
+<li>启动某个程序，并返回代表程序的对象<code>Process exec(String command)</code></li>
+<li>销毁程序<code>destroy()</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test4 &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> IOException, InterruptedException &#123;<br>        <span class="hljs-keyword">Runtime</span> r = <span class="hljs-keyword">Runtime</span>.getRuntime();<br><br>        System.out.<span class="hljs-keyword">println</span>(r.availableProcessors());<br><br>        System.out.<span class="hljs-keyword">println</span>(r.totalMemory() <span class="hljs-regexp">/ 1024 /</span> <span class="hljs-number">1024</span> + <span class="hljs-string">&quot;MB&quot;</span>);<br><br>        System.out.<span class="hljs-keyword">println</span>(r.freeMemory() <span class="hljs-regexp">/ 1024 /</span> <span class="hljs-number">1024</span> + <span class="hljs-string">&quot;MB&quot;</span>);<br><br>        Process p = r.exec(<span class="hljs-string">&quot;E:\\JUDE-Community_v5.5.2_CN_Green\\jude.bat&quot;</span>);<span class="hljs-comment">//这里的command是绝对路径，如果在电脑环境变量中配置了程序，那么直接填入该程序的名字也可以启动</span><br>        Thread.sleep(<span class="hljs-number">5000</span>);<span class="hljs-comment">//让程序在这里暂停5秒后继续往下走</span><br>        p.destroy();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/image/s80.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="BigDecimal（重点）"><a href="#BigDecimal（重点）" class="headerlink" title="BigDecimal（重点）"></a>BigDecimal（重点）</h1><p><strong>用于解决浮点数运算时出现失真的问题</strong>，如下代码所示的情况：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">double</span> d1=<span class="hljs-number">0</span>.<span class="hljs-number">1</span>;<br><span class="hljs-attribute">double</span> d2=<span class="hljs-number">0</span>.<span class="hljs-number">2</span>;<br><br><span class="hljs-attribute">System</span>.out.println(d1 + d2);<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s81.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>构造器<code>BigDecimal(String val)</code>,把字符串封装成BigDecimal对象来运算</li>
+<li><strong>将double类型数据转换成BigDecimal对象，<code>BigDecimal valueOf(double val)</code></strong></li>
+<li>加法<code>BigDecimal add(BigDecimal b)</code></li>
+<li>减法<code>BigDecimal subtract(BigDecimal b)</code></li>
+<li>乘法<code>BigDecimal multiply(BigDecimal b)</code></li>
+<li>除法<code>BigDecimal divide(BigDecimal b)</code></li>
+<li>除法，确定精度和舍入模式<code>BigDecimal divide(BigDecimal b,精确几位,舍入模式)</code></li>
+<li>将BigDecimal类型转换为double类型<code>double doubleValue()</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">import</span> java.math.BigDecimal;<br><span class="hljs-keyword">import</span> java.math.RoundingMode;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test5 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        <span class="hljs-type">double</span> d1=<span class="hljs-number">0.1</span>;<br>        <span class="hljs-type">double</span> d2=<span class="hljs-number">0.2</span>;<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(d1 + d2);<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;------BigDecimal---------&quot;);<br>        BigDecimal b1 = BigDecimal.valueOf(d1);<br>        BigDecimal b2 = BigDecimal.valueOf(d2);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b1.<span class="hljs-keyword">add</span>(b2));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b1.subtract(b2));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b1.multiply(b2));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b1.divide(b2));<br><br>        <span class="hljs-type">double</span> d3=<span class="hljs-number">0.3</span>;<br>        BigDecimal b3 = BigDecimal.valueOf(d3);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b1.divide(b3,<span class="hljs-number">2</span>,RoundingMode.HALF_UP));<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b3.doubleValue());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s82.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="日期时间类"><a href="#日期时间类" class="headerlink" title="日期时间类"></a>日期时间类</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><ul>
+<li>构造器创建新的Date对象<code>Bate()</code></li>
+<li>拿到时间毫秒值<code>long getTime()</code></li>
+<li>将时间毫秒值转换成日期对象<code>Date(long time)</code></li>
+<li>直接把日期对象的时间通过setTime方法进行修改<code>void setTime(long time)</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">import</span> java.util.Date;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test6 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        //创建新的<span class="hljs-type">Date</span>对象<br>        <span class="hljs-type">Date</span> d = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(d);<br><br>        //拿到时间毫秒值，也就是将<span class="hljs-type">Date</span>对象转换为时间毫秒值<br>        long <span class="hljs-type">time</span>=d.getTime();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-type">time</span>);<br><br>        //把时间毫秒值转化为日期对象，<span class="hljs-number">2</span>s之后的时间是多少,相当于修改日期对象<br>        <span class="hljs-type">time</span> += <span class="hljs-number">2</span> * <span class="hljs-number">1000</span>;<br>        <span class="hljs-type">Date</span> dt = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-type">time</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(dt);<br><br>        //setTime修改日期对象<br>        <span class="hljs-type">Date</span> d2 = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>();<br>        d2.setTime(<span class="hljs-type">time</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(d2);<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s83.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="SimpleDateFormat"><a href="#SimpleDateFormat" class="headerlink" title="SimpleDateFormat"></a>SimpleDateFormat</h2><p>代表简单的日期格式化，可以用来把日期对象、时间毫秒值格式化成我们想要的形式。</p>
+<ul>
+<li>创建简单日期格式化对象，并封装时间格式<code>SimpleDateFormat(String pattern)</code></li>
+<li>将日期格式化成日期&#x2F;时间字符串<code>String format(Date date)</code></li>
+<li>将时间毫秒值转化为日期&#x2F;时间字符串<code>String format(Object time)</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">import</span> java.text.SimpleDateFormat;<br><span class="hljs-keyword">import</span> java.util.Date;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test7 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        <span class="hljs-type">Date</span> d1 = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(d1);<br><br>        //将<span class="hljs-type">Date</span>对象转换成时间毫秒值<br>        long <span class="hljs-type">time</span> = d1.getTime();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-type">time</span>);<br><br>        //创建简单日期格式化对象，并封装时间格式<br>        SimpleDateFormat sdf = <span class="hljs-built_in">new</span> SimpleDateFormat(&quot;yyyy年MM月dd日 HH:mm:ss EEE a&quot;);<br>        SimpleDateFormat sdf2 = <span class="hljs-built_in">new</span> SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(sdf.format(d1));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(sdf2.format(<span class="hljs-type">time</span>));<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s84.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><strong>解析日期&#x2F;时间字符串时间为Date对象<code>Date parse(String source)</code>,一般是将前端传过来的日期字符串进行解析</strong></li>
+</ul>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs abnf">String str<span class="hljs-operator">=</span><span class="hljs-string">&quot;2004-10-18 12:00:00&quot;</span><span class="hljs-comment">;</span><br>//注意SimpleDateFormat的格式必须和被解析的日期格式相同<br>SimpleDateFormat sdf3 <span class="hljs-operator">=</span> new SimpleDateFormat(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>)<span class="hljs-comment">;</span><br>Date date<span class="hljs-operator">=</span>sdf3.parse(str)<span class="hljs-comment">;</span><br>System.out.println(date)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<p><img src="/image/s85.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="练习题：秒杀活动"><a href="#练习题：秒杀活动" class="headerlink" title="练习题：秒杀活动"></a>练习题：秒杀活动</h3><p>题目：肯德基最新上线了一个一元秒杀蛋挞的活动</p>
+<ul>
+<li>活动开始时间：2025年4月18日 12:00:00</li>
+<li>活动结束时间：2025年4月18日 12:10:00</li>
+<li>张三付款时间：2025年4月18日 12:08:56</li>
+<li>李四付款时间：2025年4月18日 12:10:56</li>
+</ul>
+<p>用代码说明这两位同学有没有成功参加上秒杀活动。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.text.ParseException;<br><span class="hljs-keyword">import</span> java.text.SimpleDateFormat;<br><span class="hljs-keyword">import</span> java.util.Date;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ParseException &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">beg</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2025年4月18日 12:00:00&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2025年4月18日 12:10:00&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">zs</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2025年4月18日 12:08:56&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">ls</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2025年4月18日 12:10:56&quot;</span>;<br><br>        <span class="hljs-type">SimpleDateFormat</span> <span class="hljs-variable">sdf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleDateFormat</span>(<span class="hljs-string">&quot;yyyy年MM月dd日 HH:mm:ss&quot;</span>);<br>        <span class="hljs-comment">//将String对象解析成Date对象</span><br>        <span class="hljs-type">Date</span> <span class="hljs-variable">datebeg</span> <span class="hljs-operator">=</span> sdf.parse(beg);<br>        <span class="hljs-type">Date</span> <span class="hljs-variable">dateend</span> <span class="hljs-operator">=</span> sdf.parse(end);<br>        <span class="hljs-type">Date</span> <span class="hljs-variable">datezs</span> <span class="hljs-operator">=</span> sdf.parse(zs);<br>        <span class="hljs-type">Date</span> <span class="hljs-variable">datels</span> <span class="hljs-operator">=</span> sdf.parse(ls);<br><br>        <span class="hljs-comment">//取到时间毫秒值更容易后续的比较</span><br>        <span class="hljs-type">long</span> <span class="hljs-variable">timebeg</span> <span class="hljs-operator">=</span> datebeg.getTime();<br>        <span class="hljs-type">long</span> <span class="hljs-variable">timeend</span> <span class="hljs-operator">=</span> dateend.getTime();<br>        <span class="hljs-type">long</span> <span class="hljs-variable">timezs</span> <span class="hljs-operator">=</span> datezs.getTime();<br>        <span class="hljs-type">long</span> <span class="hljs-variable">timels</span> <span class="hljs-operator">=</span> datels.getTime();<br><br>        System.out.println(<span class="hljs-string">&quot;张三秒杀&quot;</span>+(compare(timezs,timebeg,timeend) ? <span class="hljs-string">&quot;成功&quot;</span> : <span class="hljs-string">&quot;失败&quot;</span>));<br>        System.out.println(<span class="hljs-string">&quot;李四秒杀&quot;</span>+(compare(timels,timebeg,timeend) ? <span class="hljs-string">&quot;成功&quot;</span> : <span class="hljs-string">&quot;失败&quot;</span>));<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(<span class="hljs-type">long</span> time,<span class="hljs-type">long</span> timebeg,<span class="hljs-type">long</span> timeend)</span>  &#123;<br>        <span class="hljs-keyword">if</span> (time &gt;= timebeg &amp;&amp; time &lt;= timeend)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s86.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h2><p>Calendar相当于一个日历，</p>
+<ul>
+<li>获取当前日历对象<code>Calendar getInstance()</code></li>
+<li>获取当前日历中的某个信息<code>int get(int field)</code></li>
+<li>获取日期对象<code>final Date getTime()</code></li>
+<li>获取时间毫秒值<code>long getTimeInMillis()</code></li>
+<li>修改日历的某个信息<code>void set(int field,int value)</code></li>
+<li>为某个信息增加&#x2F;减少指定的值<code>void add(int field,int amount)</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package com.itheima.d1_inner_class12;<br><br>import java.util.Calendar;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test1</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br><br>        <span class="hljs-comment">//得到该系统现在时间对应的日历对象</span><br>        Calendar calendar = Calendar.getInstance();<br>        System.<span class="hljs-keyword">out</span>.println(calendar);<br><br>        <span class="hljs-comment">//获取日历中的信息</span><br>        System.<span class="hljs-keyword">out</span>.println(calendar.<span class="hljs-keyword">get</span>(Calendar.YEAR));<br><br>        <span class="hljs-comment">//获取日期对象</span><br>        System.<span class="hljs-keyword">out</span>.println(calendar.getTime());<br><br>        <span class="hljs-comment">//获取时间毫秒值</span><br>        System.<span class="hljs-keyword">out</span>.println(calendar.getTimeInMillis());<br><br>        <span class="hljs-comment">//修改日历的某个信息</span><br>        calendar.<span class="hljs-keyword">set</span>(Calendar.YEAR, <span class="hljs-number">2024</span>);<br>        calendar.<span class="hljs-keyword">set</span>(Calendar.MONTH, <span class="hljs-number">9</span>);<span class="hljs-comment">//注意这里是将月份改成了10，因为日历中的月份是从0开始计数的</span><br>        System.<span class="hljs-keyword">out</span>.println(calendar);<br><br>        <span class="hljs-comment">//为某个信息增加/减少指定的值</span><br>        calendar.<span class="hljs-keyword">add</span>(Calendar.MONTH, <span class="hljs-number">2</span>);<br>        System.<span class="hljs-keyword">out</span>.println(calendar);<br>        calendar.<span class="hljs-keyword">add</span>(Calendar.MONTH, <span class="hljs-number">-2</span>);<br>        System.<span class="hljs-keyword">out</span>.println(calendar);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果为；<br><img src="/image/s87.png" srcset="/img/loading.gif" lazyload><br><img src="/image/s88.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="JDK8之后新增时间API"><a href="#JDK8之后新增时间API" class="headerlink" title="JDK8之后新增时间API"></a>JDK8之后新增时间API</h2><p>以上所学的起讫时间API只精确到毫秒，而JDK8之后新增时间API可以精确到纳秒。 </p>
+<ul>
+<li>1秒&#x3D;1000毫秒</li>
+<li>1毫秒&#x3D;1000微秒</li>
+<li>1微秒&#x3D;1000纳秒</li>
+<li>1秒&#x3D;1000 000 000纳秒</li>
+</ul>
+<h3 id="代替Calendar"><a href="#代替Calendar" class="headerlink" title="代替Calendar"></a>代替Calendar</h3><h4 id="LocalDate-LocalTime-LocalDateTime"><a href="#LocalDate-LocalTime-LocalDateTime" class="headerlink" title="LocalDate&#x2F;LocalTime&#x2F;LocalDateTime"></a>LocalDate&#x2F;LocalTime&#x2F;LocalDateTime</h4><p>它们获取本地时间对象的方法：<code>Xxxx now()</code></p>
+<ul>
+<li>LocalDate：本地日期，年、月、日、星期</li>
+<li>LocalTime：本地时间，时、分、秒、纳秒，方法与相似</li>
+<li><strong>LocalDateTime：本地日期和时间LocalDate和LocalTime的组合，年、月、日、星期、时、分、秒、纳秒</strong></li>
+</ul>
+<p>以下是LocalDateTime的方法用法，LocalDate与LocalTime的用法也包含在其中。</p>
+<table>
+<thead>
+<tr>
+<th>说明</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>获取日期对象中的信息：年、月、日、一年中的第几天、星期几、时、分、秒、纳秒</td>
+<td>getYear()、getMonthValue()、getDayOfMonth()、getDayOfYear()、getDayOfWeek().getValue()、getHour()、getMinute()、getSecond()、getNano()</td>
+</tr>
+<tr>
+<td>修改日期对象中某个信息</td>
+<td>withYear()、withMonth()…</td>
+</tr>
+<tr>
+<td>把某个信息加多少</td>
+<td>plusYears()、plusMonths…</td>
+</tr>
+<tr>
+<td>把某个信息减多少</td>
+<td>minusYears()</td>
+</tr>
+<tr>
+<td>获取指定日期的LocalDate对象</td>
+<td>LocalDate.of(int year,int month,int day)</td>
+</tr>
+<tr>
+<td>判断2个日期对象是否相等，在前还是在后</td>
+<td>equals()、isBefore()、isAfter()</td>
+</tr>
+<tr>
+<td>将LocalDateTime转换成LocalDate和LocalTime类型</td>
+<td>toLocalDate()、toLocalTime()</td>
+</tr>
+<tr>
+<td>将LocalDate和LocalTime类型合并成LocalDateTime对象</td>
+<td>LocalDateTime.of()</td>
+</tr>
+<tr>
+<td>解析用户输入的日期</td>
+<td>LocalDate.parse()</td>
+</tr>
+</tbody></table>
+<p><font size="4"><strong>注意：这三个对象都是不可变对象，当对其某个信息进行修改时需要重新创建一个对象</strong></font></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.LocalDate;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><span class="hljs-keyword">import</span> java.time.<span class="hljs-built_in">LocalTime</span>;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test2 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        //获取日期对象<br>        LocalDateTime ld=LocalDateTime.now();//不可变对象<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld);<br><br>        //获取日期对象中的信息<br>        <span class="hljs-type">int</span> year=ld.getYear();<br>        <span class="hljs-type">int</span> month=ld.getMonthValue();<br>        <span class="hljs-type">int</span> day=ld.getDayOfMonth();<br>        <span class="hljs-type">int</span> dayOfYear=ld.getDayOfYear();<br>        <span class="hljs-type">int</span> dayOfweek=ld.getDayOfWeek().getValue();<br><br>        <span class="hljs-type">int</span> Hour=ld.getHour();<br>        <span class="hljs-type">int</span> Minute=ld.getMinute();<br>        <span class="hljs-type">int</span> Second=ld.getSecond();<br>        <span class="hljs-type">int</span> Nanosecond=ld.getNano();<br><br><br>        //修改某个信息<br>        LocalDateTime ld2=ld.withYear(<span class="hljs-number">2004</span>);<br>        LocalDateTime ld3=ld.withMonth(<span class="hljs-number">3</span>);<br><br>        LocalDateTime ld4=ld.withHour(<span class="hljs-number">4</span>);<br>        LocalDateTime ld5=ld.withMinute(<span class="hljs-number">5</span>);<br><br>        //把某个信息加多少<br>        LocalDateTime ld6=ld.plusYears(<span class="hljs-number">4</span>);<br><br>        //把某个信息减多少<br>        LocalDateTime ld7=ld.minusMinutes(<span class="hljs-number">5</span>);<br><br>        //获取指定日期的LocalDate对象<br>        LocalDateTime ld8=LocalDateTime.<span class="hljs-keyword">of</span>(<span class="hljs-number">2004</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">1111</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld8);<br><br>        //判断<span class="hljs-number">2</span>个日期对象是否相等，在前还是在后<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.equals(ld2));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.isBefore(ld3));<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld.isAfter(ld4));<br><br>        //将LocalDateTime转换成LocalDate和<span class="hljs-built_in">LocalTime</span>类型<br>        LocalDate ld0 = ld.toLocalDate();<br>        <span class="hljs-built_in">LocalTime</span> lt0 = ld.toLocalTime();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld0);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(lt0);<br><br>        //将LocalDate和<span class="hljs-built_in">LocalTime</span>类型合并成LocalDateTime对象<br>        LocalDateTime LDT=LocalDateTime.<span class="hljs-keyword">of</span>(ld0,lt0);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(LDT);<br><br>        //解析日期<br>        String <span class="hljs-type">date</span> = &quot;2022-12-23&quot;;<br>        LocalDate ld1 = LocalDate.parse(<span class="hljs-type">date</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld1);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld1.getClass());<br><br>        //解析时间<br>        String <span class="hljs-type">time</span> = &quot;12:12:12&quot;;<br>        <span class="hljs-built_in">LocalTime</span> lt1 = <span class="hljs-built_in">LocalTime</span>.parse(<span class="hljs-type">time</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(lt1);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(ld1.getClass());<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s89.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="ZoneId"><a href="#ZoneId" class="headerlink" title="ZoneId"></a>ZoneId</h4><p>ZoneId代表时区Id，由于世界各个国家与地区的经度不同，各个地区的时间也有所不同，因此会划分为不同的地区。</p>
+<ul>
+<li>获取系统默认时区<code>systemDefault()</code></li>
+<li>获取Java支持的全部时区Id<code>getAvailableZoneIds()</code></li>
+<li>把某个时区id封装成ZoneId对象<code>ZoneId.of(&quot;时区&quot;)</code></li>
+<li>获取某个时区的ZoneDateTime对象<code>ZonedDateTime.now(ZoneId zoneId)</code></li>
+<li>获取世界标准时间<code>ZonedDateTime.now(Clock.systemUTC())</code></li>
+<li>获取系统默认时区的ZoneDateTime对象<code>ZonedDateTime.now()</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.Clock;<br><span class="hljs-keyword">import</span> java.time.ZoneId;<br><span class="hljs-keyword">import</span> java.time.ZonedDateTime;<br><span class="hljs-keyword">import</span> java.util.Calendar;<br><span class="hljs-keyword">import</span> java.util.TimeZone;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test3</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-comment">//获取系统默认时区</span><br>        <span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId</span> <span class="hljs-operator">=</span> ZoneId.systemDefault();<br>        System.out.println(zoneId);<br><br>        <span class="hljs-comment">//获取Java支持的全部时区Id</span><br>        System.out.println(ZoneId.getAvailableZoneIds());<br><br>        <span class="hljs-comment">//把某个时区id封装成ZoneId对象</span><br>        <span class="hljs-type">ZoneId</span> <span class="hljs-variable">zoneId2</span> <span class="hljs-operator">=</span> ZoneId.of(<span class="hljs-string">&quot;Europe/Berlin&quot;</span>);<br><br>        <span class="hljs-comment">//ZonedDateTime指带时区的时间</span><br>        <span class="hljs-comment">//获取某个时区的ZoneDateTime对象</span><br>        <span class="hljs-type">ZonedDateTime</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> ZonedDateTime.now(zoneId2);<br>        System.out.println(now);<br><br>        <span class="hljs-comment">//获取世界标准时间，上海时区和世界标准时间相差8小时</span><br>        System.out.println(ZonedDateTime.now(Clock.systemUTC()));<br><br>        <span class="hljs-comment">//获取系统默认时区的ZoneDateTime对象</span><br>        <span class="hljs-type">ZonedDateTime</span> <span class="hljs-variable">now2</span> <span class="hljs-operator">=</span> ZonedDateTime.now();<br>        System.out.println(now2);<br><br>        <span class="hljs-comment">//获取ZonedDateTime对象的某个信息，和LocalDateTime用法相同</span><br>        System.out.println(now2.getMonth());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s90.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="代替Date"><a href="#代替Date" class="headerlink" title="代替Date"></a>代替Date</h3><p>Date是可变对象，而Instant是不可变对象。</p>
+<h4 id="Instant"><a href="#Instant" class="headerlink" title="Instant"></a>Instant</h4><p>Instant是时间上的某个时刻&#x2F;时间戳，包括两部分：从1970-01-01 00:00:00开始走到此刻的<strong>总秒数+不够1秒的纳秒数</strong></p>
+<ul>
+<li>创建Instant对象，获取此刻时间信息<code>Instant.now()</code></li>
+<li>获取总秒数<code>long getEpochSecond()</code></li>
+<li>获取不够1秒纳秒数<code>int getNano()</code></li>
+<li>给某个信息加多少<code>plusSeconds(int amount)/plusNanos(int amount)</code>等</li>
+<li>给某个信息减多少<code>minusNanos(int amount)/minusSeconds(int amount)</code>等</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.Instant;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test4</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//创建Instant对象，获取此刻时间信息</span><br>        <span class="hljs-type">Instant</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> Instant.now();<br>        System.out.println(now);<br><br>        <span class="hljs-comment">//获取总秒数</span><br>        System.out.println(now.getEpochSecond());<br><br>        <span class="hljs-comment">//获取不够1秒纳秒数</span><br>        System.out.println(now.getNano());<br><br>        <span class="hljs-comment">//给某个信息加多少</span><br>        <span class="hljs-type">Instant</span> <span class="hljs-variable">now2</span> <span class="hljs-operator">=</span> now.plusSeconds(<span class="hljs-number">1</span>);<br>        System.out.println(now2);<br><br>        <span class="hljs-comment">//给某个信息减多少</span><br>        <span class="hljs-type">Instant</span> <span class="hljs-variable">now3</span> <span class="hljs-operator">=</span> now2.minusNanos(<span class="hljs-number">1</span>);<br>        System.out.println(now3);<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s91.png" srcset="/img/loading.gif" lazyload><br><strong>Instant对象的作用：做代码的性能分析，或者记录用户的操作时间点</strong></p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">Instant now4 <span class="hljs-operator">=</span> Instant.now()<span class="hljs-comment">;</span><br>//代码执行<br>Instant now5 <span class="hljs-operator">=</span> Instant.now()<span class="hljs-comment">;</span><br>//时间相减得到代码运行时间，也在用户某个操作下记录时间点，相当于日志<br></code></pre></td></tr></table></figure>
+<h3 id="代替SimpleDateFormat"><a href="#代替SimpleDateFormat" class="headerlink" title="代替SimpleDateFormat"></a>代替SimpleDateFormat</h3><p>SimpleDateFormat线程不安全，若多个用户同时使用SimpleDateFormat对象，则会出现Bug；而DateTimeFormatter是线程安全的。</p>
+<h4 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h4><ul>
+<li>获取格式化对象<code>DateTimeFormatter ofPattern(时间格式)</code></li>
+<li>对时间进行格式化<code>String format(时间对象)</code></li>
+<li>LocalDateTime提供的格式化时间方法<code>String format(DateTimeFormatter formatter)</code></li>
+<li>LocalDateTime提供的解析时间方法<code>LocalDateTime parse(CharSequence text,DateTimeFormatter formatter)</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><span class="hljs-keyword">import</span> java.time.format.DateTimeFormatter;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test5</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//创建一个日期时间格式化器对象</span><br>        <span class="hljs-type">DateTimeFormatter</span> <span class="hljs-variable">formatter</span> <span class="hljs-operator">=</span> DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);<br><br>        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> LocalDateTime.now();<br>        System.out.println(now);<br><br>        <span class="hljs-comment">//对时间进行格式化</span><br>        System.out.println(formatter.format(now));<span class="hljs-comment">//正向格式化</span><br>        <span class="hljs-comment">//或者</span><br>        System.out.println(now.format(formatter));<span class="hljs-comment">//反向格式化</span><br><br>        <span class="hljs-comment">//解析时间，用LocalTime提供的的解析方法来解析</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">nowStr</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2009-12-12 12:12:12&quot;</span>;<br>        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">now2</span> <span class="hljs-operator">=</span> LocalDateTime.parse(nowStr, formatter);<br>        System.out.println(now2);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s92.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h3><h4 id="Period"><a href="#Period" class="headerlink" title="Period"></a>Period</h4><p>Period（一段时期）只能用来计算两个LocalDate对象相差的年数、月数、天数。</p>
+<ul>
+<li>创建Period对象<code>Period between(LocalDate ld1, LocalDate ld2)</code></li>
+<li>计算相差多少年<code>int getYears()</code></li>
+<li>计算相差多少月<code>int getMonths()</code></li>
+<li>计算相差多少天<code>int getDays()</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.LocalDate;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><span class="hljs-keyword">import</span> java.time.Period;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test6</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-type">LocalDate</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> LocalDate.of(<span class="hljs-number">2004</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>);<br>        <span class="hljs-type">LocalDate</span> <span class="hljs-variable">now2</span> <span class="hljs-operator">=</span> LocalDate.of(<span class="hljs-number">2005</span>,<span class="hljs-number">10</span>,<span class="hljs-number">19</span>);<br><br>        <span class="hljs-comment">//创建Period对象</span><br>        <span class="hljs-type">Period</span> <span class="hljs-variable">period</span> <span class="hljs-operator">=</span> Period.between(now, now2);<br><br>        <span class="hljs-comment">//通过period对象获取两个日期对象相差的信息</span><br>        System.out.println(period.getYears());<br>        System.out.println(period.getMonths());<br>        System.out.println(period.getDays());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s93.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Duration"><a href="#Duration" class="headerlink" title="Duration"></a>Duration</h4><p>Duration（持续时间）用来计算两个事件对象相差的天数、小时数、分数、秒数、纳秒数，支持LocalTime、LocalDateTime、Instant等时间。</p>
+<ul>
+<li>创建Duration对象<code>Duration between(开始时间对象，截止时间对象)</code></li>
+<li>计算相隔多少天<code>long toDays()</code></li>
+<li>计算相隔多少小时<code>long toHours</code></li>
+<li>计算相隔多少分钟<code>long toMinutes()</code></li>
+<li>计算相隔多少秒<code>long toSeconds()</code></li>
+<li>计算相隔多少毫秒<code>long toMillis()</code></li>
+<li>计算相隔多少纳秒<code>long toNanos()</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class12;<br><br><span class="hljs-keyword">import</span> java.time.Duration;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test7 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br><br>        LocalDateTime end = LocalDateTime.<span class="hljs-keyword">of</span>(<span class="hljs-number">2004</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">13</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">end</span>);<br>        LocalDateTime start = LocalDateTime.<span class="hljs-keyword">of</span>(<span class="hljs-number">2004</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>,<span class="hljs-number">12</span>);<br><br>        //创建Duration对象<br>        Duration duration = Duration.<span class="hljs-keyword">between</span>(<span class="hljs-keyword">start</span>, <span class="hljs-keyword">end</span>);<br><br>        //获取两个事件对象间隔的信息<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(duration.toDays());<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(duration.toHours());<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(duration.toMinutes());<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(duration.toSeconds());<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(duration.toMillis());//间隔多少毫秒<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(duration.toNanos());//间隔多少纳秒<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s94.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h1><p>Arrays是用来操作数组的一个工具类</p>
+<h2 id="double型数组"><a href="#double型数组" class="headerlink" title="double型数组"></a>double型数组</h2><ul>
+<li>返回数组内容<code>String toString(类型[] arr)</code></li>
+<li>拷贝数组<code>类型[] copyOfRange(类型[],起始索引,结束索引)</code>，包前不包后</li>
+<li>拷贝数组，可以指定新数组的长度<code>copyOf(类型[] arr,int newlength)</code></li>
+<li>把数组中的元数据改为新数据又存回去<code>setAll(double[] array, IntToDoubleFuction generator)</code>,IntToDoubleFuction generator是一个匿名内部类。</li>
+<li>对数组进行升序排序<code>void sort(类型[] arr)</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">import</span> java.math.BigDecimal;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.function.IntToDoubleFunction;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test1</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-comment">//返回数组内容</span><br>        <span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0</span>,<span class="hljs-number">6</span>,<span class="hljs-number">89</span>,<span class="hljs-number">77</span>,<span class="hljs-number">9</span>&#125;;<br>        System.out.println(Arrays.toString(arr));<br><br>        <span class="hljs-comment">//拷贝数组（指定范围，包钱不包后）</span><br>        <span class="hljs-type">int</span>[] arr2 = Arrays.copyOfRange(arr,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>);<br>        System.out.println(Arrays.toString(arr2));<br><br>        <span class="hljs-comment">//拷贝数组，可以指定新数组的长度</span><br>        <span class="hljs-type">int</span>[] arr3 = Arrays.copyOf(arr,<span class="hljs-number">11</span>);<br>        System.out.println(Arrays.toString(arr3));<br><br>        <span class="hljs-comment">//把数组中的元数据改为新数据又存回去</span><br>        <span class="hljs-type">double</span>[] prices = &#123;<span class="hljs-number">10.1</span>,<span class="hljs-number">12.1</span>,<span class="hljs-number">99</span>&#125;;<br>        Arrays.setAll(prices, <span class="hljs-keyword">new</span> <span class="hljs-title class_">IntToDoubleFunction</span>() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">applyAsDouble</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span> &#123;<br>                <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">MU</span> <span class="hljs-operator">=</span> BigDecimal.valueOf(<span class="hljs-number">0.8</span>);<br>                <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">price</span> <span class="hljs-operator">=</span> BigDecimal.valueOf(prices[value]);<br>                <span class="hljs-keyword">return</span> price.multiply(MU).doubleValue();<br>            &#125;<br>        &#125;);<br>        System.out.println(Arrays.toString(prices));<br><br>        <span class="hljs-comment">//对数组进行排序</span><br>        Arrays.sort(arr);<br>        System.out.println(Arrays.toString(arr));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s95.png" srcset="/img/loading.gif" lazyload></p>
+<p>利用Lambda简化Arrays.setAll()方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">Arrays.setAll(prices, <span class="hljs-keyword">new</span> <span class="hljs-title class_">IntToDoubleFunction</span>() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">applyAsDouble</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span> &#123;<br>        <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">MU</span> <span class="hljs-operator">=</span> BigDecimal.valueOf(<span class="hljs-number">0.8</span>);<br>        <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">price</span> <span class="hljs-operator">=</span> BigDecimal.valueOf(prices[value]);<br>        <span class="hljs-keyword">return</span> price.multiply(MU).doubleValue();<br>    &#125;<br>&#125;);<br>                       <br>                       || Lambda转化<br>                       \/<br><br>Arrays.setAll(prices, (<span class="hljs-type">int</span> value) -&gt; &#123;<br>    <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">MU</span> <span class="hljs-operator">=</span> BigDecimal.valueOf(<span class="hljs-number">0.8</span>);<br>    <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">price</span> <span class="hljs-operator">=</span> BigDecimal.valueOf(prices[value]);<br>    <span class="hljs-keyword">return</span> price.multiply(MU).doubleValue();<br><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意：第四个方法的使用，setAll()的源码如下：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-built_in">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_ invoke__">setAll</span>(<span class="hljs-keyword">double</span>[] <span class="hljs-keyword">array</span>, IntToDoubleFunction generator) &#123;<br>    Objects.<span class="hljs-title function_ invoke__">requireNonNull</span>(generator);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">array</span>.length; i++)<br>        <span class="hljs-keyword">array</span>[i] = generator.<span class="hljs-title function_ invoke__">applyAsDouble</span>(i);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; T <span class="hljs-title function_">requireNonNull</span>(<span class="hljs-params">T obj</span>) &#123;<br>    <span class="hljs-keyword">if</span> (obj == <span class="hljs-literal">null</span>)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">NullPointerException</span>();<br>    <span class="hljs-keyword">return</span> obj;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>匿名内部类其实就是一个对象，传到setAll()方法中首先用requireNonNull()判断该对象是否为空，不为空则循环数组，调用匿名内部类generator的方法applyAsDouble()来依次修改数组中的值。</p>
+<h2 id="对象类型数组排序"><a href="#对象类型数组排序" class="headerlink" title="对象类型数组排序"></a>对象类型数组排序</h2><h3 id="方法一：Comparable"><a href="#方法一：Comparable" class="headerlink" title="方法一：Comparable"></a>方法一：Comparable</h3><p>首先定义一个Student对象，想要按照年龄的大小进行升序或降序排列:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs typescript">package com.<span class="hljs-property">itheima</span>.<span class="hljs-property">d1_inner_class13</span>;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Comparable</span>&lt;<span class="hljs-title class_">Student</span>&gt; &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-title class_">String</span> name;<br>    <span class="hljs-keyword">private</span> int age;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> int <span class="hljs-title function_">compareTo</span>(<span class="hljs-params"><span class="hljs-title class_">Student</span> o</span>) &#123;<br><br><span class="hljs-comment">//        if (this.age &gt; o.age) &#123;</span><br><span class="hljs-comment">//            return 1;</span><br><span class="hljs-comment">//        &#125;else if (this.age &lt; o.age) &#123;</span><br><span class="hljs-comment">//            return -1;</span><br><span class="hljs-comment">//        &#125;</span><br><span class="hljs-comment">//        return 0;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>-o.<span class="hljs-property">age</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Student</span>() &#123;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_">String</span> name, int age) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">getName</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">setName</span>(<span class="hljs-params"><span class="hljs-title class_">String</span> name</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;<br>    &#125;<br><br><br>    <span class="hljs-keyword">public</span> int <span class="hljs-title function_">getAge</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">setAge</span>(<span class="hljs-params">int age</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;<br>    &#125;<br><br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">toString</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Student&#123;&quot;</span> +<br>                <span class="hljs-string">&quot;name=&#x27;&quot;</span> + name + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +<br>                <span class="hljs-string">&quot;, age=&quot;</span> + age +<br>                <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：需要实现泛型接口<code>Comparable&lt;T&gt;</code>，因为要用到它的方法int compareTo(T o)，该方法可以传入任意类型的对象，它的用法是两个数两个数得进行比较，这两个数为调用方法的对象this和传入的对象o。</strong></p>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test2</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-comment">//定义学生类型数组</span><br>        Student[] students = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>[<span class="hljs-number">4</span>];<br>        students[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;Smith&quot;</span>, <span class="hljs-number">20</span>);<br>        students[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;Johnee&quot;</span>, <span class="hljs-number">29</span>);<br>        students[<span class="hljs-number">2</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-number">22</span>);<br>        students[<span class="hljs-number">3</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;John Smith&quot;</span>, <span class="hljs-number">23</span>);<br><br>        Arrays.sort(students);<br>        System.out.println(Arrays.toString(students));<br><br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s96.png" srcset="/img/loading.gif" lazyload><br>这里直接使用Arrays.sort()方法，是因为它的底层逻辑为通过判断compareTo()方法返回的值为-1、1还是0来对对象进行升序排序。要想实现降序排序：只需要在compareTo()方法中把this和o的位置互换即可。</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p><code>&lt;T&gt; void Arrays.sort(T[] arr, new Comparator&lt;? super T&gt; c)</code></p>
+<ul>
+<li><code>T[] arr</code>是需要排序的数组</li>
+<li><code>new Comparator&lt;? super T&gt; c</code>是Comparator比较器对象，用来指定比较的规则（Comparator是一个接口）</li>
+</ul>
+<p>学生类添加一个double类型的salary：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> salary;<br><br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">()</span> </span>&#123;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(<span class="hljs-type">String</span> name, <span class="hljs-type">int</span> age, <span class="hljs-type">double</span> salary)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>        <span class="hljs-keyword">this</span>.age = age;<br>        <span class="hljs-keyword">this</span>.salary = salary;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(<span class="hljs-type">String</span> name)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.age = age;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title">getSalary</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> salary;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">setSalary</span><span class="hljs-params">(<span class="hljs-type">double</span> salary)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.salary = salary;<br>    &#125;<br><br>    @<span class="hljs-function">Override</span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Student&#123;&quot;</span> +<br>                <span class="hljs-string">&quot;name=&#x27;&quot;</span> + name + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +<br>                <span class="hljs-string">&quot;, age=&quot;</span> + age +<br>                <span class="hljs-string">&quot;, salary=&quot;</span> + salary +<br>                <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试类代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.Comparator;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test2</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-comment">//定义学生类型数组</span><br>        Student[] students = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>[<span class="hljs-number">4</span>];<br>        students[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;Smith&quot;</span>, <span class="hljs-number">20</span>,<span class="hljs-number">1899.9</span>);<br>        students[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;Johnee&quot;</span>, <span class="hljs-number">29</span>,<span class="hljs-number">1880.8</span>);<br>        students[<span class="hljs-number">2</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-number">22</span>,<span class="hljs-number">1990.0</span>);<br>        students[<span class="hljs-number">3</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>(<span class="hljs-string">&quot;John Smith&quot;</span>, <span class="hljs-number">23</span>,<span class="hljs-number">1695.9</span>);<br><br>        <br>        <span class="hljs-comment">//new Comparator&lt;Student&gt;() &#123;&#125;是Comparator接口的匿名内部类</span><br>        Arrays.sort(students,<span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;Student&gt;() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(Student o1, Student o2)</span> &#123;<br>                <span class="hljs-keyword">return</span> Double.compare(o1.getSalary(),o2.getSalary());<br>            &#125;<br>        &#125;);<br>        System.out.println(Arrays.toString(students));<br><br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>注意：sort方法中不可以直接使用<code>return o1.salary-o2.salary;</code>，这是因为salary是double类型的，而函数返回值类型为int型，例如178.9-178.8&#x3D;0.1，此时返回值是0，则会将两个salary判断成相等；可以直接写if循环，也可以直接使用上方Double的方法compare()方法实现升序排序,它的源码如下：<br><img src="/image/s97.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>要想实现降序排序，将<code>return Double.compare(o1.getSalary(),o2.getSalary());</code>改为<code>return Double.compare(o2.getSalary(),o1.getSalary());</code>即可</strong></p>
+<p>利用Lambda简化Arrays.sort()方法：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs livescript">Arrays.sort(students,<span class="hljs-keyword">new</span> Comparator&lt;Student&gt;() &#123;<br>    @Override<br>    public int compare(Student o1, Student o2) &#123;<br>        <span class="hljs-keyword">return</span> Double.compare(o1.getSalary(),o2.getSalary());<br>    &#125;<br>&#125;);<br>                       <br>                       || Lambda转化<br>                       <span class="hljs-string">\/</span><br><br>Arrays.sort<span class="hljs-function"><span class="hljs-params">(students,(Student o1, Student o2) -&gt; &#123;</span></span><br><span class="hljs-params"><span class="hljs-function">    <span class="hljs-keyword">return</span> Double.compare(o1.getSalary(),o2.getSalary());</span></span><br><span class="hljs-params"><span class="hljs-function">&#125;)</span>;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h1><p>Lambda是JDK8开始新增的语法形式，<strong>它的作用是只能简化函数式接口的匿名内部类的代码写法</strong></p>
+<p><strong>注：函数式接口指的是只包括一个抽象方法的接口，也可能包含其他非抽象方法。函数式接口一般使用<code>@FunctionalInterface</code>来注解，来检查它是否为函数式接口</strong></p>
+<p>格式：<code>(被重写方法的形参列表) -&gt; &#123;重写的代码&#125;</code></p>
+<p>代码如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test3</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br><span class="hljs-comment">//        Animal dog = new Animal() &#123;</span><br><span class="hljs-comment">//            @Override</span><br><span class="hljs-comment">//            public void run() &#123;</span><br><span class="hljs-comment">//                System.out.println(&quot;狗爬的贼快&quot;);</span><br><span class="hljs-comment">//            &#125;</span><br><span class="hljs-comment">//        &#125;;</span><br>        <br><span class="hljs-comment">//        dog.run();</span><br>        Swim s = () -&gt;&#123;<br>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;快乐游泳&quot;</span>);<br>        &#125;;<br>        s.swim();<br><br>        <br>    &#125;<br>&#125;<br><br>@FunctionalInterface<br><span class="hljs-keyword">interface</span> <span class="hljs-title">Swim</span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swim</span>()</span>;<br>&#125;<br><br><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span>()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>如上代码所示：Animal是抽象类，并非接口类，所以不可以使用Lambda表达式来简化匿名抽象类。</p>
+<h2 id="Lambda省略规则"><a href="#Lambda省略规则" class="headerlink" title="Lambda省略规则"></a>Lambda省略规则</h2><ul>
+<li>参数类型可以省略</li>
+<li>如果只有一个参数，参数类型和括号()都可以省略</li>
+<li>或只有一行代码，可以省略大括号不写，代码最后的<code>;</code>要去掉,如果又return语句<code>return</code>也要去掉</li>
+</ul>
+<p>Arrays.sort()方法简化路径如下：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs scss">Arrays<span class="hljs-selector-class">.sort</span>(students,new Comparator&lt;Student&gt;() &#123;<br>    <span class="hljs-keyword">@Override</span><br>    public int compare(Student o1, Student o2) &#123;<br>        return Double<span class="hljs-selector-class">.compare</span>(o1.getSalary(),o2<span class="hljs-selector-class">.getSalary</span>());<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">//简化一</span><br>Arrays<span class="hljs-selector-class">.sort</span>(students,(Student o1, Student o2) -&gt; &#123;<br>    return Double<span class="hljs-selector-class">.compare</span>(o1.getSalary(),o2<span class="hljs-selector-class">.getSalary</span>());<br>&#125;);<br><br><span class="hljs-comment">//简化二</span><br>Arrays<span class="hljs-selector-class">.sort</span>(students,(o1, o2) -&gt; &#123;<br>    return Double<span class="hljs-selector-class">.compare</span>(o1.getSalary(),o2<span class="hljs-selector-class">.getSalary</span>());<br>&#125;);<br><br><span class="hljs-comment">//简化三</span><br>Arrays<span class="hljs-selector-class">.sort</span>(students,( o1,  o2) -&gt; Double<span class="hljs-selector-class">.compare</span>(o1.getSalary(),o2<span class="hljs-selector-class">.getSalary</span>())<br>);<br><br></code></pre></td></tr></table></figure>
+<h1 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h1><p>简化Lambda,方法引用的标志符号“::”</p>
+<h2 id="静态方法的引用"><a href="#静态方法的引用" class="headerlink" title="静态方法的引用"></a>静态方法的引用</h2><ul>
+<li>格式:<code>类名::静态方法</code></li>
+<li>使用场景：如果某个Lambda表达式只调用一个静态方法，且前后参数的形式一致</li>
+</ul>
+<p>新建一个Compare类，在其中定义一个静态方法,如下所示：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class13;<br><br>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Compare</span> </span>&#123;<br>    public static <span class="hljs-keyword">int</span> compareBySalary(Student o1, Student o2) &#123;<br>        <span class="hljs-keyword">return</span> Double.compare(o1.getSalary(),o2.getSalary());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>对Arrays.sort()方法继续进行简化,调用Compare类中的静态方法compareBySalary：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livescript">Arrays.sort<span class="hljs-function"><span class="hljs-params">(students,( o1,  o2) -&gt; Compare.compareBySalary(o1,o2))</span>;</span><br><span class="hljs-function">                   ||最终结果&lt;连连看😂&gt;</span><br><span class="hljs-function">                   \/</span><br><span class="hljs-function"><span class="hljs-title">Arrays</span>.<span class="hljs-title">sort</span><span class="hljs-params">(students,Compare::compareBySalary)</span>;</span><br></code></pre></td></tr></table></figure>
+<h2 id="实例方法的引用"><a href="#实例方法的引用" class="headerlink" title="实例方法的引用"></a>实例方法的引用</h2><ul>
+<li>格式：<code>对象名::实例方法</code></li>
+<li>使用场景：如果某个Lambda表达式里只调用一个实例方法，且前后参数的形式一致</li>
+</ul>
+<p>在Compare类中定义一个实例方法，如下所示：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">public int <span class="hljs-built_in">compareBySalary2</span>(Student o1, Student o2) &#123;<br>    return Double<span class="hljs-selector-class">.compare</span>(o1.getSalary(),o2<span class="hljs-selector-class">.getSalary</span>());<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>对Arrays.sort()方法进行简化,调用Compare类中的实例方法compareBySalary2：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livescript">Compare compare = <span class="hljs-keyword">new</span> Compare();<br>Arrays.sort<span class="hljs-function"><span class="hljs-params">(students,( o1,  o2) -&gt; compare.compareBySalary2(o1,o2))</span>;</span><br><span class="hljs-function">                   ||最终结果&lt;连连看😂&gt;</span><br><span class="hljs-function">                   \/</span><br><span class="hljs-function"><span class="hljs-title">Arrays</span>.<span class="hljs-title">sort</span><span class="hljs-params">(students,compare::compareBySalary2)</span>;</span><br></code></pre></td></tr></table></figure>
+<h2 id="特定类型方法的引用"><a href="#特定类型方法的引用" class="headerlink" title="特定类型方法的引用"></a>特定类型方法的引用</h2><ul>
+<li>格式：<code>类型::方法</code></li>
+<li>使用场景：如果某个Lambda表达式里只是调用一个实例方法，并且前面参数列表中的第一个参数是作为方法的主调，后面的所有参数都是作为该实例方法的入参</li>
+</ul>
+<p>定义一个字符串数组，对字符串排序：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-keyword">package</span> com.<span class="hljs-property">itheima</span>.<span class="hljs-property">d1_inner_class13</span>;<br><br><span class="hljs-keyword">import</span> java.<span class="hljs-property">util</span>.<span class="hljs-property">Arrays</span>;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test4</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span>(<span class="hljs-built_in">String</span>[] args) &#123;<br>        <span class="hljs-built_in">String</span>[] <span class="hljs-built_in">str</span>=&#123;<span class="hljs-string">&quot;Ac&quot;</span>,<span class="hljs-string">&quot;ad&quot;</span>,<span class="hljs-string">&quot;Bj&quot;</span>,<span class="hljs-string">&quot;bj&quot;</span>,<span class="hljs-string">&quot;ok&quot;</span>,<span class="hljs-string">&quot;No&quot;</span>,<span class="hljs-string">&quot;dc&quot;</span>&#125;;<br><br>        <span class="hljs-comment">//按照ASCII表通过首字母进行排序</span><br>        Arrays.<span class="hljs-property">sort</span>(<span class="hljs-built_in">str</span>);<br>        System.<span class="hljs-property">out</span>.<span class="hljs-property">println</span>(Arrays.<span class="hljs-property">toString</span>(<span class="hljs-built_in">str</span>));<span class="hljs-comment">//使用Arrays.toString()方法返回数组内容</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/image/s98.png" srcset="/img/loading.gif" lazyload></p>
+<p>现在要将忽略字符串首字母大小写进行排序，Arrays.sort()方法代码如下：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-comment">//匿名内部类</span><br>Arrays.<span class="hljs-property">sort</span>(<span class="hljs-built_in">str</span>, <span class="hljs-keyword">new </span><span class="hljs-class title_">Comparator</span>&lt;<span class="hljs-built_in">String</span>&gt;() &#123;<br>    @Override<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span>(<span class="hljs-built_in">String</span> o1, <span class="hljs-built_in">String</span> o2) &#123;<br>        <span class="hljs-keyword">return</span> o1.<span class="hljs-property">compareToIgnoreCase</span>(o2);<br>    &#125;<br>&#125;);<br>                  ||Lambda表达式简化<br>                  \/<br>Arrays.<span class="hljs-property">sort</span>(<span class="hljs-built_in">str</span>, (o1,o2) -&gt; o1.<span class="hljs-property">compareToIgnoreCase</span>(o2));<br>                  ||特定类型方法的引用简化<br>                  \/<br>Arrays.<span class="hljs-property">sort</span>(<span class="hljs-built_in">str</span>, <span class="hljs-built_in">String</span>::compareToIgnoreCase);<br></code></pre></td></tr></table></figure>
+<h2 id="构造器引用"><a href="#构造器引用" class="headerlink" title="构造器引用"></a>构造器引用</h2><ul>
+<li>格式：<code>类名::new</code></li>
+<li>使用场景：如果某个Lambda表达式只是创建新对象，并且前后参数情况一致</li>
+</ul>
+<p>创建一个Car类：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> price;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Car</span><span class="hljs-params">()</span> </span>&#123;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Car</span><span class="hljs-params">(<span class="hljs-type">String</span> name, <span class="hljs-type">double</span> price)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>        <span class="hljs-keyword">this</span>.price = price;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(<span class="hljs-type">String</span> name)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title">getPrice</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> price;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">setPrice</span><span class="hljs-params">(<span class="hljs-type">double</span> price)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.price = price;<br>    &#125;<br><br>    @<span class="hljs-function">Override</span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Car&#123;&quot;</span> +<br>                <span class="hljs-string">&quot;name=&#x27;&quot;</span> + name + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +<br>                <span class="hljs-string">&quot;, price=&quot;</span> + price +<br>                <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试类中定义一个接口，重写接口中的方法：创建一个新的Car对象<br>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test5</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//定义CreateCar接口的匿名内部类</span><br>        <span class="hljs-type">CreateCar</span> <span class="hljs-variable">car</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CreateCar</span>() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> Car <span class="hljs-title function_">create</span><span class="hljs-params">(String name, <span class="hljs-type">double</span> price)</span> &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Car</span>(name, price);<br>            &#125;<br>        &#125;;<br>        <span class="hljs-type">Car</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> car.create(<span class="hljs-string">&quot;奔驰&quot;</span>,<span class="hljs-number">49</span>);<br>        System.out.println(c);<br><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">CreateCar</span>&#123;<br>    Car <span class="hljs-title function_">create</span><span class="hljs-params">(String name,<span class="hljs-type">double</span> price)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>对匿名内部类进行简化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">CreateCar</span> <span class="hljs-variable">car</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CreateCar</span>() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Car <span class="hljs-title function_">create</span><span class="hljs-params">(String name, <span class="hljs-type">double</span> price)</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Car</span>(name, price);<br>    &#125;<br>&#125;;<br>                  ||lambda简化<br>                  \/<br><span class="hljs-type">CreateCar</span> <span class="hljs-variable">car</span> <span class="hljs-operator">=</span> ((name, price) -&gt;  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Car</span>(name, price));<br>                  ||构造器引用简化<br>                  \/<br><span class="hljs-type">CreateCar</span> <span class="hljs-variable">car</span> <span class="hljs-operator">=</span> Car::<span class="hljs-keyword">new</span>;<br></code></pre></td></tr></table></figure>
+
+<p><strong>一般不会刻意去写最终简化的语句，只有遇到了才会去简化</strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用</div>
+      <div>https://github.com/Alder-djr/Alder-djr.github.io.git/2025/04/21/Java basis/java23/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 21, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/04/22/Java%20basis/java24/" title="医院挂号系统">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">医院挂号系统</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/04/12/Java%20basis/java22/" title="JavaAPI(一)——Object(s)、包装类、StringBuilder/StringBuffer/StringJoiner">
+                        <span class="hidden-mobile">JavaAPI(一)——Object(s)、包装类、StringBuilder/StringBuffer/StringJoiner</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

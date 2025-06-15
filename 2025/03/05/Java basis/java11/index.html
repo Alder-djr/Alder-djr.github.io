@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="抽象类 抽象类：如果对下位类进行分组，充分利用多态的类中没有具体的主体，则可以定义为抽象类 标识在该类中无法定义方法主体，只在派生的类中定义 抽象方法中不写具体实现，而是在抽象类的子类中实现 抽象类不可以指定final、static、private 类中只要包含一个抽象方法，就必须将其声明为抽象类；抽象类中也可以没有抽象方法 非抽象方法print()调用了无主体的抽象方法，其派生的类自动继承该方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java抽象类">
+<meta property="og:url" content="https://github.com/Alder-djr/Alder-djr.github.io.git/2025/03/05/Java%20basis/java11/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="抽象类 抽象类：如果对下位类进行分组，充分利用多态的类中没有具体的主体，则可以定义为抽象类 标识在该类中无法定义方法主体，只在派生的类中定义 抽象方法中不写具体实现，而是在抽象类的子类中实现 抽象类不可以指定final、static、private 类中只要包含一个抽象方法，就必须将其声明为抽象类；抽象类中也可以没有抽象方法 非抽象方法print()调用了无主体的抽象方法，其派生的类自动继承该方法">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/image/s66.png">
+<meta property="article:published_time" content="2025-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-16T13:40:52.316Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/image/s66.png">
+  
+  
+  
+  <title>Java抽象类 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Alder-dir</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java抽象类"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-05 00:00" pubdate>
+          March 5, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java抽象类</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><ul>
+<li>抽象类：如果对下位类进行分组，充分利用多态的类中没有具体的主体，则可以定义为抽象类</li>
+<li>标识在该类中无法定义方法主体，只在派生的类中定义</li>
+<li>抽象方法中不写具体实现，而是在抽象类的子类中实现</li>
+<li>抽象类不可以指定final、static、private</li>
+<li>类中只要包含一个抽象方法，就必须将其声明为抽象类；抽象类中也可以没有抽象方法</li>
+<li>非抽象方法print()调用了无主体的抽象方法，其派生的类自动继承该方法</li>
+<li>如果抽象类派生的类存在没有实现的抽象方法，则会自动继承抽象方法，<ul>
+<li>eg：父类——子类a——子类b（继承子类a），父类有两个抽象方法c和d，子类a只重写父类的抽象方法c，则会自动继承另d，所以子类a为抽象类</li>
+<li>而子类b重写了抽象方法d，也自动继承了子类a的抽象方法c，因此子类b重写了所有的抽象方法，它不是抽象类</li>
+</ul>
+</li>
+<li>抽象方法的定义将{}改为”;”,否则无法定义</li>
+</ul>
+<p>定义一个表示图形概念的类，不是一个具体的图形<br>Shape.java:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package chap13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shape</span> &#123;<span class="hljs-comment">//抽象类，标识在该类中无法定义方法主体，只在派生的类中定义</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>()</span>;<span class="hljs-comment">//抽象方法，将&#123;&#125;改为&quot;;&quot;,否则无法定义</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title">toString</span>()</span>;<span class="hljs-comment">//toString()方法是“老大类”Object类中定义的非抽象方法，这里强行将非抽象方法重写为抽象方法</span><br>    <span class="hljs-comment">//这样是为了让其派生的类必须重写toString方法，否则就会编译错误</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span>()</span>&#123;<span class="hljs-comment">//非抽象方法print()调用了无主体的抽象方法，其派生的类自动继承该方法，</span><br>    <span class="hljs-comment">//调用：p.print();p是Shape型的数组，调用哪个print()取决于p引用的是哪个类型的实例</span><br>        <br>        System.<span class="hljs-keyword">out</span>.println(toString());<br>        draw();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="抽象类的派生-不实现方法"><a href="#抽象类的派生-不实现方法" class="headerlink" title="抽象类的派生(不实现方法)"></a>抽象类的派生(不实现方法)</h2><ul>
+<li><strong>若子类未重写父类中的所有方法，该子类应该定义为抽象类</strong></li>
+</ul>
+<p>定义一个抽象直线类（抽象的原因：直线有横线和竖线）继承抽象图形类：<br>AbstLine.java</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">package</span> chap13;<br><span class="hljs-comment">//直线类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstLine</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span></span>&#123;<span class="hljs-comment">//由于该类未重写方法draw和toString，所以是抽象类</span><br>    <span class="hljs-comment">//该子类中直接继承point()、draw()和toString()</span><br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> length;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstLine</span><span class="hljs-params">(<span class="hljs-keyword">int</span> length)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.length = length;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getLength</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> length;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setLength</span><span class="hljs-params">(<span class="hljs-keyword">int</span> length)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.length = length;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义一个抽象三角形类（抽象的原因：三角形有多种类型）继承抽象图形类：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package chap13;<br><br><span class="hljs-keyword">public</span> abstract <span class="hljs-keyword">class</span> <span class="hljs-title class_">Triangle</span> extends Shape&#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> height;<span class="hljs-comment">//高</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Triangle</span><span class="hljs-params">(<span class="hljs-type">int</span> height)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.height = height;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title">getHeight</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> height;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">setHeight</span><span class="hljs-params">(<span class="hljs-type">int</span> height)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.height = height;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="抽象类的派生-实现方法"><a href="#抽象类的派生-实现方法" class="headerlink" title="抽象类的派生(实现方法)"></a>抽象类的派生(实现方法)</h2><p>定义一个点类继承抽象图形类:<br>Point.java</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> chap13;<br><br>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Shape</span> </span>&#123;<br>    <span class="hljs-type">Point</span>()&#123;&#125;<span class="hljs-comment">//构造函数</span><br><br>    <span class="hljs-meta">@Override</span><br>    public void draw() &#123;<span class="hljs-comment">//重写draw()</span><br>        <span class="hljs-type">System</span>.out.println(<span class="hljs-string">&quot;+&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    public <span class="hljs-type">String</span> toString()&#123;<span class="hljs-comment">//重写toString()</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Point&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义一个长方形类继承继承抽象图像类：<br>Rectangle.java:</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package chap13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Rectangle</span> extends Shape&#123;<span class="hljs-comment">//父类的两个抽象方法都重写了，则不是抽象类</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> width;<span class="hljs-comment">//宽</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> height;<span class="hljs-comment">//高</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Rectangle</span><span class="hljs-params">(<span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.width = width;<br>        <span class="hljs-keyword">this</span>.height = height;<br>    &#125;<br><br>    @<span class="hljs-function">Override</span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;<span class="hljs-comment">//重写抽象类shape的抽象方法draw，这称为“实现”（声明方法主体的定义）</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;width;i++)&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;height;j++)&#123;<br>                System.out.<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;+&quot;</span>);<br>            &#125;<br>            System.out.<span class="hljs-built_in">println</span>();<br>        &#125;<br>    &#125;<br><br>    @<span class="hljs-function">Override</span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Rectangle(width:&quot;</span>+width+<span class="hljs-string">&quot;,height:&quot;</span>+height+<span class="hljs-string">&quot;)&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义一个直角三角形类继承抽象三角形类：<br>LeftDownTriangle.java:</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">package</span> chap13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LeftDownTriangle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Triangle</span></span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LeftDownTriangle</span><span class="hljs-params">(<span class="hljs-keyword">int</span> height)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>(height);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=getHeight();i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=i;j++)&#123;<br>                System.out.print(<span class="hljs-string">&#x27;+&#x27;</span>);<br>            &#125;<br>            System.out.println();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function">String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;LeftDownTriangle(height=&quot;</span>+getHeight()+<span class="hljs-string">&quot;)&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义一个横线类继承<strong>抽象直线类</strong>：<br>HorzLine.java</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">package</span> chap13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HorzLine</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstLine</span></span>&#123;<span class="hljs-comment">//不是抽象类</span><br><span class="hljs-comment">//以下是文档注释，文档注释只能在类、构造函数、方法、字段前面声明才会被识别</span><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> length    //<span class="hljs-doctag">@param</span>指参数</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@author</span> “杜佳荣”  //作者</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HorzLine</span><span class="hljs-params">(<span class="hljs-keyword">int</span> length)</span></span>&#123;<br>        <span class="hljs-keyword">super</span>(length);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;<span class="hljs-comment">//重写draw()</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=getLength();i++)&#123;<br>            System.out.print(<span class="hljs-string">&#x27;-&#x27;</span>);<br>        &#125;<br>        System.out.println();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> &quot;HorzLinee(length=&quot;+getLength()+&quot;)&quot;   //返回值</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function">String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;<span class="hljs-comment">//重写toString()</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;HorzLinee(length=&quot;</span>+getLength()+<span class="hljs-string">&quot;)&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：文档注释只能在类、构造函数、方法、字段前面声明才会被识别</strong></p>
+<p>定义一个竖线类继承<strong>抽象直线类</strong>:<br>VertLine.java：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">package</span> chap13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VertLine</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstLine</span></span>&#123;<span class="hljs-comment">//不是抽象类</span><br><span class="hljs-comment">//AbstLine类通过getLength()和setLength()方法封装了length变量的访问。</span><br><span class="hljs-comment">//子类VertLine可以通过这些方法来获取和设置length的值，而不需要直接访问private变量。所以不需要再次定义private int length；</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VertLine</span><span class="hljs-params">(<span class="hljs-keyword">int</span> length)</span></span>&#123;<br>        <span class="hljs-keyword">super</span>(length);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;<span class="hljs-comment">//重写draw()</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=getLength();i++)&#123;<br>            System.out.println(<span class="hljs-string">&#x27;|&#x27;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function">String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;<span class="hljs-comment">//重写toString()</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;VertLine(length=&quot;</span>+getLength()+<span class="hljs-string">&quot;)&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试类1:ShapeTester.java:<br>创建Shape型数组，将Shape类的子类类型的</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package chap13;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ShapeTester</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br>        Shape[] a=<span class="hljs-keyword">new</span> Shape[<span class="hljs-number">5</span>];<span class="hljs-comment">//创建的是元素为Shape类型的数组，无法创建Shape型的实例</span><br><br>        a[<span class="hljs-number">0</span>]=<span class="hljs-keyword">new</span> Point();<br>        a[<span class="hljs-number">1</span>]=<span class="hljs-keyword">new</span> Rectangle(<span class="hljs-number">4</span>,<span class="hljs-number">3</span>);<span class="hljs-comment">//a[0]和a[1]是Shape型的类类型变量，引用自派生Shape类的实例</span><br>        a[<span class="hljs-number">2</span>]=<span class="hljs-keyword">new</span> VertLine(<span class="hljs-number">3</span>);<br>        a[<span class="hljs-number">3</span>]=<span class="hljs-keyword">new</span> HorzLine(<span class="hljs-number">4</span>);<br>        a[<span class="hljs-number">4</span>]=<span class="hljs-keyword">new</span> LeftDownTriangle(<span class="hljs-number">5</span>);<br><br>        <span class="hljs-keyword">for</span>(Shape i:a)&#123;<br>            i.print();<span class="hljs-comment">//调用Shape类中的非抽象方法print()，根据i的类型来选择定义哪个重写的point()</span><br>            System.<span class="hljs-keyword">out</span>.println();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：可以创建的是元素为抽象类类型的数组，但无法创建抽象类类型的实例</strong>  </p>
+<p>运行结果如下：<br><img src="/image/s66.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java抽象类</div>
+      <div>https://github.com/Alder-djr/Alder-djr.github.io.git/2025/03/05/Java basis/java11/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 5, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/03/06/Java%20basis/java12/" title="Java接口类">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java接口类</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/04/Java%20basis/java10/" title="Java类的派生和多态">
+                        <span class="hidden-mobile">Java类的派生和多态</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
