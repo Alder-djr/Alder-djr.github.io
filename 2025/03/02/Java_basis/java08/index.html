@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="类类表示方法及处理的数据对象的集合的结构，比方法更大一级的控件。 封装：将字段设为私有，防止来自外部的访问，从而使方法和字段紧密结合在一起的操作 getter和setter方法统称为访问器：以get开头的方法用于获取、返回字段的值；以set开头的方法用于设置字段的值 注意：在该类中创建了Day类型的开户日期，存款时间和存款结束时间 构造函数的重载是为了后续创建类类型变量时new Day()中()内">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java类的基础知识">
+<meta property="og:url" content="https://github.com/Alder-djr/Alder-djr.github.io.git/2025/03/02/Java_basis/java08/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类类表示方法及处理的数据对象的集合的结构，比方法更大一级的控件。 封装：将字段设为私有，防止来自外部的访问，从而使方法和字段紧密结合在一起的操作 getter和setter方法统称为访问器：以get开头的方法用于获取、返回字段的值；以set开头的方法用于设置字段的值 注意：在该类中创建了Day类型的开户日期，存款时间和存款结束时间 构造函数的重载是为了后续创建类类型变量时new Day()中()内">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/image/s54.png">
+<meta property="og:image" content="https://github.com/image/s55.png">
+<meta property="og:image" content="https://github.com/image/s56.png">
+<meta property="og:image" content="https://github.com/image/s61.png">
+<meta property="og:image" content="https://github.com/image/s62.png">
+<meta property="article:published_time" content="2025-03-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-11T03:35:14.756Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/image/s54.png">
+  
+  
+  
+  <title>Java类的基础知识 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Alder-dir</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Java类的基础知识"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-02 00:00" pubdate>
+          March 2, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          39 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java类的基础知识</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>类表示方法及处理的数据对象的集合的结构，比方法更大一级的控件。</p>
+<p><strong>封装：将字段设为私有，防止来自外部的访问，从而使方法和字段紧密结合在一起的操作</strong></p>
+<p><strong>getter和setter方法统称为访问器：以get开头的方法用于获取、返回字段的值；以set开头的方法用于设置字段的值</strong></p>
+<p><strong>注意：在该类中创建了Day类型的开户日期，存款时间和存款结束时间</strong></p>
+<p><strong>构造函数的重载是为了后续创建类类型变量时new Day()中()内的参数可以有0个、1个、2个…全部，这样比较方便</strong></p>
+<h2 id="银行账户练习"><a href="#银行账户练习" class="headerlink" title="银行账户练习"></a>银行账户练习</h2><p>创建银行账户存储账户的信息，其中包括日期（包括三字段：年 月 日），所以需要先创建日期类。其中包含了复制构造函数的创建</p>
+<p>Day.java：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package chap08;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Day</span> &#123;<span class="hljs-comment">//原则上类声明时都应该加上public，但规模较小的用完即舍弃的类除外，加上public表示该类可以在任何地方使用，没有则表示只能在该包内使用</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> year=<span class="hljs-number">1</span>;<span class="hljs-comment">//创建字段时，直接初始化，修改比较简单</span><br>    <span class="hljs-keyword">private</span>  <span class="hljs-built_in">int</span> month=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> date=<span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">//构造函数也可重载</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Day</span>()</span>&#123;&#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Day</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> year</span>)</span> &#123;<br>        <span class="hljs-keyword">if</span>(year==<span class="hljs-number">0</span>) year=<span class="hljs-number">1</span>; <br>        <span class="hljs-keyword">this</span>.year=year;&#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Day</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> year, <span class="hljs-built_in">int</span> month</span>)</span>&#123;<br>        <span class="hljs-keyword">this</span>(year);<br>        <span class="hljs-keyword">this</span>.month=month;&#125;<span class="hljs-comment">//利用this()来调用该类中的其他构造函数</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Day</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> year, <span class="hljs-built_in">int</span> month, <span class="hljs-built_in">int</span> date</span>)</span>&#123;<br>        <span class="hljs-keyword">this</span>(year,month);<br>        <span class="hljs-keyword">this</span>.date=date;&#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Day</span>(<span class="hljs-params">Day d</span>)</span>&#123;<br>        <span class="hljs-keyword">this</span>(d.year,d.month,d.date);<br>        &#125;<span class="hljs-comment">//复制构造函数</span><br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">getYear</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> year;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setYear</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> year</span>)</span> &#123;<br>        <span class="hljs-keyword">this</span>.year = year;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">getMonth</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> month;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMonth</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> month</span>)</span> &#123;<br>        <span class="hljs-keyword">this</span>.month = month;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">getDate</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> date;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setDate</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> date</span>)</span> &#123;<br>        <span class="hljs-keyword">this</span>.date = date;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> year,<span class="hljs-built_in">int</span> month,<span class="hljs-built_in">int</span> date</span>)</span>&#123;<br>        <span class="hljs-keyword">this</span>.year=year;<br>        <span class="hljs-keyword">this</span>.date=date;<br>        <span class="hljs-keyword">this</span>.month=month;<br>    &#125;<br><br>    <span class="hljs-comment">//根据日期判断星期</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">dayOfWeek</span>()</span>&#123;<br>        <span class="hljs-built_in">int</span> y=year;<br>        <span class="hljs-built_in">int</span> m=month;<br>        <span class="hljs-keyword">if</span>(m==<span class="hljs-number">1</span>||m==<span class="hljs-number">2</span>)&#123;<br>            y--;<br>            m+=<span class="hljs-number">12</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (y+y/<span class="hljs-number">4</span>-y/<span class="hljs-number">100</span>+y/<span class="hljs-number">400</span>+(<span class="hljs-number">13</span>*m+<span class="hljs-number">8</span>)/<span class="hljs-number">5</span>+date)%<span class="hljs-number">7</span>;<span class="hljs-comment">//蔡勒公式，只能计算1582年10月15日之后的日期所对应的星期</span><br>        <span class="hljs-comment">//0代表星期日，1代表星期一，以此类推</span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> boolean <span class="hljs-title">equalTo</span>(<span class="hljs-params">Day d</span>)</span>&#123;<br>        <span class="hljs-keyword">return</span> year==d.year &amp;&amp; month==d.month &amp;&amp; date==d.date;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span>()</span>&#123;<br>        String[] wd=&#123;<span class="hljs-string">&quot;日&quot;</span>,<span class="hljs-string">&quot;一&quot;</span>,<span class="hljs-string">&quot;二&quot;</span>,<span class="hljs-string">&quot;三&quot;</span>,<span class="hljs-string">&quot;四&quot;</span>,<span class="hljs-string">&quot;五&quot;</span>,<span class="hljs-string">&quot;六&quot;</span>&#125;;<br>        <span class="hljs-keyword">return</span> String.format(<span class="hljs-string">&quot;%04d年%02d月%02d日(%s)&quot;</span>,year,month,date,wd[dayOfWeek()]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：构造函数也可重载</strong></p>
+<p>接着创建账户类Account，存储账户信息，其中包含了Day类，称为has-A组合</p>
+<h3 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h3><p>只要是Day类型的字段，它对应的get方法都必须返回一个新建的Day类类型，防止Day类的字段被修改<br><strong>重点：观察以下代码中复制构造函数的用法</strong><br>Account.java：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs typescript">package chap08;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Account</span> &#123;<span class="hljs-comment">//类声明：类型的声明，由字段组成。</span><br><br>    <span class="hljs-comment">//字段</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-title class_">String</span> name;<span class="hljs-comment">//姓名，加上private表示私有访问，私有访问的字段对类的外部是隐藏的，也就是无法从类的外部进行访问</span><br>    <span class="hljs-comment">//将数据对外隐藏起来，防止非法访问操作称为数据隐藏。原则上所有的字段都应该设为私有</span><br>    <span class="hljs-comment">//未指定private的字段都是默认访问，对包内公开，包外私有</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-title class_">String</span> no;<span class="hljs-comment">//账号</span><br>    <span class="hljs-keyword">private</span> long balance;<span class="hljs-comment">//余额</span><br><br>    <span class="hljs-keyword">private</span> <span class="hljs-title class_">Day</span> openDate;<span class="hljs-comment">//开户日期</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-title class_">Day</span> <span class="hljs-keyword">from</span>;<span class="hljs-comment">//存款时间</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-title class_">Day</span> to;<span class="hljs-comment">//存款结束时间</span><br><br>    <span class="hljs-comment">//构造函数，是在创建实例是所调用的，是为了正确初始化实例。像最开始的对实例赋值可以成功，实际上是程序自动构建了一个构造函数Account()&#123;&#125;</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Account</span>(<span class="hljs-title class_">String</span> name, <span class="hljs-title class_">String</span> no, long balance,<span class="hljs-title class_">Day</span> openDate,<span class="hljs-title class_">Day</span> <span class="hljs-keyword">from</span>,<span class="hljs-title class_">Day</span> to) &#123;<span class="hljs-comment">//构造函数：名称与类相同且没有返回值</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>=name;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">no</span>=no;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">balance</span>=balance;<br><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">openDate</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Day</span>(openDate);/利用复制构造函数将一个类类型变量的所有字段复制到另一个变量的对应的所有字段中，而不是单单复制实例<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">from</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Day</span>(<span class="hljs-keyword">from</span>);<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">to</span>=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Day</span>(to);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Account</span>(<span class="hljs-title class_">String</span> name, <span class="hljs-title class_">String</span> no, long balance) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>=name;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">no</span>=no;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">balance</span>=balance;<br>    &#125;<br><br><br><br>    <span class="hljs-comment">//确认账户名</span><br>    <span class="hljs-comment">//以下方法未加static，是由各个实例分别创建的，属于该实例。（前面讲到变量前加static，是为了让其在整个类中通用）</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">getName</span>(<span class="hljs-params"></span>) &#123;<span class="hljs-comment">//实例方法。字段和方法统称为成员</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-comment">//确认账号</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">getNo</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> no;<br>    &#125;<br><br>    <span class="hljs-comment">//确认可用余额</span><br>    <span class="hljs-keyword">public</span> long <span class="hljs-title function_">getBalance</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> balance;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Day</span> <span class="hljs-title function_">getOpenDate</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Day</span>(openDate);<span class="hljs-comment">//不要返回引用类型的字段值，因为外部能够通过该引用值间接改写值，而是要返回利用复制构造函数构造的Day的新实例，</span><br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Day</span> <span class="hljs-title function_">getFrom</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Day</span>(<span class="hljs-keyword">from</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">Day</span> <span class="hljs-title function_">getTo</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Day</span>(to);<br>    &#125;<br><br>    <span class="hljs-comment">//存钱</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">deposit</span>(<span class="hljs-params">long k</span>)&#123;<br>        balance+=k;<br>    &#125;<br><br>    <span class="hljs-comment">//取钱</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">withdraw</span>(<span class="hljs-params">long k</span>)&#123;<br>        balance-=k;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">toString</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> openDate.<span class="hljs-title function_">getYear</span>()+<span class="hljs-string">&quot;年&quot;</span>+ openDate.<span class="hljs-title function_">getMonth</span>()+<span class="hljs-string">&quot;月&quot;</span>+ openDate.<span class="hljs-title function_">getDate</span>()+<span class="hljs-string">&quot;日&quot;</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">toString2</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-comment">//当它的子类要重写该方法时，必须加上public</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">from</span>.<span class="hljs-title function_">getYear</span>()+<span class="hljs-string">&quot;年&quot;</span>+ <span class="hljs-keyword">from</span>.<span class="hljs-title function_">getMonth</span>()+<span class="hljs-string">&quot;月&quot;</span><br>                + <span class="hljs-keyword">from</span>.<span class="hljs-title function_">getDate</span>()+<span class="hljs-string">&quot;日到&quot;</span>+ to.<span class="hljs-title function_">getYear</span>()+<span class="hljs-string">&quot;年&quot;</span>+ to.<span class="hljs-title function_">getMonth</span>()+<span class="hljs-string">&quot;月&quot;</span>+to.<span class="hljs-title function_">getDate</span>()+<span class="hljs-string">&quot;日&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>测试类：AccountTester.java<br><strong>类类型与前方提到的数组类型一样是引用类型的一种，类的实例和数组主体统称为对象</strong>  </p>
+<p>在其中会创建类的实例：Account adachi &#x3D; new Account():使用new创建的类类型的主体称为实例，创建实例的操作称为实例化；adachi是用来引用主体的类类型变量</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs sas">package chap08;<br><br>public class AccountTester &#123;<br>    public static void mai<span class="hljs-meta">n</span>(String[] args) &#123;<br><br>        //下方是创建实例，这时会调用Account类的构造函数。其中还调用了Day类的构造函数<br>        Account adachi=new Account(<span class="hljs-string">&quot;张三&quot;</span>,<span class="hljs-string">&quot;zhangsan&quot;</span>,12000,new <span class="hljs-meta">Day</span>(2004,2,3),new <span class="hljs-meta">Day</span>(2000,2,2),new <span class="hljs-meta">Day</span>(2010,2,3));//张三的账户；<br>        <br>        Account nakata=new Account(<span class="hljs-string">&quot;李四&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,18000,new <span class="hljs-meta">Day</span>(2004,2,6),new <span class="hljs-meta">Day</span>(2009,1,1),new <span class="hljs-meta">Day</span>(2020,1,2));//李四的账户<br><br>        adachi.deposit(200);<br>        nakata.withdraw(3000);<br><br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;张三的账户：&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;姓名&quot;</span>+adachi.getName());//调用实例方法，采用了成员访问运算符<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;账户名&quot;</span>+adachi.getNo());//adachi.getNo()会向对象（实例）adachi发送消息”请告诉我账号是多少“，这样adachi就会自主决定找到账号，并做出应答<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;余额&quot;</span>+adachi.getBalance());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;开户日期&quot;</span>+adachi.getOpen<span class="hljs-meta">Date</span>().toString());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;存款时间&quot;</span>+adachi.toString2());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>();<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;李四的账户：&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;姓名&quot;</span>+nakata.getName());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;账户名&quot;</span>+nakata.getNo());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;余额&quot;</span>+nakata.getBalance());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;开户日期&quot;</span>+nakata.getOpen<span class="hljs-meta">Date</span>().toString());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;存款时间&quot;</span>+nakata.toString2());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：测试类包含main方法（程序的入口）</strong><br>运行结果如下：<br><img src="/image/s54.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：Account类中将字段设置为private，其他外部的类无法进行访问修改，这时测试类中的下面这些代码则无法使用</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">//adachi.name等都是实例变量，如若不进行赋值，则会自动初始化，String类型初始化为<span class="hljs-keyword">null</span>，Long型初始化为<span class="hljs-number">0</span><br>adachi.name=&quot;张三&quot;;//访问其中某个字段采用x.y成员访问运算符（点运算符、（由于是特别指定字段，又称为字段访问运算符））&#123;访问x引用的实例中的成员y&#125;<br>adachi.<span class="hljs-keyword">no</span>=&quot;zhangsan&quot;;<br>adachi.balance=<span class="hljs-number">12000</span>;<br><br>nakata.name=&quot;李四&quot;;<br>nakata.<span class="hljs-keyword">no</span>=&quot;lisi&quot;;<br>nakata.balance=<span class="hljs-number">20000</span>;<br><br>adachi.balance-=<span class="hljs-number">200</span>;//张三取了<span class="hljs-number">200</span><br>nakata.balance+=<span class="hljs-number">2000</span>;//李四存了<span class="hljs-number">2000</span><br><br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;张三的账户：&quot;);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;姓名&quot;+adachi.name);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;账户名&quot;+adachi.<span class="hljs-keyword">no</span>);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;余额&quot;+adachi.balance);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;李四的账户：&quot;);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;姓名&quot;+nakata.name);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;账户名&quot;+nakata.<span class="hljs-keyword">no</span>);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;余额&quot;+nakata.balance);<br></code></pre></td></tr></table></figure>
+
+<h2 id="汽车练习"><a href="#汽车练习" class="headerlink" title="汽车练习"></a>汽车练习</h2><p>在汽车类同样用到了Day类</p>
+<h3 id="继承用法"><a href="#继承用法" class="headerlink" title="继承用法"></a>继承用法</h3><p>Car类：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package chap08;<br><span class="hljs-comment">//Car类中包含Day类，称为has-A组合</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> name;<br>    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> width;<span class="hljs-comment">//访问限制为protected，以便子类可以通过super访问</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> height;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> length;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> x;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> y;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> fuel;<br><br>    <span class="hljs-comment">//类类型的字段</span><br>    <span class="hljs-keyword">private</span> Day purchaseDay;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Car</span><span class="hljs-params">(<span class="hljs-type">String</span> name, <span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> length, <span class="hljs-type">double</span> fuel, Day purchaseDay)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.name = name;<span class="hljs-comment">//this.name是类的字段</span><br>        <span class="hljs-keyword">this</span>.width = width;<br>        <span class="hljs-keyword">this</span>.height = height;<br>        <span class="hljs-keyword">this</span>.length = length;<br>        <span class="hljs-keyword">this</span>.fuel = fuel;<br>        x=y=<span class="hljs-number">0.0</span>;<br>        <span class="hljs-keyword">this</span>.purchaseDay=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Day</span>(purchaseDay);<span class="hljs-comment">//利用复制构造函数将一个类类型变量的所有字段复制到另一个变量的对应的所有字段中，而不是单单复制实例</span><br>    &#125;<br>    <br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title">getX</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> x;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title">getY</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> y;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title">getFuel</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> fuel;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Day <span class="hljs-title">getPurchaseDay</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Day</span>(purchaseDay);<span class="hljs-comment">//不要返回引用类型的字段值，因为外部能够通过该引用值间接改写值</span><br>    &#125;<br><br>    <span class="hljs-comment">//输出车的信息</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">putSpex</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;名称：&quot;</span>+name);<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;车宽：&quot;</span>+width+<span class="hljs-string">&quot;mm&quot;</span>);<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;车高：&quot;</span>+height+<span class="hljs-string">&quot;mm&quot;</span>);<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;车长：&quot;</span>+length+<span class="hljs-string">&quot;mm&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-comment">//汽车前进的距离及计算耗油量</span><br>    <span class="hljs-function"><span class="hljs-type">boolean</span> <span class="hljs-title">move</span><span class="hljs-params">(<span class="hljs-type">double</span> dx,<span class="hljs-type">double</span> dy)</span></span>&#123;<br>        <span class="hljs-type">double</span> dist=Math.<span class="hljs-built_in">sqrt</span>(dx*dx+dy*dy);<br>        <span class="hljs-keyword">if</span>(dist&gt;fuel)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            fuel-=dist;<br>            x+=dx;<br>            y+=dy;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//创建CarExtend子类继承自Car类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CarExtend</span> extends Car&#123;<br><br>    <span class="hljs-keyword">protected</span> <span class="hljs-type">int</span> distence=<span class="hljs-number">0</span>;<br><br>    <span class="hljs-built_in">CarExtend</span>(<span class="hljs-type">String</span> name, <span class="hljs-type">int</span> width, <span class="hljs-type">int</span> height, <span class="hljs-type">int</span> length, <span class="hljs-type">double</span> fuel, Day purchaseDay,<span class="hljs-type">int</span> distence)&#123;<br>        <span class="hljs-built_in">super</span>(name,width,height,length,fuel,purchaseDay);<span class="hljs-comment">//父类的字段在构造函数中访问需要用到super</span><br>        <span class="hljs-keyword">this</span>.distence=distence;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getDistence</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> distence;<br>    &#125;<br><br>    <span class="hljs-comment">//判断两辆车的行驶距离是否相等</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title">fuelCompare</span><span class="hljs-params">(<span class="hljs-type">int</span> distence1,<span class="hljs-type">int</span> distence2)</span></span>&#123;<br>        super.width=distence1;<span class="hljs-comment">//父类无法调用子类新创建的变量，所以用width（车宽）代替（不用特别在意功能，只是简单介绍这个点😂）</span><br>        <span class="hljs-keyword">this</span>.distence=distence2;<br>        <span class="hljs-keyword">if</span>(distence1==distence2)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：getPurchaseDay()方法中返回的是一个新建的Day类类型变量，而不是直接返回引用类型的字段值（也就是return purchaseDay），因为外部能够通过该引用值间接改写值</strong><br><strong>注意：父类的字段（访问类型不为private，可以为protected）在子类的构造函数中访问需要用到super，而父类无法调用子类新创建的变量</strong></p>
+<p>测试类CarTest1.java</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package chap08;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> CarTester1 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        Day d=<span class="hljs-built_in">new</span> Day(<span class="hljs-number">2010</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>);<br>        Car vitz=<span class="hljs-built_in">new</span> Car(&quot;威姿&quot;,<span class="hljs-number">1660</span>,<span class="hljs-number">1500</span>,<span class="hljs-number">3640</span>,<span class="hljs-number">40.0</span>, d);//如若d这个变量除了该作用在后续有用处，<br>        // 则可以像上句代码所示专门为其导入一个类类型变量，如若不需要则直接采用<span class="hljs-built_in">new</span>来创建实例传递参数（CarTester2中）<br>        CarExtend march=<span class="hljs-built_in">new</span> CarExtend(&quot;特斯拉&quot;,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">101</span>,<span class="hljs-built_in">new</span> Day(<span class="hljs-number">2000</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),<span class="hljs-number">200</span>);<br><br>        Day p=vitz.getPurchaseDay();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;爱车的购买日期：&quot;+p);<br>        p.<span class="hljs-keyword">set</span>(<span class="hljs-number">1900</span>,<span class="hljs-number">12</span>,<span class="hljs-number">31</span>);<br><br>        Day q=vitz.getPurchaseDay();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;爱车的购买日期：&quot;+q);<br><br>        vitz.putSpex();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println();<br>        march.putSpex();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;特斯拉的行驶距离为&quot;+ march.getDistence());<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;这俩辆车的行驶距离&quot;+(march.fuelCompare(vitz.width, march.getDistence())?&quot;相等&quot;:&quot;不相等&quot;));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s55.png" srcset="/img/loading.gif" lazyload><br>测试类CarTest2.java</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">package</span> chap08;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> CarTester2 &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) &#123;<br>        Scanner scanner=<span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;请输入车的数据：&quot;</span>);<br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;名称：&quot;</span>);String name= scanner.nextLine();<br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;宽度：&quot;</span>);<span class="hljs-keyword">int</span> width= scanner.nextInt();<br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;高度：&quot;</span>);<span class="hljs-keyword">int</span> height= scanner.nextInt();<br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;长度：&quot;</span>);<span class="hljs-keyword">int</span> length= scanner.nextInt();<br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;燃料数量：&quot;</span>);<span class="hljs-keyword">double</span> fuel= scanner.nextDouble();<br><br>        Car myCar=<span class="hljs-keyword">new</span> Car(name,width,height,length,fuel,<span class="hljs-keyword">new</span> Day(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>));<span class="hljs-comment">//使用new创建Day类型实例</span><br>        <span class="hljs-comment">//创建的实例的引用被传递给了构造函数（使用new创建的实例可以不用再起名，直接传递参数即可）</span><br>        System.out.<span class="hljs-keyword">print</span>(<span class="hljs-string">&quot;购买日期：&quot;</span>+myCar.getPurchaseDay().toString()+<span class="hljs-string">&quot;\n&quot;</span>);<span class="hljs-comment">//这里使用的getPurchaseDay()方法时Car类中的复制构造函数方法，</span><br>        <span class="hljs-comment">// 所以最终Car类的purchaseDay字段引用的是复制构造函数创建的一个日期副本,toString()方法可以省略</span><br><br><br>        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>)&#123;<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;当前位置：(&quot;</span>+myCar.getX()+<span class="hljs-string">&quot;,&quot;</span>+myCar.getY()+<span class="hljs-string">&quot;)·剩余燃料&quot;</span>+myCar.getFuel());<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;是否移动[0...No/1...Yes]:&quot;</span>);<br>            <span class="hljs-keyword">if</span>(scanner.nextInt()==<span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br><br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;x方向的移动距离：&quot;</span>);<br>            <span class="hljs-keyword">double</span> dx=scanner.nextDouble();<br>            System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;y方向的移动距离：&quot;</span>);<br>            <span class="hljs-keyword">double</span> dy= scanner.nextDouble();<br><br>            <span class="hljs-keyword">if</span>(!myCar.move(dx,dy))<br>                System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;燃料不足！&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s56.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="类（实例）变量和类（实例）方法"><a href="#类（实例）变量和类（实例）方法" class="headerlink" title="类（实例）变量和类（实例）方法"></a>类（实例）变量和类（实例）方法</h2><ul>
+<li>类变量(静态变量):它是所有实例共享的数据，与实例无关，且只有一个，要加上static，不加即为实例变量</li>
+<li>实例初始化器{…}：每次创建实例前都会执行实例初始化器其中不能存在return语句，可以存在this语句和super语句；</li>
+<li>类初始化器static{…}，只执行一次，其中不能存在return语句、this语句和super语句。<br>修改Account.java</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package chap10;<br><br> <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> &#123;<br>    <span class="hljs-comment">//counter表示当前赋到了哪一个标识编号,但是不可以用其来保存类类型的全部实例的个数，因为构建的实例可能会在程序中被销毁</span><br>    <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> counter=<span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> String no;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">long</span> balance;<br><br>    <span class="hljs-comment">//未加static的id指各个实例的标识编号</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> id;<br>    <span class="hljs-keyword">private</span> Day2 openDate;<br>    <span class="hljs-keyword">private</span> Day2 <span class="hljs-keyword">from</span>;<br>    <span class="hljs-keyword">private</span> Day2 to;<br><br>    <span class="hljs-comment">//每次创建实例前都会执行实例初始化器；如加上static，则只执行一次类初始化器</span><br>    &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;感谢您开设明解账户&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Account2</span>(<span class="hljs-params">String name, String no, <span class="hljs-built_in">long</span> balance,Day2 openDate,Day2 <span class="hljs-keyword">from</span>,Day2 to</span>)</span> &#123;<br>        <span class="hljs-keyword">this</span>.name=name;<br>        <span class="hljs-keyword">this</span>.no=no;<br>        <span class="hljs-keyword">this</span>.balance=balance;<br>        <span class="hljs-keyword">this</span>.id=++counter;<br>        <span class="hljs-keyword">this</span>.openDate=<span class="hljs-keyword">new</span> Day2(openDate);<br>        <span class="hljs-keyword">this</span>.<span class="hljs-keyword">from</span>=<span class="hljs-keyword">new</span> Day2(<span class="hljs-keyword">from</span>);<br>        <span class="hljs-keyword">this</span>.to=<span class="hljs-keyword">new</span> Day2(to);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span>()</span> &#123;<span class="hljs-comment">//实例方法。字段和方法统称为成员</span><br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNo</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> no;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">long</span> <span class="hljs-title">getBalance</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> balance;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> <span class="hljs-title">getId</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> id;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Day2 <span class="hljs-title">getOpenDate</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Day2(openDate);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Day2 <span class="hljs-title">getFrom</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Day2(<span class="hljs-keyword">from</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Day2 <span class="hljs-title">getTo</span>()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Day2(to);<br>    &#125;<br><br>    <span class="hljs-comment">//存钱</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deposit</span>(<span class="hljs-params"><span class="hljs-built_in">long</span> k</span>)</span>&#123;<br>        balance+=k;<br>    &#125;<br><br>    <span class="hljs-comment">//取钱</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">withdraw</span>(<span class="hljs-params"><span class="hljs-built_in">long</span> k</span>)</span>&#123;<br>        balance-=k;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span>()</span>&#123;<br>        <span class="hljs-keyword">return</span> openDate.getYear()+<span class="hljs-string">&quot;年&quot;</span>+ openDate.getMonth()+<span class="hljs-string">&quot;月&quot;</span>+ openDate.getDate()+<span class="hljs-string">&quot;日&quot;</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString2</span>()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">from</span>.getYear()+<span class="hljs-string">&quot;年&quot;</span>+ <span class="hljs-keyword">from</span>.getMonth()+<span class="hljs-string">&quot;月&quot;</span><br>                + <span class="hljs-keyword">from</span>.getDate()+<span class="hljs-string">&quot;日到&quot;</span>+ to.getYear()+<span class="hljs-string">&quot;年&quot;</span>+ to.getMonth()+<span class="hljs-string">&quot;月&quot;</span>+to.getDate()+<span class="hljs-string">&quot;日&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>修改测试类：AccountTester.java</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package chap10;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AccountTester</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br><br>        Account2 adachi=<span class="hljs-keyword">new</span> Account2(<span class="hljs-string">&quot;张三&quot;</span>,<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-number">12000</span>,<span class="hljs-keyword">new</span> Day2(<span class="hljs-number">2004</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),<span class="hljs-keyword">new</span> Day2(<span class="hljs-number">2000</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>),<span class="hljs-keyword">new</span> Day2(<span class="hljs-number">2010</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>));<span class="hljs-comment">//张三的账户；adachi是用来引用主体的类类型变量</span><br><br>        Account2 nakata=<span class="hljs-keyword">new</span> Account2(<span class="hljs-string">&quot;李四&quot;</span>,<span class="hljs-string">&quot;lisi&quot;</span>,<span class="hljs-number">18000</span>,<span class="hljs-keyword">new</span> Day2(<span class="hljs-number">2004</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>),<span class="hljs-keyword">new</span> Day2(<span class="hljs-number">2009</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),<span class="hljs-keyword">new</span> Day2(<span class="hljs-number">2020</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>));<span class="hljs-comment">//李四的账户</span><br><br>        adachi.deposit(<span class="hljs-number">200</span>);<br>        nakata.withdraw(<span class="hljs-number">3000</span>);<br><br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;张三的账户：&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;姓名&quot;</span>+adachi.getName());<span class="hljs-comment">//调用实例方法，采用了成员访问运算符</span><br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;账户名&quot;</span>+adachi.getNo());<span class="hljs-comment">//adachi.getNo()会向对象（实例）adachi发送消息”请告诉我账号是多少“，这样adachi就会自主决定找到账号，并做出应答</span><br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;余额&quot;</span>+adachi.getBalance());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;编号&quot;</span>+adachi.getId());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;开户日期&quot;</span>+adachi.getOpenDate().toString());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;存款时间&quot;</span>+adachi.toString2());<br>        System.<span class="hljs-keyword">out</span>.println();<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;李四的账户：&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;姓名&quot;</span>+nakata.getName());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;账户名&quot;</span>+nakata.getNo());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;余额&quot;</span>+nakata.getBalance());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;编号&quot;</span>+nakata.getId());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;开户日期&quot;</span>+nakata.getOpenDate().toString());<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;存款时间&quot;</span>+nakata.toString2());<br><br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;Account2.counter=&quot;</span>+Account2.counter);<span class="hljs-comment">//从类外部访问：因为无private，类变量counter的访问——&gt;类名.counter</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s61.png" srcset="/img/loading.gif" lazyload></p>
+<p>如上图所示：Account2.counter&#x3D;2，证明当前赋到了第二个标识编号<br><strong>注意：从Account类外部访问counter，因为无private，类变量counter的访问——&gt;<code>类名.counter</code></strong></p>
+<p><strong>注意：若将Accocunt类中的实例初始化器加上static转变为类初始化器，最后的结果只出现一次“感谢您开设明解账户”</strong></p>
+<h3 id="实例方法和类方法的调用"><a href="#实例方法和类方法的调用" class="headerlink" title="实例方法和类方法的调用"></a>实例方法和类方法的调用</h3><ul>
+<li>Math类调用方法（不是实例方法）[类名.静态方法名]：Math.sqrt()、Math.max(x,y)、Math.min(x,y)、 返回x的绝对值Math.abs(x)</li>
+<li>类方法能访问类变量和类方法，其他（实例变量、实例方法）不可以访问类方法</li>
+<li>实例方法可以调用类方法、类变量、实例变量和实例方法；<br>修改Day.java</li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package chap10;<br><br><span class="hljs-keyword">import</span> java.util.GregorianCalendar;<br><br><span class="hljs-keyword">import</span> static java.util.Calendar.*;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Day2 &#123;<br><br>    private static <span class="hljs-type">int</span> counter;<br>    private <span class="hljs-type">int</span> year;<br>    private  <span class="hljs-type">int</span> month;<br>    private <span class="hljs-type">int</span> <span class="hljs-type">date</span>;<br>    private <span class="hljs-type">int</span> id;<br><br>    //类方法，该类无法访问实例变量<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">boolean</span> isLeap(<span class="hljs-type">int</span> y)&#123;<br>        <span class="hljs-keyword">return</span> y%<span class="hljs-number">4</span>==<span class="hljs-number">0</span> &amp;&amp; y%<span class="hljs-number">100</span>!=<span class="hljs-number">0</span> &amp;&amp; y%<span class="hljs-number">400</span>==<span class="hljs-number">0</span>;<br>    &#125;<br><br>    &#123;//实例初始化器（非静态初始化器），其中不能有<span class="hljs-keyword">return</span>语句，但可以存在this语句和super语句<br>        GregorianCalendar today=<span class="hljs-built_in">new</span> GregorianCalendar();<br>        this.year= today.<span class="hljs-keyword">get</span>(YEAR);//this不可以用在static（也就是类初始化器）下<br>        this.month=today.<span class="hljs-keyword">get</span>(MONTH)+<span class="hljs-number">1</span>;//月份是从<span class="hljs-number">0</span>开始的，所以需要+<span class="hljs-number">1</span><br>        this.date=today.<span class="hljs-keyword">get</span>(<span class="hljs-type">DATE</span>);<br>    &#125;<br><br>    //构造函数也可重载<br>    <span class="hljs-built_in">public</span> Day2()&#123;<br><br>    &#125;<br>    <span class="hljs-built_in">public</span> Day2(<span class="hljs-type">int</span> year) &#123;<span class="hljs-keyword">if</span>(year==<span class="hljs-number">0</span>) year=<span class="hljs-number">1</span>; this.year=year;&#125;<br>    <span class="hljs-built_in">public</span> Day2(<span class="hljs-type">int</span> year, <span class="hljs-type">int</span> month)&#123;this(year);<span class="hljs-keyword">if</span>(month&gt;<span class="hljs-number">12</span>) month=<span class="hljs-number">12</span>;this.month=month;&#125;//利用this()来调用该类中的其他构造函数<br>    <br>    <span class="hljs-built_in">public</span> Day2(<span class="hljs-type">int</span> year, <span class="hljs-type">int</span> month, <span class="hljs-type">int</span> <span class="hljs-type">date</span>)&#123;<br>        this(year,month);<br>        //使得日期数字符合实际<br>        <span class="hljs-keyword">if</span>(month==<span class="hljs-number">1</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">29</span>) <span class="hljs-type">date</span>=<span class="hljs-number">29</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">3</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">4</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">30</span>) <span class="hljs-type">date</span>=<span class="hljs-number">30</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">5</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">6</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">30</span>) <span class="hljs-type">date</span>=<span class="hljs-number">30</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">7</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">8</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">9</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">30</span>) <span class="hljs-type">date</span>=<span class="hljs-number">30</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">10</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">11</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">30</span>) <span class="hljs-type">date</span>=<span class="hljs-number">30</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(month==<span class="hljs-number">12</span> &amp;&amp; <span class="hljs-type">date</span>&gt;<span class="hljs-number">31</span>) <span class="hljs-type">date</span>=<span class="hljs-number">31</span>;<br>        this.date=<span class="hljs-type">date</span>;&#125;<br>    <span class="hljs-built_in">public</span> Day2(Day2 d)&#123;this(d.year,d.month,d.date);<br>        &#125;//复制构造函数<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">int</span> getYear() &#123;<br>        <span class="hljs-keyword">return</span> year;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> setYear(<span class="hljs-type">int</span> year) &#123;<br>        this.year = year;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">int</span> getMonth() &#123;<br>        <span class="hljs-keyword">return</span> month;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> setMonth(<span class="hljs-type">int</span> month) &#123;<br>        this.month = month;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">int</span> getDate() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-type">date</span>;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> setDate(<span class="hljs-type">int</span> <span class="hljs-type">date</span>) &#123;<br>        this.date = <span class="hljs-type">date</span>;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> <span class="hljs-keyword">set</span>(<span class="hljs-type">int</span> year,<span class="hljs-type">int</span> month,<span class="hljs-type">int</span> <span class="hljs-type">date</span>)&#123;<br>        this.year=year;<br>        this.date=<span class="hljs-type">date</span>;<br>        this.month=month;<br>    &#125;<br><br>    //实例方法可以调用类方法（和类变量、实例变量、实例方法）；而类方法能访问类变量和类方法，其他不可以访问<br>    <span class="hljs-built_in">public</span> <span class="hljs-type">boolean</span> isLeap()&#123;<br>        <span class="hljs-keyword">return</span> isLeap(year);<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">int</span> getId()&#123;<br>        <span class="hljs-keyword">return</span> id=++counter;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">int</span> dayOfWeek()&#123;<br>        <span class="hljs-type">int</span> y=year;<br>        <span class="hljs-type">int</span> m=month;<br>        <span class="hljs-keyword">if</span>(m==<span class="hljs-number">1</span>||m==<span class="hljs-number">2</span>)&#123;<br>            y<span class="hljs-comment">--;</span><br>            m+=<span class="hljs-number">12</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> (y+y/<span class="hljs-number">4</span>-y/<span class="hljs-number">100</span>+y/<span class="hljs-number">400</span>+(<span class="hljs-number">13</span>*m+<span class="hljs-number">8</span>)/<span class="hljs-number">5</span>+<span class="hljs-type">date</span>)%<span class="hljs-number">7</span>;//蔡勒公式，只能计算<span class="hljs-number">1582</span>年<span class="hljs-number">10</span>月<span class="hljs-number">15</span>日之后的日期所对应的星期<br>        //<span class="hljs-number">0</span>代表星期日，<span class="hljs-number">1</span>代表星期一，以此类推<br>    &#125;<br><br><br>    <span class="hljs-built_in">public</span> <span class="hljs-type">boolean</span> equalTo(Day2 d)&#123;<br>        <span class="hljs-keyword">return</span> year==d.year &amp;&amp; month==d.month &amp;&amp; <span class="hljs-type">date</span>==d.date;<br>    &#125;<br><br>    <span class="hljs-built_in">public</span> String toString()&#123;<br>        String[] wd=&#123;&quot;日&quot;,&quot;一&quot;,&quot;二&quot;,&quot;三&quot;,&quot;四&quot;,&quot;五&quot;,&quot;六&quot;&#125;;<br>        <span class="hljs-keyword">return</span> String.format(&quot;%04d年%02d月%02d日(%s)&quot;,year,month,<span class="hljs-type">date</span>,wd[dayOfWeek()]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>测试类：DayTest.java</p>
+<ul>
+<li>实例方法的调用： 类类型变量名.实例方法名</li>
+<li>类方法的调用： 类名.类方法名</li>
+</ul>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs sas">package chap10;<br><br>import java.util.Scanner;<br><br>public class DayTest &#123;<br><br>    public static void mai<span class="hljs-meta">n</span>(String[] args) &#123;<br>        Scanner scanner=new Scanner(System.<span class="hljs-keyword">in</span>);<br><br>        System.<span class="hljs-keyword">out</span>.pr<span class="hljs-meta">int</span>(<span class="hljs-string">&quot;年：&quot;</span>);<br>        int y= scanner.next<span class="hljs-meta">Int</span>();<br>        System.<span class="hljs-keyword">out</span>.pr<span class="hljs-meta">int</span>(<span class="hljs-string">&quot;月：&quot;</span>);<br>        int m= scanner.next<span class="hljs-meta">Int</span>();<br>        System.<span class="hljs-keyword">out</span>.pr<span class="hljs-meta">int</span>(<span class="hljs-string">&quot;日：&quot;</span>);<br>        int d= scanner.next<span class="hljs-meta">Int</span>();<br><br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;该年份&quot;</span>+(Day2.isLeap(y)?<span class="hljs-string">&quot;是&quot;</span>:<span class="hljs-string">&quot;不是&quot;</span>+<span class="hljs-string">&quot;闰年&quot;</span>));//类方法的调用： 类名.类方法名<br><br>        Day2 day=new Day2(y,m,d);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;该年份&quot;</span>+(day.isLeap()?<span class="hljs-string">&quot;是&quot;</span>:<span class="hljs-string">&quot;不是&quot;</span>)+<span class="hljs-string">&quot;闰年&quot;</span>);//实例方法的调用： 类类型变量名.实例方法名<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;day的日期是&quot;</span>+day.get<span class="hljs-meta">Year</span>()+<span class="hljs-string">&quot;年&quot;</span>+day.get<span class="hljs-meta">Month</span>()+<span class="hljs-string">&quot;月&quot;</span>+day.get<span class="hljs-meta">Date</span>()+<span class="hljs-string">&quot;日&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;day的编号是：&quot;</span>+day.getId());<br>        Day2 day2=new Day2();<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;day2的日期是&quot;</span>+day2.get<span class="hljs-meta">Year</span>()+<span class="hljs-string">&quot;年&quot;</span>+day2.get<span class="hljs-meta">Month</span>()+<span class="hljs-string">&quot;月&quot;</span>+day2.get<span class="hljs-meta">Date</span>()+<span class="hljs-string">&quot;日&quot;</span>);<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>(<span class="hljs-string">&quot;day的编号是：&quot;</span>+day2.getId());<br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>();<br><br>        System.<span class="hljs-keyword">out</span>.printl<span class="hljs-meta">n</span>();<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s62.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Java类的基础知识</div>
+      <div>https://github.com/Alder-djr/Alder-djr.github.io.git/2025/03/02/Java_basis/java08/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 2, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/03/03/Java_basis/java09/" title="Java类类型数组">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java类类型数组</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/01/Java_basis/java07/" title="Java方法">
+                        <span class="hidden-mobile">Java方法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

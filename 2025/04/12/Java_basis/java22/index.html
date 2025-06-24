@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包 Object类Object类是所有类的祖宗类,所以Java中的所有类的对象都可以直接使用Object类中提供的一些方法  equals() 基本作用：判断两个对象的地址是否相同，与&#x3D;&#x3D;相同。 所以一般情况下需要重写，用来判断两个对象内容是否相同   toString() 基本作用：返回对象的字符串形式 让子类重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaAPI(一)——Object(s)、包装类、StringBuilder&#x2F;StringBuffer&#x2F;StringJoiner">
+<meta property="og:url" content="https://github.com/Alder-djr/Alder-djr.github.io.git/2025/04/12/Java_basis/java22/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包 Object类Object类是所有类的祖宗类,所以Java中的所有类的对象都可以直接使用Object类中提供的一些方法  equals() 基本作用：判断两个对象的地址是否相同，与&#x3D;&#x3D;相同。 所以一般情况下需要重写，用来判断两个对象内容是否相同   toString() 基本作用：返回对象的字符串形式 让子类重">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/image/s71.png">
+<meta property="og:image" content="https://github.com/image/s72.png">
+<meta property="og:image" content="https://github.com/image/s73.png">
+<meta property="og:image" content="https://github.com/image/s74.png">
+<meta property="og:image" content="https://github.com/image/s75.png">
+<meta property="og:image" content="https://github.com/image/s76.png">
+<meta property="og:image" content="https://github.com/image/s77.png">
+<meta property="article:published_time" content="2025-04-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-18T02:55:31.935Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/image/s71.png">
+  
+  
+  
+  <title>JavaAPI(一)——Object(s)、包装类、StringBuilder/StringBuffer/StringJoiner - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Alder-dir</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JavaAPI(一)——Object(s)、包装类、StringBuilder/StringBuffer/StringJoiner"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-12 00:00" pubdate>
+          April 12, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JavaAPI(一)——Object(s)、包装类、StringBuilder/StringBuffer/StringJoiner</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Java API是java提供给我们的程序，方便我们完成功能，其构成也是多个类组成的包</p>
+<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><p>Object类是所有类的祖宗类,所以Java中的所有类的对象都可以直接使用Object类中提供的一些方法</p>
+<ul>
+<li>equals()<ul>
+<li>基本作用：判断两个对象的地址是否相同，与<code>==</code>相同。</li>
+<li>所以一般情况下需要重写，用来判断两个对象内容是否相同</li>
+</ul>
+</li>
+<li>toString()<ul>
+<li>基本作用：返回对象的字符串形式</li>
+<li>让子类重写，以便返回子类对象的内容</li>
+</ul>
+</li>
+<li>clone()<ul>
+<li>基本作用：克隆一个相同的对象</li>
+</ul>
+</li>
+</ul>
+<p>定义一个Student类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class10;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.Objects;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Cloneable</span>&#123;<br>    String name;<br>    <span class="hljs-type">int</span> age;<br>    <span class="hljs-type">double</span>[] grades;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Student</span><span class="hljs-params">()</span> &#123;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Student</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age, <span class="hljs-type">double</span>[] grades)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>        <span class="hljs-built_in">this</span>.age = age;<br>        <span class="hljs-built_in">this</span>.grades = grades;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAge</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setAge</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> &#123;<br>        <span class="hljs-built_in">this</span>.age = age;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span>[] getGrades() &#123;<br>        <span class="hljs-keyword">return</span> grades;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setGrades</span><span class="hljs-params">(<span class="hljs-type">double</span>[] grades)</span> &#123;<br>        <span class="hljs-built_in">this</span>.grades = grades;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Student&#123;&quot;</span> +<br>                <span class="hljs-string">&quot;name=&#x27;&quot;</span> + name + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +<br>                <span class="hljs-string">&quot;, age=&quot;</span> + age +<br>                <span class="hljs-string">&quot;, grades=&quot;</span> + Arrays.toString(grades) +<br>                <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">equals</span><span class="hljs-params">(Object o)</span> &#123;<br>        <span class="hljs-keyword">if</span> (o == <span class="hljs-literal">null</span> || getClass() != o.getClass()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-type">Student</span> <span class="hljs-variable">student</span> <span class="hljs-operator">=</span> (Student) o;<br>        <span class="hljs-keyword">return</span> age == student.age &amp;&amp; Objects.equals(name, student.name);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> Object <span class="hljs-title function_">clone</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> CloneNotSupportedException &#123;<br>        <span class="hljs-type">Student</span> <span class="hljs-variable">stu</span> <span class="hljs-operator">=</span> (Student) <span class="hljs-built_in">super</span>.clone();<br>        stu.grades = stu.grades.clone();<br>        <span class="hljs-keyword">return</span> stu;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p><strong>注意：要想重写clone方法必须要实现Cloneable类：implements Cloneable</strong>  </p>
+<p>测试类：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package com.itheima.d1_inner_class10;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br>        Student s1=<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;张三&quot;</span>,<span class="hljs-number">23</span>);<br>        System.<span class="hljs-keyword">out</span>.println(s1.toString());<br>        Student s2=<span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;张三&quot;</span>,<span class="hljs-number">23</span>);<br>        System.<span class="hljs-keyword">out</span>.println(s2.toString());<br><br>        System.<span class="hljs-keyword">out</span>.println(s1.<span class="hljs-keyword">equals</span>(s2));<br><br>        <span class="hljs-comment">//采用clone()克隆s1对象，将其类型强转为Student</span><br>        Student s3= (Student) s1.clone();<br>        System.<span class="hljs-keyword">out</span>.println(s3);<span class="hljs-comment">//调用了Student中的toString()方法</span><br><br>        System.<span class="hljs-keyword">out</span>.println(s1.getGrades());<br>        System.<span class="hljs-keyword">out</span>.println(s3.getGrades());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：采用clone克隆的对象可以调用被复制的对象的类中的方法</strong><br>运行结果：<br><img src="/image/s71.png" srcset="/img/loading.gif" lazyload></p>
+<p><font size="5">以上是一种浅克隆,所以数组的地址相同</font></p>
+<h2 id="浅克隆与深克隆"><a href="#浅克隆与深克隆" class="headerlink" title="浅克隆与深克隆"></a>浅克隆与深克隆</h2><ul>
+<li>浅克隆：基本类型对象直接拷贝内容，引用类型对象（如String）拷贝的只是地址</li>
+<li>深克隆：基本类型对象直接拷贝内容，引用类型对象（如String）拷贝的只是地址，其他对象（如数组）不会拷贝地址，而是会创建新对象</li>
+</ul>
+<p><font size="5"><strong>实现深克隆</strong></font></p>
+<p>修改重写的clone方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">protected</span> Object <span class="hljs-title function_">clone</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> CloneNotSupportedException &#123;<br>    <span class="hljs-type">Student</span> <span class="hljs-variable">stu</span> <span class="hljs-operator">=</span> (Student) <span class="hljs-built_in">super</span>.clone();<br>    stu.grades = stu.grades.clone();<br>    <span class="hljs-keyword">return</span> stu;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>再次运行：<br><img src="/image/s72.png" srcset="/img/loading.gif" lazyload><br><strong>发现克隆的数组的地址不相同了，这是因为创建了新的数组</strong></p>
+<h1 id="Objects类"><a href="#Objects类" class="headerlink" title="Objects类"></a>Objects类</h1><p>Objects是一个工具类，提供了很多操作对象的静态方法给我们使用</p>
+<ul>
+<li><strong>equals()</strong>:先做非空判断，再比较两个对象，相比于String自带的equals更加安全</li>
+<li>isNull():判断对象是否为空，为空则为true</li>
+<li>nonNull():判断对象是否不为空，不为空则为true</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs typescript">package com.<span class="hljs-property">itheima</span>.<span class="hljs-property">d1_inner_class11</span>;<br><br><span class="hljs-keyword">import</span> java.<span class="hljs-property">util</span>.<span class="hljs-property">Objects</span>;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-title function_">main</span>(<span class="hljs-params"><span class="hljs-title class_">String</span>[] args</span>) &#123;<br>        <span class="hljs-title class_">String</span> str1=<span class="hljs-literal">null</span>;<br>        <span class="hljs-title class_">String</span> str2=<span class="hljs-string">&quot;aaa&quot;</span>;<br><br>        <span class="hljs-title class_">System</span>.<span class="hljs-property">out</span>.<span class="hljs-title function_">println</span>(str1.<span class="hljs-title function_">equals</span>(str2));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果:<br><img src="/image/s73.png" srcset="/img/loading.gif" lazyload><br><strong>如上图所示，采用String自带的equals产生了空指针异常</strong></p>
+<p>若采用Objects自带的equals方法则不会出错：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">System.<span class="hljs-keyword">out</span>.println(Objects.<span class="hljs-keyword">equals</span>(str1, str2));<br></code></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/image/s74.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(Objects.<span class="hljs-keyword">isNull</span>(str1));<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(Objects.nonNull(str1));<br></code></pre></td></tr></table></figure>
+<p>运行结果为： </p>
+<p><img src="/image/s75.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h1><p>包装类是把基本数据类型的数据包装成对象</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>对应的包装类（引用数据类型）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td><strong>int</strong></td>
+<td><strong>Integer</strong></td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td><strong>char</strong></td>
+<td><strong>Character</strong></td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+<ul>
+<li>将基本数据类型转换为包装类型<code>Integer a=Integer.valueOf(12)</code></li>
+<li>自动装箱，基本数据类型自动转换为包装类型<code>Integer b=12</code></li>
+<li>自动拆箱,可以自动把包装类型的对象转化为对应的基本类型数据<code>int a4=a</code>;<strong>自动拆箱主要使用在集合中</strong></li>
+<li>把基本类型或包装类型数据转换为字符串<code>toString()</code></li>
+<li>把字符串类型的数值转换成对应的基本类型<code>Integer.valueOf</code><ul>
+<li>一般在网页中用户输入字符串类型，但在后期需要转换城基本类型。</li>
+</ul>
+</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.Objects;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br><br><br>       //将基本数据类型转换为包装类型<br>       <span class="hljs-type">Integer</span> a=<span class="hljs-type">Integer</span>.valueOf(<span class="hljs-number">12</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(a);<br><br>        //自动装箱，基本数据类型自动转换为包装类型<br>        <span class="hljs-type">Integer</span> b=<span class="hljs-number">12</span>;<br><br>        //自动拆箱,可以自动把包装类型的对象转化为对应的基本类型数据<br>        <span class="hljs-type">int</span> a4=a;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(a4);<br><br>        //集合中的自动拆箱的应用<br>        ArrayList&lt;<span class="hljs-type">Integer</span>&gt; list=<span class="hljs-built_in">new</span> ArrayList&lt;&gt;();//集合和泛型不能使用基本数据类型<br>        list.<span class="hljs-keyword">add</span>(<span class="hljs-number">1</span>);<br><br>        <span class="hljs-type">int</span> c=list.<span class="hljs-keyword">get</span>(<span class="hljs-number">0</span>);//自动拆箱<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(c);<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;---------------------&quot;);<br><br>        //把基本类型或包装类型数据转换为字符串<br>        <span class="hljs-type">Integer</span> d=<span class="hljs-number">23</span>;<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(d.toString()+<span class="hljs-number">1</span>);<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-type">Integer</span>.toString(d)+<span class="hljs-number">1</span>);<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(d + &quot;ssss&quot;);<br><br>        //把字符串类型的数值转换成对应的基本类型<br>        String str=&quot;23&quot;;<br>        <span class="hljs-type">int</span> i=<span class="hljs-type">Integer</span>.parseInt(str);<br>        <span class="hljs-type">int</span> i1=<span class="hljs-type">Integer</span>.valueOf(str);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(i1+<span class="hljs-number">1</span>);<br><br>        String doubl=&quot;77.2&quot;;<br>        <span class="hljs-type">double</span> dd1=<span class="hljs-type">Double</span>.parseDouble(doubl);<br>        <span class="hljs-type">double</span> dd=<span class="hljs-type">Double</span>.valueOf(doubl);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(dd+<span class="hljs-number">0.8</span>);<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：把字符串类型的数值转换成对应的基本类型直接使用valueOf即可，这样就不需要使用parseInt这种方法（需要考虑变为什么类型）</strong></p>
+<h1 id="StringBuilder与StringBuffer"><a href="#StringBuilder与StringBuffer" class="headerlink" title="StringBuilder与StringBuffer"></a>StringBuilder与StringBuffer</h1><h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><p>StringBuilder表示可变字符串对象，相当于是一个容器，它里面装的字符串是可以改变的，就是用来操作字符串的。</p>
+<ul>
+<li>（有参无参）构造器<code>StringBuilder()、StringBuilder(String str)</code></li>
+<li>拼接字符串：<code>append()</code></li>
+<li>支持链式编程：<code>append().append()...</code></li>
+<li>反转操作：<code>reverse()</code></li>
+<li>返回字符串长度：<code>length()</code></li>
+<li>将StringBuilder对象转换成String对象：<code>toString()</code></li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">package com.itheima.d1_inner_class11;<br><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> Test1 &#123;<br>    <span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>        StringBuilder s=<span class="hljs-built_in">new</span> StringBuilder(&quot;abc&quot;);<br><br>        s.append(&quot;111&quot;).append(<span class="hljs-number">222</span>);<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(s);<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(s.reverse());<br><br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;s长度为&quot;+s.length());<br><br>        String s1=s.toString();<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(s.getClass());<br>        <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(s1.getClass());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s76.png" srcset="/img/loading.gif" lazyload></p>
+<p><font size="5"><strong>经典题：为什么操作字符串建议使用StringBuilder，而不是使用String</strong></font></p>
+<p>实现拼接字符串”abc”1000000次：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp">package com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test2</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span> &#123;<br><br>        <span class="hljs-comment">//采用String</span><br><span class="hljs-comment">//        String s=&quot;&quot;;</span><br><span class="hljs-comment">//        for (int i = 1; i &lt;= 1000000; i++) &#123;</span><br><span class="hljs-comment">//            s=s+&quot;abc&quot;;</span><br><span class="hljs-comment">//        &#125;</span><br><span class="hljs-comment">//        System.out.println(s);</span><br><br><br>        <span class="hljs-comment">//采用StringBuilder</span><br>        StringBuilder s=<span class="hljs-keyword">new</span> StringBuilder();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">1000000</span>; i++) &#123;<br>            s.append(<span class="hljs-string">&quot;abc&quot;</span>);<br>        &#125;<br>        System.<span class="hljs-keyword">out</span>.println(s);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>运行时发现采用String的结果输出所需时间大约需2分钟，而采用StringBuilder所需时间大约为1秒，效率极高</strong></p>
+<p><strong>因此当需要频繁拼接，修改字符串时建议采用StringBuilder。</strong></p>
+<h2 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h2><p>StringBuffer与StringBuilder用法是相同的，但是StringBuilder相比于StringBuilder线程更加安全；当我做一个系统需要多人访问StringBuilder对象，这是建议改成StringBuffer更加安全。</p>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><p>将数组的结果以[11,22,33]这样的格式输出</p>
+<p>代码如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">package</span> com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test2 &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) &#123;<br>        System.out.<span class="hljs-keyword">println</span>(getArrayDate(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>&#125;));<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String getArrayDate(<span class="hljs-keyword">int</span>[] arr)&#123;<br>        StringBuilder sb=<span class="hljs-keyword">new</span> StringBuilder();<br>        sb.<span class="hljs-keyword">append</span>(<span class="hljs-string">&quot;[&quot;</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.length-<span class="hljs-number">1</span>; i++) &#123;<br>            sb.<span class="hljs-keyword">append</span>(arr[i]+<span class="hljs-string">&quot;, &quot;</span>);<br>        &#125;<br>        sb.<span class="hljs-keyword">append</span>(arr[arr.length-<span class="hljs-number">1</span>]+<span class="hljs-string">&quot;]&quot;</span>);<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果如下：<br><img src="/image/s77.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="StringJoiner"><a href="#StringJoiner" class="headerlink" title="StringJoiner"></a>StringJoiner</h2><p>StringJoiner与StringBuilder相同，也是一个容器，用来操作字符串</p>
+<ul>
+<li>构造器：<code>StringJoiner(间隔符号)</code>、<code>StringJoiner(间隔符号,开始符号，结束符号)</code></li>
+<li>添加数据返回StringJoiner对象：<code>add()</code>；a（）内的内容为String类型</li>
+<li>返回长度：<code>length()</code></li>
+<li>返回字符串：<code>toString()</code></li>
+</ul>
+<p>改写上方练习题，运行结果相同：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs arduino">package com.itheima.d1_inner_class11;<br><br><span class="hljs-keyword">import</span> java.util.StringJoiner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test2</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">String</span>[] args)</span> </span>&#123;<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">getArrayDate</span>(<span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[]&#123;<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>&#125;));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-type">String</span> <span class="hljs-title">getArrayDate</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span></span>&#123;<br>        StringJoiner sb=<span class="hljs-keyword">new</span> <span class="hljs-built_in">StringJoiner</span>(<span class="hljs-string">&quot;, &quot;</span>,<span class="hljs-string">&quot;[&quot;</span>,<span class="hljs-string">&quot;]&quot;</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;<br>            sb.<span class="hljs-built_in">add</span>(arr[i]+<span class="hljs-string">&quot;&quot;</span>);<span class="hljs-comment">//在后面拼接上&quot;&quot;，这就变成了String类型</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.<span class="hljs-built_in">toString</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JavaAPI(一)——Object(s)、包装类、StringBuilder/StringBuffer/StringJoiner</div>
+      <div>https://github.com/Alder-djr/Alder-djr.github.io.git/2025/04/12/Java_basis/java22/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 12, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/04/21/Java_basis/java23/" title="JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaAPI(二)——Math、System、BigDecimal、日期时间类、Arrays、Lambda、方法引用</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/04/11/Java_basis/java18/" title="Java泛型">
+                        <span class="hidden-mobile">Java泛型</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
